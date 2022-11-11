@@ -78,6 +78,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -210,6 +211,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -323,6 +325,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -436,6 +439,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -522,6 +526,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -615,6 +620,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -865,6 +871,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -997,6 +1004,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -1110,6 +1118,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -1223,6 +1232,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -1309,6 +1319,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -1402,6 +1413,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -1655,6 +1667,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -1787,6 +1800,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -1900,6 +1914,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -2013,6 +2028,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -2099,6 +2115,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -2192,6 +2209,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -2419,6 +2437,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -2551,6 +2570,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -2664,6 +2684,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -2777,6 +2798,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -2863,6 +2885,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -2956,6 +2979,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -3189,6 +3213,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -3321,6 +3346,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -3434,6 +3460,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -3547,6 +3574,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -3633,6 +3661,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -3726,6 +3755,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -3977,6 +4007,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -4109,6 +4140,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -4222,6 +4254,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -4335,6 +4368,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -4421,6 +4455,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -4514,6 +4549,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -4768,6 +4804,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -4900,6 +4937,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -5013,6 +5051,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -5126,6 +5165,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -5212,6 +5252,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -5305,6 +5346,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -5518,6 +5560,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -5650,6 +5693,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -5763,6 +5807,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -5876,6 +5921,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -5962,6 +6008,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -6055,6 +6102,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -6283,6 +6331,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -6415,6 +6464,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -6528,6 +6578,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -6641,6 +6692,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -6727,6 +6779,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -6820,6 +6873,7 @@ paths:
                     email: string@example.com
                     currency:
                       code: string
+                    tax_included: false
                     base_amount: 0
                     channel_id: 0
                     discount_amount: 0
@@ -7047,6 +7101,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -7179,6 +7234,7 @@ paths:
                     email: janedoe@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 31.95
                     discount_amount: 0
                     cart_amount_inc_tax: 33.23
@@ -7292,6 +7348,7 @@ paths:
                     email: customer@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 53.6
@@ -7405,6 +7462,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -7491,6 +7549,7 @@ paths:
                     email: example@example.com
                     currency:
                       code: USD
+                    tax_included: false
                     base_amount: 67
                     discount_amount: 0
                     cart_amount_inc_tax: 67
@@ -7823,6 +7882,8 @@ components:
                   type: string
                   description: 'ISO-4217 currency code. (See: http://en.wikipedia.org/wiki/ISO_4217.)'
                   example: USD
+            tax_included:
+              type: boolean
             base_amount:
               type: number
               description: 'Sum of cart line-item amounts before cart-level discounts, coupons, or taxes are applied.'
@@ -8825,6 +8886,7 @@ components:
                 email: janedoe@example.com
                 currency:
                   code: USD
+                tax_included: false
                 base_amount: 31.95
                 discount_amount: 0
                 cart_amount_inc_tax: 33.23
@@ -8957,6 +9019,7 @@ components:
                 email: janedoe@example.com
                 currency:
                   code: USD
+                tax_included: false
                 base_amount: 31.95
                 discount_amount: 0
                 cart_amount_inc_tax: 33.23
@@ -9070,6 +9133,7 @@ components:
                 email: customer@example.com
                 currency:
                   code: USD
+                tax_included: false
                 base_amount: 67
                 discount_amount: 0
                 cart_amount_inc_tax: 53.6
@@ -9183,6 +9247,7 @@ components:
                 email: example@example.com
                 currency:
                   code: USD
+                tax_included: false
                 base_amount: 67
                 discount_amount: 0
                 cart_amount_inc_tax: 67
@@ -9269,6 +9334,7 @@ components:
                 email: example@example.com
                 currency:
                   code: USD
+                tax_included: false
                 base_amount: 67
                 discount_amount: 0
                 cart_amount_inc_tax: 67
@@ -9362,6 +9428,7 @@ components:
                 email: string@example.com
                 currency:
                   code: string
+                tax_included: false
                 base_amount: 0
                 channel_id: 0
                 discount_amount: 0
