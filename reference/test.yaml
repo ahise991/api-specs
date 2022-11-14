@@ -1,0 +1,321 @@
+openapi: 3.0.0
+info:
+  title: Price List Assignments API
+  version: "1.0"
+  description: A swagger 2.0 document for Price List Assignments API via Bigcommerce v3 API.
+  termsOfService: http://www.bigcommerce.com/terms
+tags:
+  - name: Price List Assignments API
+    description: Bigcommerce Price List Assignments API Definition.
+paths:
+  /pricelists/assignments:
+    post:
+      tags:
+        - PriceListAssignments
+      description: Creates a batch of `Price List Assignments`
+      operationId: CreatePriceListAssignments
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateBatchPriceListAssignmentsRequest"
+        description: A BigCommerce `Price List Assignments` request.
+        required: true
+      responses:
+        "200":
+          description: Success response for batch POST of `Price List Assignments`.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/SuccessBatchResponse"
+        "422":
+          description: Error response for batch POST of `Price List Assignments`. Includes
+            the errors for each reference id.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/PriceListAssignmentsBatchErrorResponse"
+    get:
+      tags:
+        - PriceListAssignments
+      description: Fetches an array of `Price List Assignments` matching a particular
+        Customer Group and Price List and Channel.
+      operationId: GetListOfPriceListAssignments
+      parameters:
+        - $ref: "#/components/parameters/FilterAssignmentIdParam"
+        - $ref: "#/components/parameters/FilterPriceListIdParam"
+        - $ref: "#/components/parameters/FilterCustomerGroupIdParam"
+        - $ref: "#/components/parameters/FilterChannelIdParam"
+      responses:
+        "200":
+          description: An array of price list assignments and metadata.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssignmentsForGetResponse"
+    delete:
+      tags:
+        - PriceListAssignments
+      description: Deletes one or more `Price List Assignments` objects from BigCommerce
+        using a filter.
+      operationId: deletePriceListAssignmentsByFilter
+      parameters:
+        - $ref: "#/components/parameters/FilterAssignmentIdParam"
+        - $ref: "#/components/parameters/FilterPriceListIdParam"
+        - $ref: "#/components/parameters/FilterCustomerGroupIdParam"
+        - $ref: "#/components/parameters/FilterChannelIdParam"
+      responses:
+        "204":
+          description: An empty response.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/NoContent"
+  "/pricelists/{price_list_id}/assignments":
+    put:
+      tags:
+        - PriceListAssignments
+      description: Upsert a single `Price List Assignment` for a `Price List`.
+      operationId: upsertPriceListAssignment
+      parameters:
+        - $ref: "#/components/parameters/PriceListId"
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/AssignmentForPutRequest"
+        description: A BigCommerce `Price List Assignment` request.
+        required: true
+      responses:
+        "200":
+          description: A price list assignment.
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/AssignmentForPutResponse"
+        "404":
+          description: A matching customer group or channel wasn't found, so no assignment
+            is created or returned.
+components:
+  parameters:
+    FilterAssignmentIdParam:
+      name: assignment_ids
+      description: The ID of the `Price List Assignment`.
+      required: false
+      in: query
+      schema:
+        type: integer
+    FilterPriceListIdParam:
+      name: price_list_id
+      description: The ID of the `Price List`.
+      required: false
+      in: query
+      schema:
+        type: integer
+    FilterCustomerGroupIdParam:
+      name: customer_group_id
+      description: The ID of the `Customer Group`.
+      required: false
+      in: query
+      schema:
+        type: integer
+    FilterChannelIdParam:
+      name: channel_id
+      description: The ID of the `Channel`.
+      required: false
+      in: query
+      schema:
+        type: integer
+    PriceListId:
+      name: price_list_id
+      description: The ID of the `Price List`.
+      required: true
+      in: path
+      schema:
+        type: integer
+  schemas:
+    AssignmentsForRequest:
+      type: object
+      description: "`Price List Assignments` object used in batch create."
+      properties:
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group id for assignment.
+        price_list_id:
+          type: integer
+          format: int32
+          description: Pricelist id for assignment.
+        channel_id:
+          type: integer
+          format: int32
+          description: Channel ID for assignment
+      required:
+        - price_list_id
+        - customer_group_id
+    AssignmentForPutRequest:
+      type: object
+      description: "`Price List Assignment` object used in single upsert."
+      properties:
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group id for assignment.
+        channel_id:
+          type: integer
+          format: int32
+          description: Channel ID for assignment
+      required:
+        - customer_group_id
+        - channel_id
+    PriceListAssignmentsBatchErrorResponse:
+      description: Errors during batch usage for the BigCommerce API.
+      type: object
+      properties:
+        batch_errors:
+          type: array
+          items:
+            $ref: "#/components/schemas/PriceListAssignmentsBatchErrorSet"
+    PriceListAssignmentsBatchErrorSet:
+      description: Error during `Price List Assignments` batch POST. Includes data sent in
+        the request and errors.
+      type: object
+      properties:
+        data:
+          $ref: "#/components/schemas/PriceListAssignmentsIdentifiers"
+        field_errors:
+          $ref: "#/components/schemas/DetailedErrors"
+    PriceListAssignmentsIdentifiers:
+      type: object
+      description: "`Price List Assignments` object used in GET response."
+      allOf:
+        - type: object
+          properties:
+            customer_group_id:
+              type: integer
+              description: The Customer Group with which this price list assignment is
+                associated. A customer_group_id of 0 indicates default pricing
+                for the channel given in the request.
+            price_list_id:
+              type: integer
+              description: The Price List with which this price set is associated.
+            channel_id:
+              type: integer
+              description: The Channel with which this price set is associated. This field
+                is optional or may be null when a price list applies across
+                channels for the customer_group_id in the assignment.
+    DetailedErrors:
+      type: object
+      additionalProperties:
+        type: string
+    SuccessBatchResponse:
+      type: object
+      description: Empty object for Success case for Batch API.
+    AssignmentForGetResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: Unique identifier for this price list assignment.
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group id for assignment.
+        price_list_id:
+          type: integer
+          format: int32
+          description: Pricelist id for assignment.
+        channel_id:
+          type: integer
+          format: int32
+          description: Channel ID for assignment
+    AssignmentForPutResponse:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          description: Unique identifier for this price list assignment.
+        customer_group_id:
+          type: integer
+          format: int32
+          description: Customer group id for assignment.
+        price_list_id:
+          type: integer
+          format: int32
+          description: Pricelist id for assignment.
+        channel_id:
+          type: integer
+          format: int32
+          description: Channel ID for assignment
+    AssignmentsForGetResponse:
+      description: Array of the price list assignments matching the filter. The response is
+        paginated.
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: "#/components/schemas/AssignmentForGetResponse"
+        meta:
+          $ref: "#/components/schemas/CollectionMeta"
+    CollectionMeta:
+      type: object
+      description: Data about the response, including pagination and collection totals.
+      properties:
+        pagination:
+          $ref: "#/components/schemas/Pagination"
+    Pagination:
+      type: object
+      description: Data about the response, including pagination and collection totals.
+      properties:
+        total:
+          type: integer
+          description: Total number of items in the result set.
+        count:
+          type: integer
+          description: Total number of items in the collection response.
+        per_page:
+          type: integer
+          description: The amount of items returned in the collection per page, controlled
+            by the limit parameter.
+        current_page:
+          type: integer
+          description: The page you are currently on within the collection.
+        total_pages:
+          type: integer
+          description: The total number of pages in the collection.
+        links:
+          type: object
+          description: Pagination links for the previous and next parts of the whole
+            collection.
+          properties:
+            previous:
+              type: string
+              description: Link to the previous page returned in the response.
+            current:
+              type: string
+              description: Link to the current page returned in the response.
+            next:
+              type: string
+              description: Link to the next page returned in the response.
+    CreateBatchPriceListAssignmentsRequest:
+      type: array
+      description: Batch of price list assignments.
+      items:
+        $ref: "#/components/schemas/AssignmentsForRequest"
+    NoContent:
+      description: No-content response for the BigCommerce API.
+      type: object
+      properties:
+        status:
+          description: 204 HTTP status code.
+          type: integer
+        title:
+          description: The error title describing the situation.
+          type: string
+        type:
+          type: string
+        instance:
+          type: string
