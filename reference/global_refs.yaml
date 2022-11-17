@@ -1,9 +1,19 @@
-openapi: 3.1.0
+openapi: '3.1.0'
 info:
-  title: global_refs.yml
+  title: Global Refs
+  description: ''
   version: '1.0'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
-  - url: 'http://localhost:3000'
+  - url: 'https://api.bigcommerce.com'
+tags:
+  - name: User ID
+  - name: User Update
+  - name: New User
 paths:
   '/users/{userId}':
     parameters:
@@ -12,10 +22,11 @@ paths:
         name: userId
         in: path
         required: true
-        description: Id of an existing user.
+        description: ID of an existing user.
     get:
       summary: Get User Info by User ID
-      tags: []
+      tags:
+        - User ID
       responses:
         '200':
           description: User Found
@@ -40,6 +51,8 @@ paths:
     patch:
       summary: Update User Information
       operationId: patch-users-userId
+      tags:
+        - User Update
       responses:
         '200':
           description: User Updated
@@ -74,7 +87,7 @@ paths:
                   type: string
                 email:
                   type: string
-                  description: 'If a new email is given, the user''s email verified property will be set to false.'
+                  description: If a new email is given, the userʼs email verified property will be set to false.
                 dateOfBirth:
                   type: string
             examples:
@@ -93,6 +106,8 @@ paths:
     post:
       summary: Create New User
       operationId: post-user
+      tags:
+        - New User
       responses:
         '200':
           description: User Created
@@ -174,7 +189,7 @@ components:
           example: '1997-10-31'
         emailVerified:
           type: boolean
-          description: Set to true if the user's email has been verified.
+          description: Set to true if the userʼs email has been verified.
         createDate:
           type: string
           format: date
