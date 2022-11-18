@@ -4,63 +4,7 @@ info:
   description: |-
     Get and manage tokens used to authenticate cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
-    ## Authentication
-
-    Authenticate requests by including an [OAuth](/api-docs/getting-started/authentication/rest-api-authentication) `access_token` in the request header.
-
-    ```http
-    GET https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/channels
-    Content-Type: application/json
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    ```
-
-    ### [OAuth scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes)
-
-    | UI Name                                      | Permission | Parameter                                     |
-    |----------------------------------------------|------------|-----------------------------------------------|
-    | Storefront API Customer Impersonation Tokens | manage     | `store_storefront_api_customer_impersonation` |
-    | Storefront API Tokens                        | manage     | `store_storefront_api`                        |
-
-    ## [API tokens](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken)
-
-    Generate tokens (JWT) for authenticating cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview). To [create a token](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken), send a `POST` request to `/stores/{{STORE_HASH}}/v3/storefront/api-token`.
-
-    ```http
-    POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
-    X-Auth-Token: {{ACCESS_TOKEN}}
-    Content-Type: application/json
-    Accept: application/json
-
-    {
-      "channel_id": 1,
-      "expires_at": 1602288000,
-      "allowed_cors_origins": 
-        ["https://store.example.com"]
-      
-    }
-    ```
-
-    |Property|Type|Description|
-    |-|-|-|
-    |`channel_id`|int| Must be a valid channel ID on the store (required) |
-    |`expires_at`|int| Unix timestamp (required) |
-    |`allowed_cors_origins`|array[str]| Allowed origins for cross origin requests (required) |
-
-    [![Open in Request Runner](https://storage.googleapis.com/bigcommerce-production-dev-center/images/Open-Request-Runner.svg)](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#requestrunner)
-
-
-
-    [**Response:**](/api-reference/cart-checkout/storefront-api-token/api-token/createtoken#responses)
-
-    ```json
-    {
-      "token":"...eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9...",
-      "meta": {
-        // ...
-      }
-    }
-    ```
-
+    Generate tokens (JWT) for authenticating cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview).
 
 
     ## [Customer impersonation tokens](/api-reference/cart-checkout/storefront-api-token/customer-impersonation-token/createtokenwithcustomerimpersonation)
@@ -114,8 +58,7 @@ info:
     Sf-Api-Token: {{CUSTOMER_ID}}
     ```
 
-    ## Additional information
-
+    ## Further reading
     * [GraphQL API Overview](/api-docs/storefront/graphql/graphql-storefront-api-overview)
   termsOfService: ''
   version: ''
@@ -136,8 +79,7 @@ paths:
       description: |-
         Creates a Storefront API token.
 
-        **Required Scopes**
-        * `Manage` `Storefront API Tokens`
+        Generate tokens (JWT) to authenticate cross-origin requests to the [GraphQL Storefront API](/api-docs/storefront/graphql/graphql-storefront-api-overview).
       operationId: createToken
       parameters:
         - name: store_hash
@@ -334,18 +276,26 @@ components:
     X-Auth-Token:
       type: apiKey
       description: |-
-        |Header|Parameter|Description|
-        |-|-|-|
-        |`X-Auth-Token`|`access_token `|Obtained by creating an API account or installing an app in a BigCommerce control panel.|
+        ### OAuth scopes
 
-        ```http
-        GET /stores/{store_hash}/v3/catalog/summary
-        host: api.bigcommerce.com
-        Accept: application/json
-        X-Auth-Token: {access_token}
-        ```
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        | Storefront API Customer Impersonation Tokens | manage | `store_storefront_api_customer_impersonation` |
+        | Storefront API Tokens | manage | `store_storefront_api` |
 
-        For more information on Authenticating BigCommerce APIs, see: [Authentication](/api-docs/getting-started/authentication)
+        ### Authentication header
+        
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication). |
+        
+        ### Further reading
+        
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+        For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+        
+        For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
       name: X-Auth-Token
       in: header
 x-stoplight:
