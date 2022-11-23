@@ -1,4 +1,4 @@
-openapi: '3.0.3'
+openapi: 3.0.3
 info:
   title: Carts
   version: ''
@@ -93,7 +93,10 @@ paths:
                       product_id: 118
                       list_price: 25
                       variant_id: 140
-                      name: shirt
+                      name: calendar
+                      option_selections:
+                        - option_id: 125
+                          option_value: 127
                   channel_id: 1
                   currency:
                     code: USD
@@ -613,7 +616,7 @@ paths:
                             message: Happy Birthday Jane!
                       created_time: '2018-09-17T14:27:39.000Z'
                       updated_time: '2018-09-17T14:53:40.000Z'
-                    meta: {}
+                      meta: {}
         '204':
           description: 'If the action’s result is an empty cart, the cart is automatically deleted.'
       summary: Delete Cart Line Item
@@ -1128,6 +1131,7 @@ components:
           type: string
           description: Accepts string of format `xx` or `xx-YY`.
           example: en-US
+      description: ''
     CartRequestData:
       type: object
       title: Cart Request Data
@@ -2404,7 +2408,7 @@ components:
           type: string
         list_price:
           type: string
-          description: Specifies the price of the item. This value can include or exclude tax, depending on the store setup.
+          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
     ItemCustomGet:
       type: object
       title: Item Custom
@@ -2428,7 +2432,7 @@ components:
           type: string
         list_price:
           type: string
-          description: Specifies the price of the item. This value can include or exclude tax, depending on the store setup.
+          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
     cart_PostVariant:
       type: object
       title: Item with variant
@@ -2446,7 +2450,7 @@ components:
           description: Variant ID. Exists only in Catalog V3.
         name:
           type: string
-          description: Optionally, provide a value to override the product name.
+          description: 'Optionally, provide a value to override the product name.'
         gift_wrapping:
           type: object
           properties:
@@ -2497,7 +2501,7 @@ components:
           description: Optional price override.
         name:
           type: string
-          description: Optionally, provide a value to override the product name.
+          description: 'Optionally, provide a value to override the product name.'
         option_selections:
           type: array
           description: Needed for Catalog V2.
@@ -2976,6 +2980,7 @@ components:
         application/json:
           schema:
             $ref: '#/components/schemas/Cart_Full'
+          examples: {}
     CartRedirectResponse:
       description: ''
       content:
