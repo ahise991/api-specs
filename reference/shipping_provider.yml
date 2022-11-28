@@ -2000,6 +2000,12 @@ components:
                 properties:
                   name:
                     type: string
+                    examples: 
+                      - channel_id
+                      - cart_id
                   value:
                     type: string
+                    examples:
+                      - 1
+                      - 770ded29-da45-4ee0-abc6-883e83c0e5ed      
       x-internal: false
