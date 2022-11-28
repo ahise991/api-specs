@@ -131,7 +131,7 @@ paths:
                   channel_id: 1
                   currency:
                     code: usd
-                  locale: en
+                  locale: en-US
               Custom item:
                 value:
                   customer_id: 0
@@ -161,7 +161,7 @@ paths:
                   channel_id: 1
                   currency:
                     code: usd
-                  locale: en
+                  locale: en-US
         description: |-
           **Examples:**
 
@@ -1129,7 +1129,8 @@ components:
               example: usd
         locale:
           type: string
-          description: Accepts string of format `xx` or `xx-YY`.
+          description: 'The locale of the cart. Accepts strings of format `xx` or `xx-YY`. Uses the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.'
+          format: ISO-639
           example: en-US
       description: ''
     CartRequestData:
@@ -1405,7 +1406,8 @@ components:
           description: 'The channel ID. If no channel is specified, defaults to 1.'
         locale:
           type: string
-          description: Locale of the cart.
+          description: 'Locale of the cart. Accepts strings of format `xx` or `xx-YY`. Uses the [ISO-639 standard](https://www.iso.org/iso-639-language-codes.html) format.'
+          format: ISO-639
         promotions:
           type: object
           description: This is available only when "include=promotions.banners" is presented in the URL.
