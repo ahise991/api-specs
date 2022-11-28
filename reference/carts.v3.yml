@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: '3.0.3'
 info:
   title: Carts
   version: ''
@@ -2408,7 +2408,7 @@ components:
           type: string
         list_price:
           type: string
-          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
+          description: Specifies the price of the item. This value can include or exclude tax, depending on the store setup.
     ItemCustomGet:
       type: object
       title: Item Custom
@@ -2432,7 +2432,7 @@ components:
           type: string
         list_price:
           type: string
-          description: 'Specifies the price of the item. This value can include or exclude tax, depending on the store setup.'
+          description: Specifies the price of the item. This value can include or exclude tax, depending on the store setup.
     cart_PostVariant:
       type: object
       title: Item with variant
@@ -2450,7 +2450,7 @@ components:
           description: Variant ID. Exists only in Catalog V3.
         name:
           type: string
-          description: 'Optionally, provide a value to override the product name.'
+          description: Optionally, provide a value to override the product name.
         gift_wrapping:
           type: object
           properties:
@@ -2501,7 +2501,7 @@ components:
           description: Optional price override.
         name:
           type: string
-          description: 'Optionally, provide a value to override the product name.'
+          description: Optionally, provide a value to override the product name.
         option_selections:
           type: array
           description: Needed for Catalog V2.
