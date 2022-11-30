@@ -93,14 +93,16 @@ paths:
                       product_id: 118
                       list_price: 25
                       variant_id: 140
-                      name: calendar
+                      name: قميص
                       option_selections:
                         - option_id: 125
                           option_value: 127
+                          name: بحجم
+                          value: صغير
                   channel_id: 1
                   currency:
-                    code: USD
-                  locale: en-US
+                    code: JOD
+                  locale: ar-JO
               Cart with date option:
                 value:
                   line_items:
@@ -109,7 +111,12 @@ paths:
                       variant_id: 144
                       option_selections:
                         - option_id: 147
-                          option_value: '{“day”:”01”, “month”:”02”, “year”:”2020”}'
+                          option_value: '{“día”:”01”, “mes”:”02”, “año”:”2020”}'
+                          name: calendario
+                          value: 2023
+                  currency:
+                    code: MXN
+                  locale: es-MX
               'Cart with variant, a checkbox, and a pick list modifier':
                 value:
                   customer_id: 0
@@ -130,8 +137,8 @@ paths:
                           valueId: 129
                   channel_id: 1
                   currency:
-                    code: usd
-                  locale: en-US
+                    code: AUD
+                  locale: en-AU
               Custom item:
                 value:
                   customer_id: 0
