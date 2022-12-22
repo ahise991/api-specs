@@ -1936,7 +1936,135 @@ paths:
               schema: {}
       operationId: updateACarrierConnection
     post:
-      description: "Creates a *Carrier Connection*. \n\nCarrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.\n\n*Notes:*\n\n- There is no `GET` with this resource. It has `PUT`, `POST` and `DELETE`.\n    * `PUT` is used to update. The connection can be updated by API.\n\n    \n- Connections created here do not enable the shipping method. To enable the carrier for a shipping zone, use the Shipping Methods API. \n\n- The Carrier Connection resource returns a 204 for both successful and unsuccessful attempts to connect. If a field is missing, it will return a 400.\n\n### Australia Post\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"auspost\",\n\t\"connection\" : {\n\t\t\"auth_key\" : \"yourAusPostAuthKey\",\n\t\t\"test_mode\" : false\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"auspost\"\n}\n```\n\n#### Australia Post Connection Object – Properties\n\nAustralia Post `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description\n| - | - | - |\n| auth_key | string | Australia Post authorization key. |\n| test_mode | boolean | Whether or not to use Australia Post test-mode settings. Acceptable values are `true` or `false`. |\n\n\n### Endicia\nUSPS is connected through Endicia.\n\n#### Sample Request – PUT or POST\n\n```json\n{\t\"carrier_id\" : \"endicia\",\n\t\"connection\": {\n\t\t\"account_id\" : \"yourEndiciaAccountId\",\n\t\t\"pass_phrase\" : \"yourEndiciaPassphrase\"\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"endicia\"\n}\n```\n\n#### Endicia Connection Object – Properties\n\nEndicia `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description |\n| - | - | - |\n| account_id | string | Endicia account ID. |\n| passphrase | string | Endicia passphrase. |\n\n\n### FedEx\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"fedex\",\n\t\"connection\" : {\n\t\t\"key\" : \"yourFedexKey\",\n\t\t\"password\" : \"yourFedexPassword\",\n\t\t\"account_number\" : \"yourFedexAccountNumber\",\n\t\t\"meter_number\" : \"yourFedexMeterNumber\"\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"fedex\"\n}\n```\n\n#### FedEx Connection Object – Properties\n\nFedEx `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description | \n| - | - | - |\n| key | string | FedEx account ID. | \n| password | string | FedEx passphrase. |\n| account_number | string | FedEx account number. |\n| meter_number | string | FedEx meter number. |\n\n### Royal Mail\n\nSample Request - PUT or POST\n\n```json\n{\n    \"carrier_id\" : \"royalmail\",\n    \"connection\" : {\n        \n    }\n}\n```\n\nSample Request - DELETE\n\n```json\n{\n    \"carrier_id\" : \"royalmail\"\n}\n```\n\n#### Royal Mail Connection Object - Properties\n\nRoyal Mail has no connection object properties.\n\n\n### Zoom2U\n\n#### Sample Request – PUT or POST\n\n```json\n{\n\t\"carrier_id\" : \"zoom2u\",\n\t\"connection\" : {\n\t\t\"auth_key\" : \"yourZoom2uAuthKey\",\n\t\t\"test_mode\" : false\n\t}\n}\n```\n\n#### Sample Request – DELETE\n\n```json\n{\n\t\"carrier_id\" : \"zoom2u\"\n}\n```\n\n#### Zoom2U Connection Object – Properties\n\nZoom2U `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.\n\n\n| Property | Type | Description | \n| - | - | - |\n| auth_key | string | Zoom2U authorization key. |\n| test_mode | boolean | Whether or not to use Zoom2U test-mode settings. Acceptable values are `true` or `false`. |"
+      description: |- 
+        Creates a *Carrier Connection*.
+        Carrier connections refer to specific settings required to connect to a specific shipping carrier. Each carrier requires your app to supply a unique set of properties/fields to establish a connection with that carrier.
+        *Notes:*
+        - There is no `GET` with this resource. It has `PUT`, `POST` and `DELETE`.
+        - `PUT` is used to update. The connection can be updated by API.
+        - Connections created here do not enable the shipping method. To enable the carrier for a shipping zone, use the Shipping Methods API. 
+        - The Carrier Connection resource returns a 204 for both successful and unsuccessful attempts to connect. If a field is missing, it will return a 400.
+        
+        ### Australia Post
+        #### Sample Request – PUT or POST
+        ```json
+        {
+          "carrier_id": "auspost",
+          "connection": {
+            "auth_key": "yourAusPostAuthKey",
+            "test_mode": false
+          }
+        }
+        ```
+        #### Sample Request – DELETE
+        ```json
+        {
+          "carrier_id": "auspost"
+        }
+        ```
+        #### Australia Post Connection Object – Properties
+        Australia Post `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        | Property | Type | Description
+        | - | - | - |
+        | `auth_key` | string | Australia Post authorization key. |
+        | `test_mode` | boolean | Whether or not to use Australia Post test-mode settings. Acceptable values are `true` or `false`. |
+        
+        ### Endicia
+        USPS is connected through Endicia.
+        
+        #### Sample Request – PUT or POST
+        ```json
+        {
+          "carrier_id": "endicia",
+          "connection": {
+            "account_id": "yourEndiciaAccountId",
+            "pass_phrase": "yourEndiciaPassphrase"
+          }
+        }
+        ```
+        #### Sample Request – DELETE
+        ```json
+        {
+          "carrier_id": "endicia"
+        }
+        ```
+        #### Endicia Connection Object – Properties
+        Endicia `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        | Property | Type | Description |
+        | - | - | - |
+        | `account_id` | string | Endicia account ID. |
+        | `passphrase` | string | Endicia passphrase. |
+
+        ### FedEx
+        #### Sample Request – PUT or POST
+        ```json
+        {
+          "carrier_id": "fedex",
+          "connection": {
+            "key" : "yourFedexKey",
+            "password" : "yourFedexPassword",
+            "account_number" : "yourFedexAccountNumber",
+            "meter_number" : "yourFedexMeterNumber"
+          }
+        }
+        ```
+        
+        #### Sample Request – DELETE
+        ```json
+        {
+          "carrier_id": "fedex"
+        }
+        ```
+        
+        #### FedEx Connection Object – Properties
+        FedEx `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        | Property | Type | Description |
+        | - | - | - |
+        | `key` | string | FedEx account ID. |
+        | `password` | string | FedEx passphrase. |
+        | `account_number` | string | FedEx account number. |
+        | `meter_number` | string | FedEx meter number. |
+        
+        ### Royal Mail
+        #### Sample Request - PUT or POST
+        ```json
+        {
+          "carrier_id": "royalmail",
+          "connection": {}
+        }
+        ```
+        #### Sample Request - DELETE
+        ```json
+        {
+          "carrier_id": "royalmail"
+        }
+        ```
+        #### Royal Mail Connection Object - Properties
+        Royal Mail has no connection object properties.
+        
+        ### Zoom2U
+        #### Sample Request – PUT or POST
+        ```json
+        {
+          "carrier_id": "zoom2u",
+          "connection": {
+            "auth_key": "yourZoom2uAuthKey",
+            "test_mode" : false
+          }
+        }
+        ```
+        #### Sample Request – DELETE
+        ```json
+        {
+          "carrier_id": "zoom2u"
+        }
+        ```
+        #### Zoom2U Connection Object – Properties
+        Zoom2U `PUT` or `POST` requests require all of the following properties. (These requests won’t be fulfilled unless these properties are valid.) `DELETE` requests require only a `carrier_id`.
+        | Property | Type | Description |
+        | - | - | - |
+        | `auth_key` | string | Zoom2U authorization key. |
+        | `test_mode` | boolean | Whether or not to use Zoom2U test-mode settings. Acceptable values are `true` or `false`. |
       summary: Create a Carrier Connection
       operationId: createACarrierConnection
       parameters:
