@@ -1602,7 +1602,142 @@ paths:
         IsMultiContentStreaming: false
       operationId: getAShippingMethod
     put:
-      description: "Updates a *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint. \n\n**Read Only Fields**\n* id\n\n### Settings Objects \n\nA shipping method's `type` and `settings` properties can match one of the following models:\n\n### perorder Object – Properties \n\nObject model for flat-rate shipping quotes per order.\n\n| Name | Type | Description |\n| - | - | - |\n| rate | number | Flat rate per order. |\n\n#### JSON Example \n\n```json\n{\n\t\"name\": \"Flat Rate per Order\",\n\t\"type\": \"perorder\",\n\t\"settings\": {\n\t\t\"rate\": 7\n\t}\n},\n```\n\n### peritem Object – Properties \n\nObject model for flat-rate shipping quotes per item ordered.\n\n| Name | Type | Description |\n| - | - | - |\n| rate | number | Flat rate per item. |\n\n#### JSON Example \n\n```json\n{\n\t\"name\": \"Flat Rate per Item\",\n\t\"type\": \"peritem\",\n\t\"settings\": {\n\t\t\"rate\": 8\n\t}\n},\n```\n\n### weight Object – Properties \n\nObject model for shipping quotes by weight.\n\n| Name | Type | Description |\n| - | - | - |\n| default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |\n| default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |\n| range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the store's control panel. |\n\n\n#### JSON Example \n   \n```json\n{\n\t\"name\": \"Rate per Weight\",\n\t\"type\": \"weight\",\n\t\"settings\": {\n\t\t\"default_cost\": 12,\n\t\t\"default_cost_type\": \"fixed_amount\",\n\t\t\"range\": [\n\t\t\t{\n\t\t\t\t\"lower_limit\": 0,\n\t\t\t\t\"upper_limit\": 20,\n\t\t\t\t\"shipping_cost\": 8\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 20,\n\t\t\t\t\"upper_limit\": 40,\n\t\t\t\t\"shipping_cost\": 12\n\t\t\t}\n\t\t]\n\t}\n}\n```\n\n### total Object – Properties \n\nObject model for shipping quotes by order's total value.\n\n| Name | Type | Description |\n| - | - | - |\n| default_cost | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |\n| default_cost_type | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |\n| include_order_total_taxes | boolean | Whether or not to include taxes on the order's total value in the shipping cost calculation. |\n| range | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the store's currency. |\n\n#### JSON Example \n\nThis example sets free shipping above a certain order total:\n\n```json\n{\n\t\"name\": \"Per Total or Free\",\n\t\"type\": \"total\",\n\t\"settings\": {\n\t\t\"default_cost\": 12,\n\t\t\"default_cost_type\": \"fixed_amount\",\n\t\t\"include_order_total_taxes\": 0,\n\t\t\"range\": [\n\t\t\t{\n\t\t\t\t\"lower_limit\": 0,\n\t\t\t\t\"upper_limit\": 5,\n\t\t\t\t\"shipping_cost\": 5\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 5,\n\t\t\t\t\"upper_limit\": 10,\n\t\t\t\t\"shipping_cost\": 8\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 10,\n\t\t\t\t\"upper_limit\": 20,\n\t\t\t\t\"shipping_cost\": 10\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 20,\n\t\t\t\t\"upper_limit\": 49.99,\n\t\t\t\t\"shipping_cost\": 15\n\t\t\t},\n\t\t\t{\n\t\t\t\t\"lower_limit\": 50,\n\t\t\t\t\"upper_limit\": 100000,\n\t\t\t\t\"shipping_cost\": 0\n\t\t\t}       \n\t\t]\n\t}\n}\n```\n\n### Range Object – Properties \n\nObject model to define ranges for shipping quotes. Units are defined in the parent object.\n\n| Name | Type | Description |\n| - | - | - |\n| lower_limit | number | Lower limit for order total. |\n| upper_limit | number | Upper limit for order total. |\n| shipping_cost | number | Shipping cost for orders whose total falls between the lower and upper limits. |\n\n#### JSON Example \n\n```json\n{\n\t\"lower_limit\": 0,\n\t\"upper_limit\": 20,\n\t\"shipping_cost\": 8\n}\n```\n"
+      description: |-
+        Updates a *Shipping Method* in a zone. Real Time Carrier Connections are also supported by this endpoint.
+        **Read Only Fields**
+        * `id`
+        
+        ## Settings Objects 
+        A shipping method's `type` and `settings` properties can match one of the following models:
+        
+        ### perorder Object – Properties
+        Object model for flat-rate shipping quotes per order.
+        | Name | Type | Description |
+        | - | - | - |
+        | `rate` | number | Flat rate per order. |
+        
+        #### JSON Example
+        ```json
+        {
+          "name": "Flat Rate per Order",
+          "type": "perorder",
+          "settings": {
+            "rate": 7
+          }
+        }
+        ```
+        ### peritem Object – Properties 
+        Object model for flat-rate shipping quotes per item ordered.
+        | Name | Type | Description |
+        | - | - | - |
+        | `rate` | number | Flat rate per item. |
+        
+        #### JSON Example 
+        ```json
+        {
+          "name": "Flat Rate per Item",
+          "type": "peritem",
+          "settings": {
+            "rate": 8
+          }
+        }
+        ```
+        ### weight Object – Properties
+        Object model for shipping quotes by weight.
+        | Name | Type | Description |
+        | - | - | - |
+        | `default_cost` | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |
+        | `default_cost_type` | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |
+        | `range` | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties depend on the default units set in the store's control panel. |
+        
+        #### JSON Example
+        ```json
+        {
+          "name": "Rate per Weight",
+          "type": "weight",
+          "settings": {
+            "default_cost": 12,
+            "default_cost_type": "fixed_amount",
+            "range": [
+              {
+                "lower_limit": 0,
+                "upper_limit": 20,
+                "shipping_cost": 8
+              },
+              {
+                "lower_limit": 20,
+                "upper_limit": 40,
+                "shipping_cost": 12
+              }
+            ]
+          }
+        }
+        ```
+        ### total Object – Properties 
+        Object model for shipping quotes by order's total value.
+        | Name | Type | Description |
+        | - | - | - |
+        | `default_cost` | number | Default shipping cost, applied either as a percentage of the order's total value or as a fixed amount. |
+        | `default_cost_type` | string | How the default shipping cost is calculated. One of: `percentage_of_total` or `fixed_amount`. |
+        | `include_order_total_taxes` | boolean | Whether or not to include taxes on the order's total value in the shipping cost calculation. |
+        | `range` | number | Array of [range](#range) objects. The units for these ranges' `lower_limit` and `upper_limit` properties are values in the store's currency. |
+        
+        #### JSON Example 
+        This example sets free shipping above a certain order total:
+        ```json
+        {
+          "name": "Per Total or Free",
+          "type": "total",
+          "settings": {
+            "default_cost": 12,
+            "default_cost_type": "fixed_amount",
+            "include_order_total_taxes": 0,
+            "range": [
+              {
+                "lower_limit": 0,
+                "upper_limit": 5,
+                "shipping_cost": 5
+              },
+              {
+                "lower_limit": 5,
+                "upper_limit": 10,
+                "shipping_cost": 8
+              },
+              {
+                "lower_limit": 10,
+                "upper_limit": 20,
+                "shipping_cost": 10
+              },
+              {
+                "lower_limit": 20,
+                "upper_limit": 49.99,
+                "shipping_cost": 5
+              },
+              {
+                "lower_limit": 50,
+                "upper_limit": 100000,
+                "shipping_cost": 5
+              }
+            ]
+          }
+        }
+        ```
+        ### Range Object – Properties 
+        Object model to define ranges for shipping quotes. Units are defined in the parent object.
+        | Name | Type | Description |
+        | - | - | - |
+        | `lower_limit` | number | Lower limit for order total. |
+        | `upper_limit` | number | Upper limit for order total. |
+        | `shipping_cost` | number | Shipping cost for orders whose total falls between the lower and upper limits. |
+        
+        #### JSON Example 
+        ```json
+        {
+          "lower_limit": 0,
+          "upper_limit": 20,
+          "shipping_cost": 8
+        }
+        ```
       summary: Update a Shipping Method
       tags:
         - Shipping Method
