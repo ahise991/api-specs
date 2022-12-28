@@ -182,7 +182,7 @@ paths:
                         value: 12
                       price_inc_tax: 12.45
                       price_ex_tax: 10.12
-              Updating a Order's Gift Certificate Consignment:
+              Updating an Order's Gift Certificate Consignment:
                 value:
                   consignments:
                     email:
