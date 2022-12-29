@@ -22856,9 +22856,9 @@ components:
           x-required:
             - post
         amount:
-          type: integer
+          type: number
           description: |-
-            The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer.
+            The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an number and the response will return as an number. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return in decimal format.
             Required in /POST.
           example: 10
       description: Common Bulk Pricing Rule properties
