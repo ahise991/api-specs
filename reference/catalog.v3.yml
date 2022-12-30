@@ -11766,7 +11766,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/bulkPricingRule_Full'
+              $ref: '#/components/schemas/bulkPricingRule_Request'
         required: true
       responses:
         '200':
@@ -12012,8 +12012,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/bulkPricingRule_Full'
+              $ref: '#/components/schemas/bulkPricingRule_Request'
         required: true
+        description: ''
       responses:
         '200':
           description: ''
@@ -22863,6 +22864,55 @@ components:
           example: 10
       description: Common Bulk Pricing Rule properties
       x-internal: false
+    bulkPricingRule_Request:
+      title: bulkPricingRule_Request
+      type: object
+      description: Common Bulk Pricing Rule properties
+      x-internal: false
+      x-stoplight:
+        id: 386de544af45e
+      properties:
+        quantity_min:
+          minimum: 0
+          type: integer
+          description: |
+            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero.
+            Required in /POST.
+          example: 10
+          x-required:
+            - post
+        quantity_max:
+          minimum: 0
+          type: integer
+          description: |-
+            The maximum inclusive quantity of a product to satisfy this rule. Must be greater than the `quantity_min` value – unless this field has a value of 0 (zero), in which case there will be no maximum bound for this rule.
+            Required in /POST.
+          example: 50
+          x-required:
+            - post
+        type:
+          type: string
+          description: |-
+            The type of adjustment that is made. Values: `price` - the adjustment amount per product; `percent` - the adjustment as a percentage of the original price; `fixed` - the adjusted absolute price of the product.
+            Required in /POST.
+          example: price
+          enum:
+            - price
+            - percent
+            - fixed
+          x-required:
+            - post
+        amount:
+          type: integer
+          description: |-
+            The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an integer and the response will return as an integer. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return as an integer.
+            Required in /POST.
+          example: 10
+      required:
+        - quantity_min
+        - quantity_max
+        - type
+        - amount
     productOptionConfig_Full:
       title: productOptionConfig_Full
       type: object
@@ -24879,14 +24929,14 @@ components:
     CategoryDataPUT:
       allOf:
         - $ref: '#/components/schemas/CategoryData'
-        - $ref: '#/components/schemas/default_product_sort'   
+        - $ref: '#/components/schemas/default_product_sort'
     CategoryDataPOST:
       allOf:
         - $ref: '#/components/schemas/CategoryData'
         - $ref: '#/components/schemas/default_product_sort'
       required:
         - name
-        - url   
+        - url
     Urls:
       type: array
       items:
