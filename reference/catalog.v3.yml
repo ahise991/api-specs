@@ -22815,12 +22815,9 @@ components:
       x-internal: false
     bulkPricingRule_Full:
       title: bulkPricingRule_Full
-      required:
-        - amount
-        - quantity_max
-        - quantity_min
-        - type
       type: object
+      description: Common Bulk Pricing Rule properties
+      x-internal: false
       properties:
         id:
           type: integer
@@ -22856,13 +22853,18 @@ components:
           x-required:
             - post
         amount:
-          type: number
+          type:
+            - number
+            - integer
           description: |-
             The discount can be a fixed dollar amount or a percentage. For a fixed dollar amount enter it as an number and the response will return as an number. For percentage enter the amount as the percentage divided by 100 using string format. For example 10% percent would be “.10”. The response will return in decimal format.
             Required in /POST.
           example: 10
-      description: Common Bulk Pricing Rule properties
-      x-internal: false
+      required:
+        - quantity_min
+        - quantity_max
+        - type
+        - amount
     productOptionConfig_Full:
       title: productOptionConfig_Full
       type: object
@@ -24879,14 +24881,14 @@ components:
     CategoryDataPUT:
       allOf:
         - $ref: '#/components/schemas/CategoryData'
-        - $ref: '#/components/schemas/default_product_sort'   
+        - $ref: '#/components/schemas/default_product_sort'
     CategoryDataPOST:
       allOf:
         - $ref: '#/components/schemas/CategoryData'
         - $ref: '#/components/schemas/default_product_sort'
       required:
         - name
-        - url   
+        - url
     Urls:
       type: array
       items:
