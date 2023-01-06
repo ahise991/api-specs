@@ -1,15 +1,12 @@
-# External Pull Request
-Open a PR to the `staging` branch.
+# External PR
 
-**PRs that contain force-pushes will be rejected.** Update your fork's master branch and reconcile with your feature branch before pushing. Repeat the process for mid-review edits.
+Update your fork's master branch and reconcile with your feature branch before pushing. Repeat the process for mid-review edits.
 
-Thank you for contributing. Please tell us a little about this change and about yourself.
+## What changed?
+* thing_that_changed
 
-## Describe this change
-_______
+## Anything else?
+Related issues or PRs, salient notes, etc.
 
-
-## Are you a BigCommerce Partner? If so, through what entity?
-
-
-
+## Other things
+Thank you for contributing. Please share a sentence or two about your relationship to BigCommerce.

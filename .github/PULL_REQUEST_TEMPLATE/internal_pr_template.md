@@ -1,20 +1,24 @@
-# DevDocs ticket: [DEVDOCS-{number}](https://bigcommercecloud.atlassian.net/browse/DEVDOCS-{number})
-## Other ticket: [{project}-{number}](https://bigcommercecloud.atlassian.net/browse/{project}-{number})
+# Internal PR: [DEVDOCS-]
 
-We need a DevDocs ticket to process your request. **Open your PR to a feature branch named for the corresponding DEVDOCS ticket**. 
+## What changed?
+* thing_that_changed
 
-If a DevDocs ticket does not exist, ping your [Operational Readiness SME](https://bigcommercecloud.atlassian.net/l/c/kT4FoiNA) to have one created for you. When a DevDocs ticket exists, ping your [DevDocs SME](https://bigcommercecloud.atlassian.net/l/c/fjz6jyH4) to have them create a ticket branch. We plan to automate this action soon.
+## Related tickets
+If any, list.
 
-**PRs that contain force-pushes will be rejected.** Update your fork's master branch and reconcile with your feature branch before pushing. Repeat the process for mid-review edits.
-
-## Delete one: What's the deal with this PR?
+## What's the deal with this PR?
+Cross out one or otherwise describe.
 * New spec: GTM / new feature
 * Old spec: correct / clarify
-
-## Briefly describe change
-_____________
 
 ## Tag your SMEs: DevDocs, Operational Readiness, other
 * [DevDocs SMEs](https://bigcommercecloud.atlassian.net/l/c/fjz6jyH4) -- @
 * If GTM / new feature: [Operational Readiness SMEs](https://bigcommercecloud.atlassian.net/l/c/kT4FoiNA) -- @
 * Others: [Durable Teams with GTM Contacts](https://bigcommercecloud.atlassian.net/l/c/Ex3uBFYX) -- @
+
+## Process notes
+
+* We need a DevDocs ticket to process your request.
+* If a DevDocs ticket does not exist, ping your [Operational Readiness SME](https://bigcommercecloud.atlassian.net/l/c/kT4FoiNA) to have one created for you. 
+* Once a DevDocs ticket exists, ping your [DevDocs SME](https://bigcommercecloud.atlassian.net/l/c/fjz6jyH4) to follow up.
+* Update your fork's main branch and reconcile with your feature branch before pushing. Repeat the process for mid-review edits.
