@@ -2183,7 +2183,21 @@ components:
                 fulfillment_source: ''
                 brand: BigCommerce
                 applied_discounts: []
-                product_options: []
+                product_options:
+                  - id: 18
+                    option id:  38
+                    order_product_id: 35
+                    product_option_id: 121
+                    display_name: "Custom Logo Engraving"
+                    display_name_customer: "Custom Logo Engraving"
+                    display_name_merchant: "Custom Logo Engraving"
+                    display_value:
+                    display_value_customer:
+                    display_value_merchant:
+                    value:
+                    type:
+                    name:
+                    display_style:
                 configurable_fields: []
                 gift_certificate_id: null
             Product with variants:
