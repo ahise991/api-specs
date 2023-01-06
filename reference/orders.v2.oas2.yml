@@ -2112,23 +2112,7 @@ components:
                 fulfillment_source: ''
                 brand: BigCommerce
                 applied_discounts: []
-                product_options:
-                  - id: 89
-                    option_id: 90
-                    order_product_id: 116
-                    product_option_id: 227
-                    display_name: Product Pick List
-                    display_name_customer: Product Pick List
-                    display_name_merchant: Product Pick List
-                    display_value: 1L Le Parfait Jar
-                    display_value_customer: 1L Le Parfait Jar
-                    display_value_merchant: 1L Le Parfait Jar
-                    value: '197'
-                    type: Product Pick List
-                    name: ProductPickList
-                    display_style: Pick list
-                configurable_fields: []
-                gift_certificate_id: null
+                product_options: []
             Product with file upload:
               value:
               - id: 35
@@ -2188,16 +2172,16 @@ components:
                     option id:  38
                     order_product_id: 35
                     product_option_id: 121
-                    display_name: "Custom Logo Engraving"
-                    display_name_customer: "Custom Logo Engraving"
-                    display_name_merchant: "Custom Logo Engraving"
-                    display_value:
-                    display_value_customer:
-                    display_value_merchant:
-                    value:
-                    type:
-                    name:
-                    display_style:
+                    display_name: Custom Logo Engraving
+                    display_name_customer: Custom Logo Engraving
+                    display_name_merchant: Custom Logo Engraving
+                    display_value: BigCommerceLogo.jpeg
+                    display_value_customer: BigCommerceLogo.jpeg
+                    display_value_merchant: BigCommerceLogo.jpeg
+                    value: {\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}
+                    type: File upload field
+                    name: Custom Logo Engraving
+                    display_style: ""
                 configurable_fields: []
                 gift_certificate_id: null
             Product with variants:
