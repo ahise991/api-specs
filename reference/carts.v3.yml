@@ -1814,7 +1814,7 @@ components:
                     type: number
                     description: The discounted amount.
             coupons:
-              anyOf:
+              oneOf:
                 - type: number
                 - type: array
                   items:
@@ -2831,7 +2831,7 @@ components:
                     type: number
                     description: The discounted amount.
             coupons:
-              anyOf:
+              oneOf:
                 - type: number
                 - type: array
                   items:
