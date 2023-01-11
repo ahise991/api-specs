@@ -226,6 +226,14 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/RefundQuote_Post'
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+          multipart/form-data:
+            schema:
+              type: object
+              properties: {}
         required: true
         x-examples:
           Quantity:
@@ -252,6 +260,7 @@ paths:
               - item_id: 79
                 item_type: SHIPPING
                 amount: 10
+        description: ''
       responses:
         '201':
           $ref: '#/components/responses/RefundQuote_Resp'
@@ -2367,10 +2376,6 @@ components:
       x-internal: false
       x-examples: {}
       properties:
-        order_id:
-          type: integer
-          description: Order ID against which this refund will be created. This is optional for creating a single refund request. The order ID is included in the request path.
-          example: 1
         items:
           type: array
           items:
@@ -2454,7 +2459,6 @@ components:
             1. Refund up to the entire order amount to store credit.
             2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
             3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
-
           items:
             $ref: '#/components/schemas/RefundMethod'
       x-internal: false
@@ -2690,7 +2694,7 @@ components:
         item_id:
           type: integer
           example: 1
-          description: 'Order Product ID.'
+          description: Order Product ID.
         quantity:
           type: integer
           example: 3
@@ -2704,6 +2708,7 @@ components:
       type: object
       title: Tax Exempt (Order Level)
       description: 'Use this to refund a custom value at the order level. When `item_type` is set to `ORDER`, tax is not re-calculated.'
+      x-internal: false
       properties:
         item_type:
           type: string
@@ -2711,6 +2716,9 @@ components:
           example: ORDER
           enum:
             - ORDER
+        item_id:
+          type: number
+          description: Order Product ID.
         amount:
           $ref: '#/components/schemas/Amount'
         reason:
@@ -2718,7 +2726,6 @@ components:
           description: Reason for the refund.
           minLength: 0
           maxLength: 1000
-      x-internal: false
     AmountBoundItem:
       type: object
       title: Amount Bound Item
@@ -2726,12 +2733,17 @@ components:
         Amount Bound Item
 
         Type of refund item that capture refunding of items in the order that are of type amount.
+        * `PRODUCT`
+        * `ORDER`
         * `SHIPPING`
         * `HANDLING`
+      x-internal: false
       properties:
         item_type:
           type: string
           enum:
+            - PRODUCT
+            - ORDER
             - SHIPPING
             - HANDLING
           example: SHIPPING
@@ -2742,11 +2754,16 @@ components:
           description: Order address ID.
         amount:
           $ref: '#/components/schemas/Amount'
+        quantity:
+          type: integer
+          example: 3
+          description: Number of items in refund.
         reason:
           type: string
+          example: Double charged
+          description: Explinantion of refund.
           minLength: 0
           maxLength: 1000
-      x-internal: false
     MerchantOverride:
       type: object
       title: Merchant Calculated Override
@@ -2886,15 +2903,15 @@ components:
           example: 9.99
         offline:
           type: boolean
-          description: Indicates the payment must be done offline due to constraints of the payment provider, such as partial refunds not being supported, or it being offline only such as cash on delivery of bank deposit.
+          description: 'Indicates the payment must be done offline due to constraints of the payment provider, such as partial refunds not being supported, or it being offline only such as cash on delivery of bank deposit.'
           example: true
         offline_provider:
           type: boolean
-          description: Indicates if the payment provider is a strictly offline provider, such as cash on delivery or bank deposit.
+          description: 'Indicates if the payment provider is a strictly offline provider, such as cash on delivery or bank deposit.'
           example: true
         offline_reason:
           type: string
-          description: Reason the payment option is offline only, if applicable.
+          description: 'Reason the payment option is offline only, if applicable.'
           example: Multiple online refunds are not available
       x-internal: false
     Amount:
