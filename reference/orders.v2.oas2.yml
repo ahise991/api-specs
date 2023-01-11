@@ -3768,7 +3768,7 @@ components:
           example: S
           type: string
         value:
-          description: A unique string describing the properties of the customer file upload.
+          description: For file-upload type, it's a unique string describing the properties of the file upload. For other types, it's the value of the property.
           example: '"\\\"originalName\\\":\\\"BigCommerceLogo.jpeg\\\"": null,
           "\\\"temporaryPath\\\":\\\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\\\"": null,
           "\\\"path\\\":\\\"f606efcae7e179970b19c3658142c5d0.jpeg\\\"": null'
