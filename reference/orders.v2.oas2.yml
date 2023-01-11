@@ -3769,11 +3769,7 @@ components:
           type: string
         value:
           description: For file-upload type, it's a unique string describing the properties of the file upload. For other types, it's the value of the property.
-          example: '"\\\"originalName\\\":\\\"BigCommerceLogo.jpeg\\\"": null,
-          "\\\"temporaryPath\\\":\\\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\\\"": null,
-          "\\\"path\\\":\\\"f606efcae7e179970b19c3658142c5d0.jpeg\\\"": null'
-          type: string
-        type:
+          example: "{\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"122_db0f7cd47aa4670073ab8b708302ba02.jpeg\",\"path\":\"41277947e95eb13ac5742a1bf0b24d9d.jpeg\"}"
           type: string
           enum:
             - Checkbox
