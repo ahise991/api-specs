@@ -251,7 +251,7 @@ paths:
               - item_type: ORDER
                 item_id: 1234
                 amount: 1
-                reason: Overchaged $1.00
+                reason: Overcharged $1.00
           Multiple Items:
             items:
               - item_id: 75
@@ -472,7 +472,7 @@ paths:
     post:
       summary: Create Refund Quotes - BATCH
       description: |-
-        Calculate the tax amount, total refund amount and get availble payment options for an order refund by providing items and costs or quantities to refund.
+        Calculate the tax amount, total refund amount and get available payment options for an order refund by providing items and costs or quantities to refund.
 
         This endpoint will accept a batch of one or more.
 
@@ -835,7 +835,7 @@ paths:
       description: |
         Gets a `Metafield` object list, by `order_id`.
 
-        The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
+        The maximum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID.
       operationId: getOrderMetafieldsByOrderId
       parameters:
         - $ref: '#/components/parameters/PageParam'
@@ -1093,7 +1093,7 @@ paths:
       description: |-
         Updates order settings for a specific channel.
 
-         **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addesses and the other set to `null`.
+         **Note:** You must override both notifications `email_addresses` or neither, i.e. either both notification `email_addresses` are an array of valid email addresses, or both `email_addresses` must be null. You may not have one set to an array of addresses and the other set to `null`.
       operationId: UpdateChannelOrderSettings
       tags:
         - Order Settings
@@ -2757,7 +2757,7 @@ components:
           description: Number of items in refund.
         reason:
           type: string
-          description: Explination of refund.
+          description: Explanation of refund.
           minLength: 0
           maxLength: 1000
           example: Customer requested refund
