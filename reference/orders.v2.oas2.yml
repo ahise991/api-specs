@@ -3769,7 +3769,7 @@ components:
           type: string
         value:
           description: For file-upload type, it's a unique string describing the properties of the file upload. For other types, it's the value of the property.
-          example: {\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}
+          example: "{\"originalName\":\"BigCommerceLogo.jpeg\",\"temporaryPath\":\"121_fbfb71dfc5a5d911f62d8e35dedd6e45.jpeg\",\"path\":\"f606efcae7e179970b19c3658142c5d0.jpeg\"}"
           type: string
         type:
           enum:
