@@ -2393,12 +2393,12 @@ components:
           example: 1.95
         rounding:
           type: number
-          description: Indicates rounding value to bring refund_total to an amount refundable via payment providers (in this case to 2 decimal places).
+          description: Indicates rounding value to bring `refund_total` to an amount refundable via payment providers (in this case to 2 decimal places).
         adjustment:
           $ref: '#/components/schemas/AdjustmentAmount'
         tax_inclusive:
           type: boolean
-          description: Indicate if total_refund_amount includes tax amount.
+          description: Indicate if `total_refund_amount` includes tax amount.
         refund_methods:
           type: array
           description: |
