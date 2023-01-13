@@ -287,6 +287,17 @@ paths:
       tags:
         - States
       description: Returns a list of all states.
+      parameters:
+        - schema:
+            type: integer
+          in: query
+          name: limit
+          description: The number of results to return per request.
+        - schema:
+            type: integer
+          in: query
+          name: page
+          description: The ordered grouping of results to return.
     parameters:
       - schema:
           type: string
