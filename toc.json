@@ -55,6 +55,11 @@
       "uri": "reference/orders.sf.yml"
     },
     {
+      "type": "item",
+      "title": "Pickup Options",
+      "uri": "reference/pickup_options.yml"
+    },    
+    {
       "type": "divider",
       "title": "GraphQL"
     },
@@ -139,6 +144,16 @@
     },
     {
       "type": "item",
+      "title": "Inventory",
+      "uri": "reference/inventory.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Locations",
+      "uri": "reference/locations.v3.yml"
+    },
+    {
+      "type": "item",
       "title": "Marketing",
       "uri": "reference/marketing.v2.yml"
     },
@@ -166,6 +181,21 @@
       "type": "item",
       "title": "Payment Processing",
       "uri": "reference/payment_processing.yml"
+    },
+    {
+      "type": "item",
+      "title": "Pickup",
+      "uri": "reference/pickup.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Pickup Methods",
+      "uri": "reference/pickup_methods.v3.yml"
+    },
+    {
+      "type": "item",
+      "title": "Pickup Options",
+      "uri": "reference/pickup_options.v3.yml"
     },
     {
       "type": "item",
