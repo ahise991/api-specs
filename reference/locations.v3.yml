@@ -1,0 +1,1045 @@
+openapi: 3.0.1
+x-stoplight:
+  id: d26d483f26191
+info:
+  title: Locations
+  version: '3.0'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
+  description: |-
+    On this page:
+    - [Locations](#locations)
+    - [Metafields](#metafields)
+
+    ## Locations
+    By default all BigCommerce stores have at least one location (who's `id` = `1`). Additional locations can be created to to track inventory against using the `/locations` endpoints. Initially we will only support the creation of physical inventory locations, which must have an address. 
+
+    ## Metafields
+    Metafields allow you to add in additional fields about your store's locations.
+servers:
+  - url: 'https://api.bigcommerce.com'
+paths:
+  '/stores/{store_hash}/v3/inventory/locations':
+    post:
+      operationId: post-locations
+      tags:
+        - Locations
+      description: Create new locations.
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationsCreateRequest'
+          application/xml:
+            schema:
+              type: object
+              properties: {}
+        required: true
+      responses:
+        '200':
+          description: Locations has been successfully created.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleTransactionResponse'
+        '422':
+          description: |
+            Incorrect entity. Locations was not valid. This is the result of missing required fields, or of invalid data or partial error. See the response for more details.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      summary: Create Locations
+    get:
+      operationId: get-locations
+      tags:
+        - Locations
+      description: List locations. You can use optional filter parameters.
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+        - $ref: '#/components/parameters/LocationIdsParam'
+        - $ref: '#/components/parameters/LocationCodeFilterParam'
+        - $ref: '#/components/parameters/LocationIsDefaultParam'
+        - $ref: '#/components/parameters/LocationTypeIdParam'
+        - $ref: '#/components/parameters/LocationManagedByExternalSourceParam'
+        - $ref: '#/components/parameters/LocationIsActiveParam'
+        - $ref: '#/components/parameters/LocationStorefrontVisibilityParam'
+        - $ref: '#/components/parameters/PageParam'
+        - $ref: '#/components/parameters/LimitParam'
+      responses:
+        '200':
+          description: Request has been successfully processed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/LocationResponse'
+                  meta:
+                    $ref: '#/components/schemas/Meta'
+      summary: Get Locations
+    put:
+      operationId: put-locations
+      tags:
+        - Locations
+      description: Update existing locations.
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LocationsUpdateRequest'
+        required: true
+      responses:
+        '200':
+          description: Request has been successfully processed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SimpleTransactionResponse'
+        '422':
+          description: |
+            Incorrect entity. Locations was not valid. This is the result of missing required fields, or of invalid data or partial error. See the response for more details.
+          content:
+            application/problem+json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      summary: Update Locations
+  '/stores/{store_hash}/v3/inventory/locations/{location_id}/metafields':
+    get:
+      summary: Get Metafields
+      description: Retrieve metafields for a location.
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+        - $ref: '#/components/parameters/LocationIdParam'
+      operationId: get-metafields
+      responses:
+        '200':
+          description: Request has been successfully processed.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/Metafield'
+                  meta:
+                    type: object
+                    properties:
+                      pagination:
+                        type: object
+                        properties:
+                          total:
+                            type: integer
+                            description: Total number of items in the result set.
+                          count:
+                            type: integer
+                            description: The total number of items in the collection on current page.
+                          per_page:
+                            type: integer
+                            description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
+                          current_page:
+                            type: integer
+                            description: The page you are currently on within the collection.
+                          total_pages:
+                            type: integer
+                            description: The total number of pages in the collection.
+                          links:
+                            type: object
+                            description: Pagination links for parts of the whole collection.
+                            properties:
+                              current:
+                                type: string
+                                description: Link to the current page returned in the response.
+                                example: '?limit=100&page=1'
+        '404':
+          description: Request has been rejected due to resource not being found.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Metafields
+    post:
+      summary: Create a Metafield
+      description: Create a location metafield.
+      operationId: post-metafields
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+        - $ref: '#/components/parameters/LocationIdParam'
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetafieldBase'
+        required: true
+      responses:
+        '200':
+          description: Request has been successfully processed.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Metafield'
+                  meta:
+                    type: object
+        '409':
+          description: |
+            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                    description: The HTTP status code generated by the origin server for this occurrence of the problem.
+                  title:
+                    type: string
+                    description: Human readable error message.
+                  type:
+                    type: string
+                    description: URL identifying the error type. Dereferencing the URL leads to documentation about the error type.
+        '422':
+          description: |
+            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Metafields
+    parameters:
+      - schema:
+          type: string
+        name: store_hash
+        in: path
+        required: true
+      - schema:
+          type: string
+        name: location_id
+        in: path
+        required: true
+  '/stores/{store_hash}/v3/inventory/locations/{location_id}/metafields/{metafield_id}':
+    description: 'Gets a `Metafield`, by `location_id`.'
+    get:
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+        - $ref: '#/components/parameters/LocationIdParam'
+        - $ref: '#/components/parameters/MetafieldIdParam'
+      summary: Get a Metafield
+      description: Get a metafield by location.
+      operationId: get-a-metafield
+      responses:
+        '200':
+          description: Request has been successfully processed.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Metafield'
+                  meta:
+                    type: object
+        '404':
+          description: The resource was not found.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+      tags:
+        - Metafields
+    put:
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+        - $ref: '#/components/parameters/LocationIdParam'
+        - $ref: '#/components/parameters/MetafieldIdParam'
+      summary: Update a Metafield
+      description: Update a metafield.
+      operationId: put-a-metafield
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetafieldBase'
+        required: true
+        description: ''
+      responses:
+        '200':
+          description: Request has been successfully processed.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/Metafield'
+                  meta:
+                    type: object
+        '404':
+          description: The resource was not found.
+          content:
+            application/json:
+              examples: {}
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+            application/xml:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: integer
+                  title:
+                    type: string
+                  type:
+                    type: string
+                  errors:
+                    type: object
+      tags:
+        - Metafields
+    delete:
+      parameters:
+        - $ref: '#/components/parameters/StoreHash'
+        - $ref: '#/components/parameters/LocationIdParam'
+        - $ref: '#/components/parameters/MetafieldIdParam'
+      summary: Delete a Metafield
+      description: Delete a metafield.
+      operationId: delete-a-metafield
+      responses:
+        '204':
+          description: No Content
+      tags:
+        - Metafields
+components:
+  schemas:
+    ErrorResponse:
+      type: object
+      properties:
+        status:
+          type: integer
+          description: The HTTP status code generated by the origin server for this occurrence of the problem.
+        title:
+          type: string
+          description: Human readable error message.
+        type:
+          type: string
+          description: |
+            URL identifying the error type. Dereferencing the URL leads to documentation about the error type.
+        errors:
+          type: object
+          description: Detailed summary describing the particular error.
+    Meta:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              description: Total number of items in the result set.
+              example: 2
+            count:
+              type: integer
+              description: The total number of items in the collection on current page.
+              example: 2
+            per_page:
+              type: integer
+              description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
+              example: 100
+            current_page:
+              type: integer
+              description: The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: The total number of pages in the collection.
+              example: 1
+            links:
+              type: object
+              description: Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: Link to the previous page returned in the response.
+                  example: '?limit=100&page=1'
+                current:
+                  type: string
+                  description: Link to the current page returned in the response.
+                  example: '?limit=100&page=1'
+                next:
+                  type: string
+                  description: Link to the next page returned in the response.
+                  example: '?limit=100&page=1'
+    OperatingHoursForDay:
+      type: object
+      properties:
+        open:
+          type: boolean
+          description: Boolean variable that defines if the location is open or not.
+          default: false
+        opening:
+          type: string
+          description: Opening time.
+          format: time
+          example: '08:00'
+        closing:
+          type: string
+          description: Closing time.
+          format: time
+          example: '16:00'
+    OperatingHours:
+      type: object
+      description: Schedule with opening and closing hours for each day of the week.
+      properties:
+        sunday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+        monday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+        tuesday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+        wednesday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+        thursday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+        friday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+        saturday:
+          $ref: '#/components/schemas/OperatingHoursForDay'
+    BlackoutHours:
+      items:
+        type: object
+        properties:
+          label:
+            type: string
+            example: Thanksgiving
+          date:
+            type: string
+            format: date
+            example: '2022-09-29'
+          open:
+            type: boolean
+          opening:
+            type: string
+            format: time
+            example: '09:00'
+            default: '00:00'
+          closing:
+            type: string
+            format: time
+            example: '09:00'
+            default: '00:00'
+          all_day:
+            type: boolean
+            default: false
+          annual:
+            type: boolean
+            default: false
+        required:
+          - label
+          - date
+          - open
+    LocationResponse:
+      type: object
+      description: ''
+      title: ''
+      properties:
+        id:
+          type: integer
+          description: Location immutable unique identifier.
+          example: 2
+        code:
+          type: string
+          description: Location user-defined unique identifier.
+          example: BIGC-1
+        label:
+          type: string
+          description: Location label.
+          example: Central store
+        description:
+          type: string
+          description: Description of location.
+          example: Central shop of the world
+        managed_by_external_source:
+          type: boolean
+          description: |
+            Indicates if the third-party system is the source of truth for inventory values. If set to true, manually editing inventory in BC's control panel will be disabled.
+          default: false
+        type_id:
+          type: string
+          description: Describe type of given location.
+          default: PHYSICAL
+          enum:
+            - PHYSICAL
+            - VIRTUAL
+        enabled:
+          type: boolean
+          description: Indicator of accessibility of location.
+          default: true
+        operating_hours:
+          $ref: '#/components/schemas/OperatingHours'
+        time_zone:
+          type: string
+          description: Time zone of location.
+          example: Etc/GMT+12
+        created_at:
+          type: string
+          format: date-time
+          description: Time when location was created.
+          example: '2022-05-30T12:18:02Z'
+        updated_at:
+          type: string
+          format: date-time
+          description: Time of last update of the location.
+          example: '2022-05-30T12:18:02Z'
+        address:
+          type: object
+          properties:
+            address1:
+              type: string
+              description: Main address information.
+              example: Central Park
+            address2:
+              type: string
+              description: Additional address information.
+            city:
+              type: string
+              description: The city where the location is located.
+              example: New York City
+            state:
+              type: string
+              description: The state where the location is located.
+              example: NY
+            zip:
+              type: string
+              description: Zip code of the location.
+              example: '11111'
+            email:
+              type: string
+              format: email
+              description: Email of the location.
+              example: test@example.com
+            phone:
+              type: string
+              description: Phone number of the location.
+              example: 800-555-0198
+            geo_coordinates:
+              type: object
+              description: Object with latitude and longitude that points at the location.
+              properties:
+                latitude:
+                  type: number
+                  format: float
+                  description: Latitude.
+                  example: 11
+                longitude:
+                  type: number
+                  format: float
+                  description: Longitude.
+                  example: 8
+            country_code:
+              type: string
+              description: ISO 3166-1 alpha-3 code.
+              example: US
+        storefront_visibility:
+          type: boolean
+          description: Indicator of accessibility of location on storefront.
+          default: true
+        special_hours:
+          type: object
+          properties:
+            label:
+              type: string
+              example: Thanksgiving
+            date:
+              type: string
+              format: date
+              example: '2022-09-29'
+            open:
+              type: boolean
+            opening:
+              type: string
+              format: time
+              example: '09:00'
+              default: '00:00'
+            closing:
+              type: string
+              format: time
+              example: '09:00'
+              default: '00:00'
+            all_day:
+              type: boolean
+              default: false
+            annual:
+              type: boolean
+              default: false
+    LocationsUpdateRequest:
+      type: array
+      description: ''
+      title: ''
+      items:
+        type: object
+        description: A request to update an existing locations.
+        properties:
+          id:
+            type: integer
+            description: Location immutable unique identifier.
+            example: 2
+          code:
+            type: string
+            description: Location user-defined unique identifier.
+            example: BIGC-2
+          label:
+            type: string
+            description: Location label.
+            example: Central store
+          description:
+            type: string
+            description: Description of location.
+            example: Central shop of the world
+          managed_by_external_source:
+            type: boolean
+            description: |
+              Indicates if the third-party system is the source of truth for inventory values. If set to true, manually editing inventory in BC's control panel will be disabled.
+            default: false
+          type_id:
+            type: string
+            enum:
+              - PHYSICAL
+              - VIRTUAL
+            description: Describe type of given location.
+            default: PHYSICAL
+          enabled:
+            type: boolean
+            description: Indicator of accessibility of location.
+            default: true
+          operating_hours:
+            $ref: '#/components/schemas/OperatingHours'
+          time_zone:
+            type: string
+            description: Time zone of location.
+            example: Etc/UTC
+          address:
+            type: object
+            properties:
+              address1:
+                type: string
+                description: Main address information.
+                example: 5th Ave
+              address2:
+                type: string
+                description: Additional address information.
+              city:
+                type: string
+                description: The city where the location is located.
+                example: New York City
+              state:
+                type: string
+                description: The state where the location is located.
+                example: NY
+              zip:
+                type: string
+                description: Zip code of the location.
+                example: '12345'
+              email:
+                type: string
+                format: email
+                description: Email of the location.
+                example: test@example.com
+              phone:
+                type: string
+                description: Phone number of the location.
+                example: 800-555-0198
+              geo_coordinates:
+                type: object
+                description: Object with latitude and longitude that points at the location.
+                properties:
+                  latitude:
+                    type: number
+                    format: float
+                    description: Latitude.
+                    exclusiveMinimum: false
+                    minimum: -90
+                    maximum: 90
+                    example: 11
+                  longitude:
+                    type: number
+                    format: float
+                    description: Longitude.
+                    minimum: -180
+                    maximum: 180
+                    example: 11
+                required:
+                  - latitude
+                  - longitude
+              country_code:
+                type: string
+                description: ISO 3166-1 alpha-3 code.
+                default: US
+                enum:
+                  - US
+            required:
+              - country_code
+          storefront_visibility:
+            type: boolean
+            description: Indicator of accessibility of location on storefront.
+            default: true
+          special_hours:
+            $ref: '#/components/schemas/BlackoutHours'
+        required:
+          - id
+    LocationsCreateRequest:
+      type: array
+      title: ''
+      description: ''
+      items:
+        type: object
+        properties:
+          code:
+            type: string
+            description: Location user-defined unique identifier.
+            example: BIGC-1
+          label:
+            type: string
+            description: Location label.
+            example: Central store
+          description:
+            type: string
+            description: 'Description of location. This field can be returned by the GraphQL Storefront API so that additional details can be exposed to customers on the storefront (customer-facing). '
+            example: Central shop of the world
+          managed_by_external_source:
+            type: boolean
+            description: |
+              Indicates if the third-party system is the source of truth for inventory values. If set to true, manually editing inventory in BC's control panel will be disabled.
+            default: false
+          type_id:
+            type: string
+            enum:
+              - PHYSICAL
+              - VIRTUAL
+            description: Describe type of given location.
+            default: PHYSICAL
+          enabled:
+            type: boolean
+            default: true
+          operating_hours:
+            $ref: '#/components/schemas/OperatingHours'
+          time_zone:
+            type: string
+            description: 'Time zone of location. For a list of valid time zones, please view: https://en.wikipedia.org/wiki/List_of_tz_database_time_zones.'
+            example: Etc/UTC
+          address:
+            type: object
+            description: Address is required if the location's `type_id` is `PHYSICAL`.
+            required:
+              - country_code
+            properties:
+              address1:
+                type: string
+                description: Main address information.
+                example: 5th Ave
+              address2:
+                type: string
+                description: Additional address information.
+              city:
+                type: string
+                description: The city where the location is located.
+                example: New York
+              state:
+                type: string
+                description: The state where the location is located.
+                enum:
+                  - NY
+              zip:
+                type: string
+                description: Zip code of the location.
+                example: '10021'
+              email:
+                type: string
+                description: Email of the location.
+                example: test@example.com
+                format: email
+              phone:
+                type: string
+                description: Phone number of the location.
+                example: 800-555-0198
+              geo_coordinates:
+                type: object
+                description: Object with latitude and longitude that points at the location.
+                properties:
+                  latitude:
+                    type: number
+                    format: float
+                    description: Latitude.
+                    example: 40.774378
+                    minimum: -90
+                    maximum: 90
+                    exclusiveMaximum: false
+                  longitude:
+                    type: number
+                    format: float
+                    description: Longitude.
+                    minimum: -180
+                    maximum: 180
+                    example: -73.9653178
+                required:
+                  - latitude
+                  - longitude
+              country_code:
+                type: string
+                description: ISO 3166-1 alpha-3 code.
+                default: US
+                enum:
+                  - US
+          storefront_visibility:
+            type: boolean
+            default: true
+          special_hours:
+            $ref: '#/components/schemas/BlackoutHours'
+        required:
+          - label
+          - managed_by_external_source
+          - type_id
+          - time_zone
+          - address
+    SimpleTransactionResponse:
+      type: object
+      properties:
+        transaction_id:
+          type: string
+          description: Unique identifier of performed action.
+    MetafieldBase:
+      type: object
+      description: |
+        Common metafield properties.
+      properties:
+        key:
+          type: string
+          description: The name of the field.
+          x-required:
+            - post
+          minLength: 1
+          maxLength: 64
+          example: status
+        value:
+          type: string
+          description: |
+            The value of the field.
+          x-required:
+            - post
+          minLength: 1
+          maxLength: 65535
+          example: upcoming
+        namespace:
+          type: string
+          description: |
+            Namespace for the metafield, for organizational purposes.
+          x-required:
+            - post
+          minLength: 1
+          maxLength: 64
+          example: headquarters
+        permission_set:
+          type: string
+          description: |
+            Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Can grant storefront visibility to the field using (`read_and_sf_access`) or (`write_and_sf_access`).
+          enum:
+            - app_only
+            - read
+            - write
+            - read_and_sf_access
+            - write_and_sf_access
+          x-required:
+            - post
+        resource_type:
+          type: string
+          description: |
+            The type of resource with which the metafield is associated.
+          enum:
+            - category
+            - brand
+            - product
+            - variant
+            - location
+          x-required:
+            - post
+        resource_id:
+          type: integer
+          description: |
+            The unique identifier for the resource with which the metafield is associated.
+          x-required:
+            - post
+          minimum: 0
+          maximum: 10000000000
+        description:
+          type: string
+          description: |
+            Description for the metafields.
+          minLength: 0
+          maxLength: 255
+    Metafield:
+      description: |
+        Allows app partners to write custom data to various resources in the API.
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              description: Unique ID for the metafield.
+              example: 1
+        - $ref: '#/components/schemas/MetafieldBase'
+        - type: object
+          properties:
+            date_created:
+              type: string
+              format: date-time
+              description: |
+                Date and time when the metafield was created.
+              example: '2022-04-14T23:06:45+00:00'
+            date_modified:
+              type: string
+              format: date-time
+              description: |
+                Date and time when the metafield was last updated.
+              example: '2022-09-08T04:18:55+00:00'
+  parameters:
+    StoreHash:
+      in: path
+      name: store_hash
+      description: Unique identifier for a store.
+      required: true
+      schema:
+        type: string
+    PageParam:
+      in: query
+      name: page
+      description: Specifies the page number in a limited (paginated) list.
+      required: false
+      schema:
+        type: integer
+    LimitParam:
+      in: query
+      name: limit
+      description: Controls the number of items per page in a limited (paginated) list.
+      required: false
+      schema:
+        type: integer
+    LocationIdParam:
+      in: path
+      name: location_id
+      description: Unique identifier for a location.
+      required: true
+      schema:
+        type: integer
+    LocationIdsParam:
+      in: query
+      name: 'location_id:in'
+      description: Comma separated list of `location_id`.
+      required: false
+      schema:
+        type: integer
+    LocationCodeFilterParam:
+      in: query
+      name: 'location_code:in'
+      description: Comma separated list of `location_code`.
+      required: false
+      schema:
+        type: string
+    LocationIsDefaultParam:
+      in: query
+      name: is_default
+      description: Filter whether Location is default.
+      required: false
+      schema:
+        type: boolean
+    LocationTypeIdParam:
+      in: query
+      name: 'type_id:in'
+      description: Comma separated list of locations type codes.
+      required: false
+      schema:
+        type: string
+    LocationManagedByExternalSourceParam:
+      in: query
+      name: managed_by_external_source
+      description: Filter whether location inventory levels is managed by external source.
+      required: false
+      schema:
+        type: boolean
+    LocationIsActiveParam:
+      in: query
+      name: is_active
+      description: 'Filter by active locations flag, return both if not specified.'
+      required: false
+      schema:
+        type: boolean
+    LocationStorefrontVisibilityParam:
+      in: query
+      name: storefront_visibility
+      description: 'Filter by storefront_visibility flag, return both if not specified.'
+      required: false
+      schema:
+        type: boolean
+    MetafieldIdParam:
+      in: path
+      name: metafield_id
+      description: Unique identifier for a metafield.
+      required: true
+      schema:
+        type: integer
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Store Locations | read-only | `store_locations_read_only` |
+        |  Store Locations | modify | `store_locations` |
+
+        ### Authentication header
+
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication). |
+
+        ### Further reading
+
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](https://developer.bigcommerce.com/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+
+        For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+
+        For a list of API status codes, see [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Adjustments
+  - name: Items
+  - name: Inventory
+    description: BigCommerce Inventory API Definition.
+  - name: Locations
+  - name: Metafields
