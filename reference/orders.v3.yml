@@ -2714,7 +2714,8 @@ components:
             - ORDER
         item_id:
           type: number
-          description: Order Product ID.
+          description: Numeric ID of the product in the order.
+          example: 1
         amount:
           $ref: '#/components/schemas/Amount'
         reason:
