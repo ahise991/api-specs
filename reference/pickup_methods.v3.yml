@@ -1,0 +1,286 @@
+openapi: 3.0.1
+x-stoplight:
+  id: 94afd546bdf18
+info:
+  title: Pickup Methods
+  version: '3.0'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact: {}
+  description: Manage pickup methods
+servers:
+  - url: 'https://api.bigcommerce.com'
+    variables:
+      store_hash:
+        default: store_hash
+paths:
+  '/stores/{store_hash}/v3/pickup/methods':
+    get:
+      operationId: get-pickup-methods
+      tags:
+        - Pickup Methods
+      summary: Get Pickup Methods
+      description: |-
+        Retrieves a list of pickup methods.
+
+        ## Examples
+
+        This list can be filtered to return pickup method objects specific to a list of requested pickup method IDs. This is achieved by appending the query string `?id:in=1,3,5` to the resource `/pickup/methods`.
+
+        ```http
+        GET /pickup/methods?id:in=1,3,5
+        ```
+      parameters:
+        - name: 'id:in'
+          description: Comma separated list of pickup method IDs.
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: limit
+          description: Maximum number of results per page.
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: page
+          description: The number of the page to be fetched.
+          in: query
+          required: false
+          schema:
+            type: integer
+            format: int64
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has been processed and a list of pickup methods has been returned successfully.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PickupMethod'
+                  meta:
+                    $ref: '#/components/schemas/MetaCollection'
+    post:
+      operationId: post-pickup-methods
+      tags:
+        - Pickup Methods
+      summary: Create Pickup Methods
+      description: |-
+        Creates one or many pickup methods.
+
+        This is a batch operation that can create up to 100 pickup methods objects in one request.
+
+        ## Limits
+        * Limit of creating 100 pickup method objects per `POST` request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/BasePickupMethod'
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has been successfully processed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PickupMethod'
+                  meta:
+                    type: object
+    put:
+      operationId: put-pickup-methods
+      tags:
+        - Pickup Methods
+      summary: Update Pickup Methods
+      description: |-
+        Update existing pickup methods.
+
+        This is a batch operation that can update 10 pickup methods objects in one request.
+
+        Only the `id` property of the pickup method object is required as part of the request. Pickup method properties that are not provided will maintain their existing values.
+
+        ## Limits
+        * Limit of updating 10 pickup method objects per `PUT` request.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: array
+              items:
+                $ref: '#/components/schemas/PickupMethod'
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: The request has been successfully processed.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/PickupMethod'
+                  meta:
+                    type: object
+    delete:
+      operationId: delete-pickup-methods
+      tags:
+        - Pickup Methods
+      description: Delete existing pickup methods.
+      parameters:
+        - name: 'id:in'
+          description: Comma separated list of pickup method IDs.
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: No Content
+      summary: Delete Pickup Methods
+components:
+  schemas:
+    BasePickupMethod:
+      type: object
+      properties:
+        location_id:
+          type: integer
+          example: 2
+          description: ID of location.
+        display_name:
+          type: string
+          minLength: 0
+          maxLength: 250
+          example: Office Pickup!
+          description: Title of the pickup method.
+        collection_instructions:
+          type: string
+          minLength: 0
+          maxLength: 250
+          example: Bring your ID!
+          description: Instructions for picking up items.
+        collection_time_description:
+          type: string
+          minLength: 0
+          maxLength: 250
+          example: Collect during our opening hours of 0900 - 1700
+          description: Description of collection time.
+        location_identity:
+          type: integer
+          example: 2
+          deprecated: true
+    PickupMethod:
+      allOf:
+        - type: object
+          properties:
+            id:
+              type: integer
+              example: 1
+              description: ID of pickup method.
+        - $ref: '#/components/schemas/BasePickupMethod'
+    MetaCollection:
+      type: object
+      properties:
+        pagination:
+          type: object
+          properties:
+            total:
+              type: integer
+              description: Total number of items in the result set.
+              example: 123
+            count:
+              type: integer
+              description: The total number of items in the collection on the current page.
+              example: 100
+            per_page:
+              type: integer
+              description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
+              example: 100
+            current_page:
+              type: integer
+              description: The page you are currently on within the collection.
+              example: 1
+            total_pages:
+              type: integer
+              description: The total number of pages in the collection.
+              example: 2
+            links:
+              type: object
+              description: Pagination links for the previous and next parts of the whole collection.
+              properties:
+                previous:
+                  type: string
+                  description: Link to the previous page returned in the response.
+                current:
+                  type: string
+                  description: Link to the current page returned in the response.
+                next:
+                  type: string
+                  description: Link to the next page returned in the response.
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Fulfillment Methods | read-only | `store_fulfillment_methods_read_only` | 
+        |  Fulfillment Methods | modify | `store_fulfillment_methods_manage` |
+
+        ### Authentication header
+
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication). |
+
+        ### Further reading
+
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](https://developer.bigcommerce.com/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+
+        For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+
+        For a list of API status codes, see [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Pickup Methods
+    description: BigCommerce Pickup Methods API Definition.
