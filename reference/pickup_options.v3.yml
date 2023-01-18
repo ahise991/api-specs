@@ -1,0 +1,193 @@
+openapi: 3.0.1
+info:
+  title: Pickup Options V3
+  description: This API provides a way to search for available pickup options near provided coordinates.
+  version: '3.0'
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact: {}
+servers:
+  - url: 'https://api.bigcommerce.com'
+    variables:
+      store_hash:
+        default: store_hash
+paths:
+  '/stores/{store_hash}/v3/pickup/options':
+    post:
+      summary: Find Available Pickup Options
+      operationId: post-pickup-options
+      tags:
+        - Pickup Options
+      description: |-
+        Returns up to 10 available pickup options for the requested items around a radius of the provided search coordinates. 
+
+        The pickup options returned only include options where all requested items are available and can be picked up from a single location.
+      parameters:
+        - name: store_hash
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PickupRequestPayload'
+      responses:
+        '200':
+          description: The request has been successfully processed.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PickupOptionsResponse'
+components:
+  schemas:
+    PickupRequestPayload:
+      type: object
+      properties:
+        search_area:
+          $ref: '#/components/schemas/SearchArea'
+        items:
+          type: array
+          description: Items you include in your search for pickup options.
+          items:
+            $ref: '#/components/schemas/Item'
+      required:
+        - search_area
+        - items
+    SearchArea:
+      type: object
+      description: Area where you are searching for pickup options.
+      properties:
+        coordinates:
+          $ref: '#/components/schemas/Coordinates'
+        radius:
+          type: object
+          description: Radius around the coordinates where you are searching for pickup options.
+          required:
+            - value
+            - unit
+          properties:
+            value:
+              type: integer
+              example: 10
+            unit:
+              type: string
+              enum:
+                - KM
+                - MI
+      required:
+        - radius
+    Coordinates:
+      type: object
+      description: Coordinates where you are searching for pickup options.
+      properties:
+        latitude:
+          type: number
+          example: 37.7749
+        longitude:
+          type: number
+          example: 122.4194
+      required:
+        - latitude
+        - longitude
+    Item:
+      type: object
+      properties:
+        variant_id:
+          type: integer
+          example: 24
+        quantity:
+          type: integer
+          example: 98
+      required:
+        - variant_id
+        - quantity
+    PickupOptionsResponse:
+      type: object
+      properties:
+        results:
+          type: array
+          items:
+            type: object
+            properties:
+              pickup_options:
+                type: array
+                description: Pickup options for the available items.
+                items:
+                  $ref: '#/components/schemas/PickupOption'
+    PickupOption:
+      type: object
+      properties:
+        pickup_method:
+          $ref: '#/components/schemas/PickupMethod'
+        available_items:
+          type: array
+          description: Items that are available using the pickup method.
+          items:
+            $ref: '#/components/schemas/AvailableItem'
+    PickupMethod:
+      type: object
+      description: Pickup method that can be used with the available items.
+      properties:
+        id:
+          type: integer
+          example: 1
+        location_id:
+          type: integer
+          example: 2
+        display_name:
+          type: string
+          minLength: 0
+          maxLength: 250
+          example: Office Pickup!
+        collection_instructions:
+          type: string
+          minLength: 0
+          maxLength: 250
+          example: Bring your ID!
+        collection_time_description:
+          type: string
+          minLength: 0
+          maxLength: 250
+          example: Collect during our opening hours of 0900 - 1700
+    AvailableItem:
+      type: object
+      properties:
+        variant_id:
+          type: integer
+          example: 55
+        quantity:
+          type: integer
+          example: 12
+  securitySchemes:
+    X-Auth-Token:
+      name: X-Auth-Token
+      description: |-
+        ### OAuth scopes
+
+        | UI Name | Permission | Parameter |
+        |:--------|:-----------|:----------|
+        |  Fulfillment Methods | read-only | `store_fulfillment_methods_read_only` | 
+        |  Fulfillment Methods | modify | `store_fulfillment_methods_manage` |
+
+        ### Authentication header
+
+        | Header | Argument | Description |
+        |:-------|:---------|:------------|
+        | `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication). |
+
+        ### Further reading
+
+        For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](https://developer.bigcommerce.com/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+
+        For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](https://developer.bigcommerce.com/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
+
+        For a list of API status codes, see [API Status Codes](https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes).
+      type: apiKey
+      in: header
+tags:
+  - name: Pickup Options
+    description: BigCommerce Pickup Options V3 Definition.
+security:
+  - X-Auth-Token: []
