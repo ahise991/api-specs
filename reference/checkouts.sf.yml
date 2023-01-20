@@ -2574,6 +2574,8 @@ components:
           x-deprecated: true
         address:
           $ref: '#/components/schemas/address_Full'
+        selectedPickupOption:
+          $ref: '#/components/schemas/PickupOption'
         availableShippingOptions:
           type: array
           description: 'This is available only when "include=consignments.availableShippingOptions" is present in the URL.'
@@ -4068,6 +4070,13 @@ components:
           type: string
           description: An estimate of the arrival time.
       x-internal: false
+    PickupOption:
+      type: object
+      title: Pickup Option
+      description: An option that represents a location where items can be picked up from.
+      properties:
+        pickup_method_id:
+          type: integer
   responses:
     Checkout:
       description: ''
