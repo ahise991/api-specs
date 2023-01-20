@@ -1401,7 +1401,7 @@ paths:
           in: query
           schema:
             type: string
-            default: consignments.availableShippingOptions
+            default: consignments.availableShippingOptions, consignments.availablePickupOptions
       requestBody:
         content:
           application/json:
