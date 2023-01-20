@@ -1368,15 +1368,24 @@ paths:
         - Checkout Consignments
       summary: Update a Consignment
       description: |-
-        Updates an existing consignment. Either the shipping address, one or more line item IDs, or the shipping option ID can be updated in a single call to this endpoint.
+        Updates an existing consignment. An update is either one of the following:
+        1. Updates the consignment address and/or line items.
+        2. Selects a specific fulfillment option.
 
-        There are two steps to add a new shipping address and shipping options with line items. 
-        1. Add a new Consignment to Checkout.
-        2. Update the Consignment with Shipping Options.
-          * Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from Step One. 
+        ### Updates the consignment address and line items
+        For this type of update, the payload is the same as when creating a new consignment.         Update each *Consignment* `shippingOptionId` (shipping address and line items) with the `availableShippingOption > id` from the POST `/consignment` response. 
 
-        **Required Fields**
-        * `shippingOptionId`
+        **Note:**
+        Updating a consignment could invalidate the value for `selectedShippingOption` and `selectedPickupOption`.
+
+        ###  Selects a specific fulfillment option
+        Before placing an order, each consignment must have a `selectedShippingOption` or a `selectedPickupOption`.
+
+        If the consignment already has a pick-up option selected and a shipping option is provided, such option will be deselected and a shipping option will be selected instead (and vice versa). The `PUT` request will fail if it contains a shipping option ID as well as a pickup option ID
+
+        Required Fields:
+        * `shippingOptionId` or `pickupOptionId`
+        * `lineItems`
 
         To learn more about creating a Checkout Consignment see [Checkout Consignment API](/api-docs/checkouts/checkout-consignment).
 
