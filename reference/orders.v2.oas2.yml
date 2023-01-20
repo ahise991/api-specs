@@ -4744,6 +4744,8 @@ components:
               type: array
               items:
                 $ref: '#/components/schemas/shippingAddress_Base'
+            consignments:
+              $ref: '#/components/schemas/orderConsignment_Post'
         - $ref: '#/components/schemas/order_Shared'
       x-internal: false
     orderConsignment_Put:
@@ -4929,3 +4931,111 @@ components:
       anyOf:
         - $ref: '#/components/schemas/orderCustomProduct_Put'
         - $ref: '#/components/schemas/orderCatalogProduct_Put'
+    orderConsignment_Post:
+      title: ''
+      type: object
+      x-examples:
+        example-1:
+          pickups:
+            - pickup_method_id: 1
+              pickup_method_display_name: Pick Up
+              collection_instructions: Bring your ID
+              collection_time_description: 9am - 6pm
+              location:
+                name: Location 1
+                code: LOCATION-1
+                address_line_1: 123 Main Street
+                address_line_2: Suite 101
+                city: Austin
+                state: Texas
+                postal_code: '78726'
+                country_alpha2: US
+                email: location1@example.com
+                phone: +1 111-111-1111
+              line_items:
+                - name: Fog Linen Chambray Towel - Beige Stripe
+                  name_customer: Fog Linen Chambray Towel - Beige Stripe
+                  name_merchant: Towel Type 1
+                  quantity: 0
+                  price_inc_tax: 0
+                  price_ex_tax: 0
+                  upc: string
+                  sku: string
+      properties:
+        pickups:
+          type: array
+          minItems: 1
+          items:
+            $ref: '#/components/schemas/pickupConsignment_Post'
+      required:
+        - pickups
+    pickupConsignment_Post:
+      allOf:
+        - type: object
+          properties:
+            pickup_method_id:
+              type: integer
+              example: 1
+              description: ID of the pickup method.
+          required:
+            - pickup_method_id
+        - $ref: '#/components/schemas/pickupConsignment_Base'
+        - type: object
+          properties:
+            location:
+              $ref: '#/components/schemas/pickupConsignmentLocation_Post'
+            line_items:
+              type: array
+              minItems: 1
+              items:
+                $ref: '#/components/schemas/orderProduct_Post'
+          required:
+            - line_items
+      x-examples:
+        example-1:
+          pickup_method_id: 1
+          pickup_method_display_name: Pick Up
+          collection_instructions: Bring your ID
+          collection_time_description: 9am - 6pm
+          location:
+            name: Location 1
+            code: LOCATION-1
+            address_line_1: 123 Main Street
+            address_line_2: Suite 101
+            city: Austin
+            state: Texas
+            postal_code: '78726'
+            country_alpha2: US
+            email: location1@example.com
+            phone: +1 111-111-1111
+          line_items:
+            - name: Fog Linen Chambray Towel - Beige Stripe
+              name_customer: Fog Linen Chambray Towel - Beige Stripe
+              name_merchant: Towel Type 1
+              quantity: 0
+              price_inc_tax: 0
+              price_ex_tax: 0
+              upc: string
+              sku: string
+    pickupConsignmentLocation_Post:
+      title: ''
+      description: ''
+      x-examples:
+        example-1:
+          name: Location 1
+          code: LOCATION-1
+          address_line_1: 123 Main Street
+          address_line_2: Suite 101
+          city: Austin
+          state: Texas
+          postal_code: '78726'
+          country_alpha2: US
+          email: location1@example.com
+          phone: +1 111-111-1111
+      allOf:
+        - $ref: '#/components/schemas/pickupConsignmentLocation_Base'
+    orderProduct_Post:
+      title: orderProduct_Post
+      anyOf:
+        - $ref: '#/components/schemas/orderCustomProduct_Post'
+        - $ref: '#/components/schemas/orderCatalogProduct_Post'
