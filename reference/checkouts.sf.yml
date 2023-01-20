@@ -3536,6 +3536,11 @@ components:
                 type: integer
                 description: ''
                 format: int32
+        pickupOption:
+          type: object
+          properties:
+            pickup_method_id:
+              type: integer
       x-internal: false
     GiftCertificateRequest:
       title: Gift Certificate Request
