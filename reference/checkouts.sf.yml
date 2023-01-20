@@ -3547,6 +3547,9 @@ components:
                 type: integer
                 description: ''
                 format: int32
+        shippingOptionId:
+          type: string
+          description: ''
         pickupOption:
           type: object
           properties:
