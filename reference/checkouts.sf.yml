@@ -3644,7 +3644,7 @@ components:
         shippingOptionId:
           type: string
           description: ''
-      description: One or more of these three fields are mandatory. Shipping address and line items can be updated in one request. Shipping option ID has to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.
+      description: One or more of these three fields are mandatory. Address and line items can be updated in one request. Shipping option ID or pickup option ID have to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     checkoutCart:
       title: checkoutCart
