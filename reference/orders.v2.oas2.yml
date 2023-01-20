@@ -3654,6 +3654,21 @@ components:
                 type: number
                 example: 2
       x-internal: false
+    orderConsignments_Resource:
+      title: orderConsignments_Resource
+      type: object
+      readOnly: true
+      properties:
+        url:
+          description: URL where you can use a GET request to get the order consignments.
+          readOnly: true
+          example: 'https://api.bigcommerce.com/stores/{store_hash}/v2/orders/101/consignments'
+          type: string
+        resource:
+          description: Path where you can use a GET request to get the order consignments.
+          readOnly: true
+          example: /orders/101/consignments
+          type: string
     products_Resource:
       title: products_Resource
       type: object
@@ -4452,6 +4467,8 @@ components:
           description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the API will be set to `external`. This value is read-only. Do not pass in a POST or PUT.
           example: www
           type: string
+        consignments:
+          $ref: '#/components/schemas/orderConsignments_Resource'
         products:
           $ref: '#/components/schemas/products_Resource'
         shipping_addresses:
