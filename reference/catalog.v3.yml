@@ -21927,9 +21927,9 @@ components:
           x-required:
             - post
         amount:
-          type:
-            - number
-            - integer
+          oneOf:
+            - type: number
+            - type: string
           description: |-
             You can express the discount as either a fixed dollar amount or a percentage. To use a fixed dollar amount, send a number; the response will return a number. To use a percentage, divide the percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float.
             Required in /POST.
@@ -21976,9 +21976,9 @@ components:
           x-required:
             - post
         amount:
-          type:
-            - number
-            - integer
+          oneOf:
+            - type: number
+            - type: string
           description: |-
             You can express the discount as either a fixed dollar amount or a percentage. To use a fixed dollar amount, send a number; the response will return a number. To use a percentage, divide the percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float.
             Required in /POST.
