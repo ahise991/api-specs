@@ -1195,18 +1195,29 @@ paths:
       description: |
         Adds a new *Consignment* to *Checkout*.
 
-        There are two steps to add a new shipping address and shipping options with line items. 
-        1. Add a new Consignment to Checkout.
-          * Send a POST to Consignments with each shipping address and line items IDs. Each address can have its own line item IDs.
-          * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.
-        2. [Update the Consignment](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.
+        There are two steps to define the fulfillment of the items in the cart.
 
-        **Required Query**
-        * `consignments.availableShippingOptions`
+        ### For **shipping** consignments:
 
-        **Required Fields**
-        * `shipping_address` (deprecated) or `address`
-        * `line_items`
+          1. Add a new Consignment to Checkout.
+              * Send a `POST` request to `/consignments` with each shipping address, line items IDs, and quantities. Each address can have its own line item IDs.
+              * Provide a full valid customer address before the order is placed. If not provided, the order placement will fail. 
+              * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on line items and shipping locations. This will return `availableShippingOptions` in the response.
+              * As part of the request URL make sure to add `include=consignments.availableShippingOptions` to return the available shipping options based on the items, the address, and the shipping location. This will return `availableShippingOptions` in the response.
+              * Required Fields:
+                * `shipping_address` (deprecated) or `address`
+                * `lineItems`
+
+          2. [Update the Consignment](/api-reference/storefront/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidandconsignmentidput) with Shipping Options.
+                
+        ### For **pickup** consignments:
+          1. Create a new consignment object. 
+             - Send a `POST` request to `/consignments` with line items IDs and quantitites.
+             - Provide a `pickup_method_id` provided by the Pickup Service.
+             - Required Fields:
+                * `pickupOption`
+                * `lineItems`
+
 
         To learn more about creating a Checkout Consignment, see the [Carts and Checkouts Tutorial](/api-docs/storefront/tutorials/carts).
 
