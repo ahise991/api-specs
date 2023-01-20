@@ -8672,6 +8672,12 @@ components:
                   type: integer
                   description: ''
                   format: int32
+          pickup_option:
+            type: object
+            properties:
+              pickup_method_id:
+                type: integer
+                example: 1
       x-internal: false
     UpdateConsignmentRequest:
       title: Update Consignment Request
@@ -8756,6 +8762,12 @@ components:
           shipping_option_id:
             type: string
             description: ''
+          pickup_option:
+            type: object
+            properties:
+              pickup_method_id:
+                type: integer
+                example: 1
       description: One or more of these three fields are mandatory. `address` and `line_items` can be updated in one request. `shipping_option_id` has to be updated in a separate request because changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     CouponCodeRequest:
