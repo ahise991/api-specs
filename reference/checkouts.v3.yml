@@ -8412,6 +8412,8 @@ components:
                 description: Array lists only one line item. To display multiple `line_item_ids`, perform a `POST` request to add consignments to the checkout using the same address.
                 items:
                   type: string
+              selected_pickup_option:
+                $ref: '#/components/schemas/PickupOption'
         taxes:
           type: array
           description: ''
@@ -8816,6 +8818,12 @@ components:
           type: boolean
           description: Boolean value that specifies whether this checkout supports Optimized One-Page Checkout settings.
       description: ''
+    PickupOption:
+      type: object
+      title: Pickup Option
+      properties:
+        pickup_method_id:
+          type: integer
   responses:
     CheckoutResponse:
       description: ''
