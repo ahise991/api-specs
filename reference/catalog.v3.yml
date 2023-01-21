@@ -21941,11 +21941,14 @@ components:
         - type
         - amount
     bulkPricingRuleFull_Response:
-      title: bulkPricingRuleFull_Response
+      title: Bulk Pricing Rule
       type: object
-      description: Common Bulk Pricing Rule response properties
       x-internal: false
       properties:
+        id:
+          type: integer
+          description: Unique ID of the *Bulk Pricing Rule*. Read-Only.
+          readOnly: true
         quantity_min:
           minimum: 0
           type: integer
