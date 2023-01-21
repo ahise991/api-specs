@@ -11835,10 +11835,7 @@ paths:
                           - id
                       - $ref: '#/components/schemas/bulkPricingRuleFull_Response'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaCollection_Full'
               example:
                 data:
                   id: 83
@@ -24647,7 +24644,7 @@ components:
               data:
                 type: array
                 items:
-                  $ref: '#/components/schemas/bulkPricingRule_Full'
+                  $ref: '#/components/schemas/bulkPricingRuleFull_Response'
               meta:
                 $ref: '#/components/schemas/metaCollection_Full'
     BulkPricingRuleResponse:
@@ -24658,12 +24655,9 @@ components:
             type: object
             properties:
               data:
-                $ref: '#/components/schemas/bulkPricingRule_Full'
+                $ref: '#/components/schemas/bulkPricingRuleFull_Response'
               meta:
-                title: Meta
-                type: object
-                properties: {}
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/metaCollection_Full'
           example:
             data:
               id: 83
