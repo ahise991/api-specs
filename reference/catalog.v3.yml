@@ -21847,7 +21847,7 @@ components:
           minimum: 0
           type: integer
           description: |
-            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity can't be less than two.
+            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity canʼt be less than two.
             Required in /POST.
           example: 10
           x-required:
@@ -21900,7 +21900,7 @@ components:
           minimum: 0
           type: integer
           description: |
-            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity can't be less than two.
+            The minimum inclusive quantity of a product to satisfy this rule. Must be greater than or equal to zero. For `fixed` rules, the minimum quantity canʼt be less than two.
           example: 10
         quantity_max:
           minimum: 0
