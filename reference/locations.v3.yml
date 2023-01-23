@@ -753,6 +753,12 @@ components:
             type: object
             description: Address is required if the location's `type_id` is `PHYSICAL`.
             required:
+              - address1
+              - city
+              - state
+              - zip
+              - email
+              - geo_coordinates
               - country_code
             properties:
               address1:
@@ -769,8 +775,8 @@ components:
               state:
                 type: string
                 description: The state where the location is located.
-                enum:
-                  - NY
+                example: NY
+                format: enum
               zip:
                 type: string
                 description: Zip code of the location.
@@ -810,8 +816,8 @@ components:
                 type: string
                 description: ISO 3166-1 alpha-3 code.
                 default: US
-                enum:
-                  - US
+                format: enum
+                example: US
           storefront_visibility:
             type: boolean
             default: true
