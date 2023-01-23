@@ -21880,7 +21880,8 @@ components:
             - type: string
               example: '.10'
           description: |-
-            You can express the discount as either a fixed dollar amount or a percentage. To use a fixed dollar amount, send a number; the response will return a number. To use a percentage, divide the percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float.
+            You can express the adjustment type as either a fixed dollar amount or a percentage. Send a number; the response will return a number for `price` and `fixed` adjustments.
+            Divide the adjustment percentage by 100 and send the result in string format. For example, represent 10% as “.10”. The response will return a float value for both `price` and `percentage` adjustments. 
             Required in /POST.
       required:
         - quantity_min
