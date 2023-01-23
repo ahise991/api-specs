@@ -3368,8 +3368,12 @@ components:
           description: Numeric ID of the product.
           example: 20
           type: integer
+        order_pickup_method_id:
+          type: integer
+          example: 0
+          description: ID of the pickup fulfillment method for this item. Default value is 0 when the item is not fulfilled by pickup method.
         order_address_id:
-          description: Numeric ID of the associated order address.
+          description: Numeric ID of the associated order address. Value is `0` for items that are not fulfilled by a pickup method. 
           example: 20
           type: integer
         name:
