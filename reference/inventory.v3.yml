@@ -78,7 +78,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
               examples:
-                Item's requires absolute adjustment before relative error:
+                Item requires absolute adjustment before relative error:
                   value:
                     status: 422
                     title: 'Items with identity: [product_id 113] requires absolute adjustment before relative'
