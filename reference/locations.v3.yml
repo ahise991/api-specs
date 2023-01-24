@@ -703,7 +703,7 @@ components:
               - country_code
           storefront_visibility:
             type: boolean
-            description: Indicator of accessibility of location on storefront.
+            description: Indicator of accessibility of location on the storefront.
             default: true
           special_hours:
             $ref: '#/components/schemas/BlackoutHours'
