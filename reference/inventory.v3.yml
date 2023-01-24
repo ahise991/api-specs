@@ -597,7 +597,7 @@ components:
                     description: Shows whether an item is available for purchase independent of quantity.
                   warning_level:
                     type: integer
-                    description: 'Inventory warning level for the product. When the product''s inventory level drops below the warning level, the store owner will be informed.'
+                    description: 'Inventory warning level for the product. The store owner will be informed when the product's inventory level drops below the warning level.'
                     example: 1
                   bin_picking_number:
                     type: string
