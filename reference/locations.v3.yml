@@ -149,7 +149,7 @@ paths:
                             description: The total number of items in the collection on current page.
                           per_page:
                             type: integer
-                            description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
+                            description: 'The number of items returned in the collection per page, controlled by the limit parameter.'
                           current_page:
                             type: integer
                             description: The page you are currently on within the collection.
