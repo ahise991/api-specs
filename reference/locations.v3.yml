@@ -250,7 +250,7 @@ paths:
       operationId: get-a-metafield
       responses:
         '200':
-          description: Request has been successfully processed.
+          description: The request has been successfully processed.
           content:
             application/json:
               examples: {}
