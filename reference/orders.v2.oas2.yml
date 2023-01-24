@@ -5481,7 +5481,7 @@ components:
               example: 1
             shipping_zone_name:
               type: string
-              description: Name of the shipping zone.
+              description: The name of the shipping zone.
               example: United States
             shipping_quotes:
               $ref: '#/components/schemas/shippingQuotesConsignment_Resource'
