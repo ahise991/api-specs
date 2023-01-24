@@ -290,7 +290,7 @@ components:
               example: 5
             per_page:
               type: integer
-              description: 'The amount of items returned in the collection per page, controlled by the limit parameter.'
+              description: 'The number of items returned in the collection per page, controlled by the limit parameter.'
               example: 5
             current_page:
               type: integer
