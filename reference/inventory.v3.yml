@@ -14,7 +14,7 @@ info:
     * Display location-level inventory to shoppers
     * Provide multi-location fulfillment options
     * Facilitate Buy Online Pickup in Store (BOPIS)
-    * Manage order fulfillment post checkout
+    * Manage order fulfillment post-checkout
 
     ## Items
     All product variants whose inventories are tracked by variant are inventory items. You can reference these inventory items using a variant's `variant_id` or `sku`. If a product has no variants, use `product_id`. 
