@@ -989,7 +989,7 @@ components:
     LocationManagedByExternalSourceParam:
       in: query
       name: managed_by_external_source
-      description: Filter whether location inventory levels is managed by external source.
+      description: Filter whether an external source manages location inventory levels.
       required: false
       schema:
         type: boolean
