@@ -402,12 +402,10 @@ components:
         opening:
           type: string
           description: Opening time.
-          format: time
           example: '08:00'
         closing:
           type: string
           description: Closing time.
-          format: time
           example: '16:00'
     OperatingHours:
       type: object
@@ -442,12 +440,10 @@ components:
             type: boolean
           opening:
             type: string
-            format: time
             example: '09:00'
             default: '00:00'
           closing:
             type: string
-            format: time
             example: '09:00'
             default: '00:00'
           all_day:
@@ -580,12 +576,10 @@ components:
               type: boolean
             opening:
               type: string
-              format: time
               example: '09:00'
               default: '00:00'
             closing:
               type: string
-              format: time
               example: '09:00'
               default: '00:00'
             all_day:
