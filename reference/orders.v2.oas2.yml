@@ -1220,7 +1220,7 @@ paths:
       description: |-
         Get all shipping quotes persisted on an order for a shipping consignment.
 
-        This is a read-only endpoint whose response depends on the shipping quote. A shipping quote can only be generated using the storefront at this time. Orders that are created in the control panel or using the API return a 204 status response since a shipping quote is not generated during that process.
+        This is a read-only endpoint whose response depends on the shipping quote. You can only generate a shipping quote using the storefront at this time. Orders that are created in the control panel, or using the API, return a 204 status response since you can't generate a shipping quote during that process.
       parameters:
         - $ref: '#/components/parameters/store_hash'
         - $ref: '#/components/parameters/order_id_path'
