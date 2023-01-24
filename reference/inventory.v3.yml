@@ -484,7 +484,7 @@ components:
               is_in_stock:
                 type: boolean
                 description: |
-                  Shows whether an item is available for purchase independent from quantity. If missing, value will not be changed.
+                  Shows whether an item is available for purchase independent of quantity. If missing, the value will remain the same.
               warning_level:
                 type: integer
                 description: |
