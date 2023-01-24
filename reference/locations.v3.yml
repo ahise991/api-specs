@@ -165,7 +165,7 @@ paths:
                                 description: A link to the current page is returned in the response.
                                 example: '?limit=100&page=1'
         '404':
-          description: Request has been rejected due to resource not being found.
+          description: The request has been rejected due to the resource not being found.
           content:
             application/json:
               examples: {}
