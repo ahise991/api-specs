@@ -3660,7 +3660,7 @@ components:
           properties:
             pickup_method_id:
               type: integer
-      description: One or more of these three fields are mandatory. Address and line items can be updated in one request. Shipping option ID or pickup option ID have to be updated in a separate request, since changing the address or line items can invalidate the previously available shipping options.
+      description: One or more of these three fields is mandatory. You can update address and line items in one request. You have to update shipping option ID or pickup option ID in a separate request since changing the address or line items can invalidate the previously available shipping options.
       x-internal: false
     checkoutCart:
       title: checkoutCart
