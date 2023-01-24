@@ -162,7 +162,7 @@ paths:
                             properties:
                               current:
                                 type: string
-                                description: Link to the current page returned in the response.
+                                description: A link to the current page is returned in the response.
                                 example: '?limit=100&page=1'
         '404':
           description: Request has been rejected due to resource not being found.
