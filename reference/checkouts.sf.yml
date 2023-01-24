@@ -1211,7 +1211,7 @@ paths:
                 
         ### For **pickup** consignments:
           1. Create a new consignment object. 
-             - Send a `POST` request to `/consignments` with line items IDs and quantitites.
+             - Send a `POST` request to `/consignments` with line item IDs and quantities.
              - Provide a `pickup_method_id` provided by the Pickup Service.
              - Required Fields:
                 * `pickupOption`
