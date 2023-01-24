@@ -22,7 +22,7 @@ paths:
 
         ## Examples
 
-        This list can be filtered to return pickup objects specific to a list of requested pickup or order IDs. 
+        You can filter the list to return pickup objects specific to a list of requested pickup or order IDs. 
         This is achieved by appending the query string `?order_id:in=100,103,202` or `pickup_id:in=1,4` to the 
         resource `/orders/pickups`.
 
