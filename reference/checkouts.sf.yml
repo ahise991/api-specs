@@ -1380,7 +1380,7 @@ paths:
         ### Select a specific fulfillment option
         Before placing an order, each consignment must have a `selectedShippingOption` or a `selectedPickupOption`.
 
-        If the consignment already has a pick-up option selected and a shipping option is provided, such option will be deselected and a shipping option will be selected instead (and vice versa). The `PUT` request will fail if it contains a shipping option ID as well as a pickup option ID
+        If the consignment already has a pick-up option selected and a shipping option is provided, the pick-up option will be deselected and the shipping option will be selected instead (and vice versa). The `PUT` request will fail if it contains a shipping option ID and a pickup option ID.
 
         Required Fields:
         * `shippingOptionId` or `pickupOptionId`
