@@ -1195,7 +1195,7 @@ paths:
       description: |
         Adds a new *Consignment* to *Checkout*.
 
-        There are two steps to define the fulfillment of the items in the cart.
+        Perform the following two steps to define the fulfillment of the items in the cart.
 
         ### For **shipping** consignments:
 
