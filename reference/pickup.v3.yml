@@ -118,7 +118,7 @@ paths:
         - Pickup
       summary: Delete Pickups
       description: |-
-        Delete pickups via providing a list of `pickup_id`s.
+        Delete pickups by providing a list of `pickup_id`s.
 
         ## Examples
         The list of pickup_ids can be used to delete the pickup items. This is achieved by appending the query string **?id:in=1,2,3** to the resource **/pickup**
