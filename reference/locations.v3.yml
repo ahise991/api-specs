@@ -201,7 +201,7 @@ paths:
                     type: object
         '409':
           description: |
-            The `Metafield` was in conflict with another `Metafield`. This can be the result of duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
+            The `Metafield` conflicted with another `Metafield`. This can result from duplicate unique key combinations of the app's client id, namespace, key, resource_type, and resource_id.
           content:
             application/json:
               examples: {}
