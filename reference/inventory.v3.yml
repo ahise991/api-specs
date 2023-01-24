@@ -253,7 +253,7 @@ paths:
                     title: Payload contains invalid fields
                     type: 'https://developer.bigcommerce.com/api-docs/getting-started/api-status-codes'
                     errors:
-                      setting.0.settings: 'At least one setting must be specified: warning_level, is_in_stock or safety_stock'
+                      setting.0.settings: 'You must specify at least one setting: warning_level, is_in_stock or safety_stock'
       summary: Update Inventory Settings at a Location
     parameters: []
 components:
