@@ -302,7 +302,7 @@ components:
           type: integer
           minimum: 1
           example: 4
-          description: ID of product.
+          description: The ID of the product.
         quantity:
           type: integer
           minimum: 1
