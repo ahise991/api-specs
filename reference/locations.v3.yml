@@ -996,7 +996,7 @@ components:
     LocationIsActiveParam:
       in: query
       name: is_active
-      description: 'Filter by active locations flag, return both if not specified.'
+      description: 'Filter by active locations flag; return both if not specified.'
       required: false
       schema:
         type: boolean
