@@ -249,7 +249,7 @@ components:
                   description: A link to the previous page is returned in the response.
                 current:
                   type: string
-                  description: Link to the current page returned in the response.
+                  description: A link to the current page is returned in the response.
                 next:
                   type: string
                   description: Link to the next page returned in the response.
