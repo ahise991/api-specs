@@ -249,7 +249,7 @@ components:
               type: integer
               minimum: 1
               example: 3
-              description: ID of pickup.
+              description: The ID of pickup.
         - $ref: '#/components/schemas/BasePickupItem'
         - type: object
           properties:
