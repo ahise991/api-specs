@@ -219,7 +219,7 @@ paths:
                     description: URL identifying the error type. Dereferencing the URL leads to documentation about the error type.
         '422':
           description: |
-            The `Metafield` was not valid. This is the result of missing required fields, or of invalid data. See the response for more details.
+            The `Metafield` was not valid. This is the result of missing required fields or invalid data. See the response for more details.
           content:
             application/json:
               examples: {}
