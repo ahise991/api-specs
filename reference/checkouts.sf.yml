@@ -1377,7 +1377,7 @@ paths:
         **Note:**
         Updating a consignment could invalidate the value for `selectedShippingOption` and `selectedPickupOption`.
 
-        ###  Selects a specific fulfillment option
+        ### Select a specific fulfillment option
         Before placing an order, each consignment must have a `selectedShippingOption` or a `selectedPickupOption`.
 
         If the consignment already has a pick-up option selected and a shipping option is provided, such option will be deselected and a shipping option will be selected instead (and vice versa). The `PUT` request will fail if it contains a shipping option ID as well as a pickup option ID
