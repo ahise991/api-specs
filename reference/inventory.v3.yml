@@ -534,7 +534,7 @@ components:
             warning_level:
               type: integer
               description: |
-                Inventory warning level for the product. When the product's inventory level drops below the warning level, the store owner will be informed. If missing, value will not be changed.
+               Inventory warning level for the product. The store owner will be informed when the product's inventory level drops below the warning level. If missing, the value will remain the same.
               example: 2
               default: 0
             bin_picking_number:
