@@ -337,7 +337,7 @@ components:
             Can be provided as two inputs.
             Unix: Represents the time in seconds that has elapsed since Unix epoch (00:00:00 UTC on 1 January 1970).
             ISO-8601: Represents the time in ISO format.
-            If this value is not supplied the pickup item collected_at property will be null.
+            If this value is not supplied, the pickup item collected_at property will be null.
             Examples include `1660831392` and '2022-06-18T00:00:30Z'.
       required:
         - id
