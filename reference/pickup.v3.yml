@@ -178,7 +178,7 @@ paths:
                     type: object
         '422':
           description: |
-            Incorrect entity. Locations was not valid. This is the result of missing required fields, or of invalid data or partial error. See the response for more details.
+            Incorrect entity. Locations were not valid. This results from missing required fields, invalid data, or partial error. See the response for more details.
           content:
             application/problem+json:
               schema:
