@@ -869,7 +869,7 @@ components:
         permission_set:
           type: string
           description: |
-            Determines whether the field is completely private to the app that owns the field (`app_only`), or visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Can grant storefront visibility to the field using (`read_and_sf_access`) or (`write_and_sf_access`).
+            Determines whether the field is completely private to the app that owns the field (`app_only`), visible to other API consumers (`read`), or completely open for reading and writing to other apps (`write`). Can grant storefront visibility to the field using (`read_and_sf_access`) or (`write_and_sf_access`).
           enum:
             - app_only
             - read
