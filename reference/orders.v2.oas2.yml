@@ -283,7 +283,7 @@ paths:
         - An order can have only one pickup consignment.
 
         Thus we have two modes of operation:
-        1. Legacy mode (`shipping_addresses` and `products`) for creating orders with shipping fulfillment method.
+        1. Legacy mode (`shipping_addresses` and `products`) for creating orders with a shipping fulfillment method.
         2. Consignment mode (`consignments`) for creating orders with pickup fulfillment method.
 
         In any given request, only one mode may be operational.
