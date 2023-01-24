@@ -42,7 +42,7 @@ paths:
         required: true
       responses:
         '200':
-          description: Locations has been successfully created.
+          description: Locations have been successfully created.
           content:
             application/json:
               schema:
