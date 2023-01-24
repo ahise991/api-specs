@@ -147,7 +147,7 @@ paths:
       tags:
         - Pickup
       summary: Update Pickups
-      description: 'Update pickups by providing `pickup_id`, `collected_at` and `ready_at` in the input.'
+      description: 'Update pickups by providing `pickup_id`, `collected_at`, and `ready_at` in the input.'
       requestBody:
         required: true
         content:
