@@ -1003,7 +1003,7 @@ components:
     LocationStorefrontVisibilityParam:
       in: query
       name: storefront_visibility
-      description: 'Filter by storefront_visibility flag, return both if not specified.'
+      description: 'Filter by storefront_visibility flag; return both if not specified.'
       required: false
       schema:
         type: boolean
