@@ -529,7 +529,7 @@ components:
               default: 0
             is_in_stock:
               type: boolean
-              description: Shows whether an item is available for purchase independent from quantity.
+              description: Shows whether an item is available for purchase independent of quantity.
               default: true
             warning_level:
               type: integer
