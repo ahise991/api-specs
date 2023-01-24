@@ -19,7 +19,7 @@ info:
     ## Items
     All product variants whose inventories are tracked by variant are inventory items. You can reference these inventory items using a variant's `variant_id` or `sku`. If a product has no variants, use `product_id`. 
 
-    * **Inventory Settings**: You can apply and get inventory settings to the inventory at a specific location or to the inventory at all locations. You can update inventory settings for a specific location.   
+    * **Inventory Settings**: You can apply and get inventory settings for the inventory at a specific location or at all locations. You can update inventory settings for a specific location.   
     * **Inventory Quantities**: You can get inventory levels at all locations or at a specific location. You can update inventory levels at a specific location, using the relative adjustment or absolute adjustment endpoints.
 
     ## Adjustments
