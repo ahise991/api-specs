@@ -212,7 +212,7 @@ components:
             id:
               type: integer
               example: 1
-              description: ID of pickup method.
+              description: The ID of the pickup method.
         - $ref: '#/components/schemas/BasePickupMethod'
     MetaCollection:
       type: object
