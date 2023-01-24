@@ -15,7 +15,7 @@ info:
     - [Metafields](#metafields)
 
     ## Locations
-    By default all BigCommerce stores have at least one location (who's `id` = `1`). Additional locations can be created to to track inventory against using the `/locations` endpoints. Initially we will only support the creation of physical inventory locations, which must have an address. 
+    By default, all BigCommerce stores have at least one location (`id` = `1`). You can create additional locations to track inventory against using the `/locations` endpoints. Initially, we will only support the creation of physical inventory locations, which must have an address. 
 
     ## Metafields
     Metafields allow you to add in additional fields about your store's locations.
