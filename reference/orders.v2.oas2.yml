@@ -5477,7 +5477,7 @@ components:
               example: 2
             shipping_zone_id:
               type: number
-              description: Numeric ID of the shipping zone.
+              description: The numeric ID of the shipping zone.
               example: 1
             shipping_zone_name:
               type: string
