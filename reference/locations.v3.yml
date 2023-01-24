@@ -632,7 +632,7 @@ components:
             default: PHYSICAL
           enabled:
             type: boolean
-            description: Indicator of accessibility of location.
+            description: Indicator of accessibility of the location.
             default: true
           operating_hours:
             $ref: '#/components/schemas/OperatingHours'
