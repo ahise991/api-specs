@@ -25,7 +25,7 @@ info:
     ## Adjustments
     There are two ways to adjust an item's inventory:
     * **Relative**: change to item's inventory relative to existing inventory (Ex: add `10` current inventory).
-    * **Absolute**: overwride existing inventory with a new count (Ex: set currerent inventory to `30`).
+    * **Absolute**: Override existing inventory with a new count (Ex: set current inventory to `30`).
 servers:
   - url: 'https://api.bigcommerce.com'
 paths:
