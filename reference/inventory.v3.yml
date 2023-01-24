@@ -8,7 +8,7 @@ info:
     url: 'https://www.bigcommerce.com'
     email: support@bigcommerce.com
   description: |-
-    BigCommerce's V3 REST Inventory API endpoints expose location-aware, item-level inventory data to API consumers. These API resources allow developers to create BigCommerce apps and in-house API driven solutions that can do the following:
+    BigCommerce's V3 REST Inventory API endpoints expose location-aware, item-level inventory data to API consumers. These API resources allow developers to create BigCommerce apps and in-house API-driven solutions that can do the following:
 
     * Track inventory across multiple locations
     * Display location-level inventory to shoppers
