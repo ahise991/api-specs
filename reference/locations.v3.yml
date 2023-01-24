@@ -358,7 +358,7 @@ components:
           properties:
             total:
               type: integer
-              description: Total number of items in the result set.
+              description: The total number of items in the result set.
               example: 2
             count:
               type: integer
