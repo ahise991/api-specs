@@ -118,7 +118,7 @@ paths:
       description: |-
         Update existing pickup methods.
 
-        This is a batch operation that can update 10 pickup methods objects in one request.
+        This batch operation can update 10 pickup method objects in one request.
 
         Only the `id` property of the pickup method object is required as part of the request. Pickup method properties that are not provided will maintain their existing values.
 
