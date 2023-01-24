@@ -479,7 +479,7 @@ components:
               safety_stock:
                 type: integer
                 description: |
-                  Safety stock. Decreases the amount available for selling items at that amount. If missing, value will not be changed.
+                  Safety stock. Decreases the amount available for selling items at that amount. If missing, the value will remain the same.
                 example: 5
               is_in_stock:
                 type: boolean
