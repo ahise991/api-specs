@@ -182,7 +182,7 @@ components:
         location_id:
           type: integer
           example: 2
-          description: ID of location.
+          description: The ID of the location.
         display_name:
           type: string
           minLength: 0
