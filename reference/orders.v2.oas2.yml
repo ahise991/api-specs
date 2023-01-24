@@ -278,7 +278,7 @@ paths:
         * `products` or `consignments`
         * `billing_address`
 
-        When you craate an order, the `consignment(s)` array allows you to create pickup consignments.
+        When you create an order, the `consignment(s)` array allows you to create pickup consignments.
         - An order can have either a pickup or a shipping fulfillment method, but not both.
         - An order can have only one pickup consignment.
 
