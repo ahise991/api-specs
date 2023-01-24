@@ -259,7 +259,7 @@ components:
                 - AWAITING_COLLECTION
                 - COLLECTED
               example: COLLECTED
-              description: Status of pickup.
+              description: The status of the pickup.
             collected_at:
               type: string
               format: date-time
