@@ -307,7 +307,7 @@ components:
           type: integer
           minimum: 1
           example: 5
-          description: Quantity of an item.
+          description: The quantity of an item.
       required:
         - order_product_id
         - quantity
