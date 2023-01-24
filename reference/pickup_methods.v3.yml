@@ -200,7 +200,7 @@ components:
           minLength: 0
           maxLength: 250
           example: Collect during our opening hours of 0900 - 1700
-          description: Description of collection time.
+          description: The description of collection time.
         location_identity:
           type: integer
           example: 2
