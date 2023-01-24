@@ -349,7 +349,7 @@ components:
             URL identifying the error type. Dereferencing the URL leads to documentation about the error type.
         errors:
           type: object
-          description: Detailed summary describing the particular error.
+          description: The detailed summary describing the particular error.
     Meta:
       type: object
       properties:
