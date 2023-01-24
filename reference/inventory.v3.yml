@@ -314,7 +314,7 @@ components:
                   example: '?limit=5&page=3'
                 next:
                   type: string
-                  description: Link to the next page returned in the response.
+                  description: A link to the next page is returned in the response.
                   example: '?limit=5&page=4'
     AdjustmentsRelativeRequest:
       type: object
