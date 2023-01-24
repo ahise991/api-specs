@@ -975,7 +975,7 @@ components:
     LocationIsDefaultParam:
       in: query
       name: is_default
-      description: Filter whether Location is default.
+      description: Filter whether the location is the default.
       required: false
       schema:
         type: boolean
