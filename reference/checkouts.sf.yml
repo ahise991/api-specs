@@ -4089,7 +4089,7 @@ components:
     PickupOption:
       type: object
       title: Pickup Option
-      description: An option that represents a location where items can be picked up from.
+      description: An option that represents a location where customers can pick up items.
       properties:
         pickup_method_id:
           type: integer
