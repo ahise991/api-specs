@@ -35,14 +35,14 @@ info:
 
     * `currency_id` - the display currency ID. Depending on the currency selected, the value may be different from the transactional currency.
     * `currency_code` - the currency code of the display currency used to present prices to the shopper on the storefront. Depending on the currency selected, the value may be different from the transactional currency.
-    * `currency_exchange_rate` - the exchange rate between the store’s default currency and the display currency. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
+    * `currency_exchange_rate` - the exchange rate between the store's default currency and the display currency. For orders created using the V2 endpoints, this value is always 1 (only in the storefront this value can be different to 1).
     * `default_currency_id` - the transactional currency ID.
     * `default_currency_code` - the currency code of the transactional currency the shopper pays in.
 
     The following additional fields are returned on orders when Multi-Currency is enabled on the store:
 
-    * `store_default_currency_code` - the currency code of the store’s default currency.
-    * `store_default_to_transactional_exchange_rate` - the exchange rate between the store’s default currency and the transactional currency used in the order.
+    * `store_default_currency_code` - the currency code of the store's default currency.
+    * `store_default_to_transactional_exchange_rate` - the exchange rate between the store's default currency and the transactional currency used in the order.
 
     **Example:**
 
@@ -98,7 +98,7 @@ paths:
 
         To update a product in an order, include `id` in the body. The body should only contain the fields that need to be updated. Those fields that are omitted will not be changed.
 
-        To remove a product from an order, set that product’s `quantity` to `0`.
+        To remove a product from an order, set that product's `quantity` to `0`.
 
         To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
       summary: Update an Order
@@ -271,7 +271,7 @@ paths:
       description: |-
         Creates an *Order*. To learn more about creating or updating orders, see [Orders Overview](/api-docs/orders/orders-api-overview).
 
-        An order can be created with an existing catalog product or a custom product.
+        Create an order with an existing catalog product or a custom product.
 
         **Required Fields**
 
@@ -1286,7 +1286,7 @@ components:
     status_id:
       name: status_id
       in: query
-      description: The staus ID of the order. You can get the status id from the `/orders` endpoints.
+      description: The status ID of the order. You can get the status id from the `/orders` endpoints.
       schema:
         type: integer
     status_id_path:
@@ -1686,7 +1686,7 @@ components:
                   customer_locale: en
                   external_order_id: external-order-id
     ordersCount_Resp:
-      description: Order Countr response collection.
+      description: Order Country response collection.
       content:
         application/json:
           schema:
@@ -4646,7 +4646,7 @@ components:
         status_id:
           type: integer
           example: 7
-          description: The staus ID of the order.
+          description: The status ID of the order.
         billing_address:
           type: object
           properties:
@@ -4774,7 +4774,7 @@ components:
                   - The API does not currently support the following option types:
                     - File upload
                     - Pick list
-                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and retuned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
+                  - For date modifiers use either the `YYYY-MM-DDThh:mm:ss±hh:mm` or the `YYYY-MM-DD` ISO-8601 formats. The date field modifier values are saved and returned as timestamps. For values entered using the YYYY-MM-DD format, the store timezone is used when creating the timestamp.
                   - For multi-line text field modifiers, use the `\n` characters for separating the lines.
               display_name:
                 type: string
