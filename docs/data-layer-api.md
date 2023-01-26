@@ -4,13 +4,26 @@ The [Data Layer API](/api-docs/store-management/data-layer-api) is a GraphQL man
 
 Request URL: `https://api.bigcommerce.com/stores/{store_hash}/v3/...`
 
-## OAuth Scopes
+## Authentication
+
+### OAuth Scopes
 
 | UI Name | Permission | Parameter |
 | :--- | :--- | :--- |
 |  | modify |  |
 |  | read-only |  |
 
+### Authentication header
+
+| Header | Argument | Description |
+|:-------|:---------|:------------|
+| `X-Auth-Token` | `access_token` | For more about API accounts that generate `access_token`s, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication). |
+
+### Further reading
+        
+For example requests and more information about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#x-auth-token-header-example-requests).
+        
+For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
 ## Schema Types
 
