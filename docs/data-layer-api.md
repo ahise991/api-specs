@@ -1,5 +1,9 @@
 # Data Layer API Reference
 
+The [Data Layer API](/api-docs/store-management/data-layer-api) is a GraphQL management API that allows you to enable and disable the [Big Open Data Layer](/api-docs/analytics/bodl-for-storefronts) for a store.
+
+Request URL: `https://api.bigcommerce.com/stores/{store_hash}/v3/...`
+
 ## OAuth Scopes
 
 | UI Name | Permission | Parameter |
