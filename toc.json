@@ -71,7 +71,7 @@
     {
       "type": "item",
       "title": "GraphQL Data Layer API",
-      "uri": "docs/data-layer-api.md"
+      "uri": "/docs/data-layer-api.md"
     },
     {
       "type": "divider",
