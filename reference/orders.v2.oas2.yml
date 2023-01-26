@@ -3042,8 +3042,8 @@ components:
                           readOnly: true
                       readOnly: true
               order_source:
-                description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
-                example: www, iphone, android, mobile, manual
+                description: Orders submitted from the store's website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
+                example: www, iPhone, Android, mobile, manual
                 type: string
               external_source:
                 description: |-
@@ -4449,8 +4449,8 @@ components:
           example: false
           type: boolean
         order_source:
-          description: Orders submitted from the store’s website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
-          example: www, iphone, android, mobile, manual
+          description: Orders submitted from the store's website will include a `www` value. Orders submitted with the Checkout API will be set to `checkout_api`.
+          example: www, iPhone, Android, mobile, manual
           type: string
         products:
           $ref: '#/components/schemas/products_Resource'
