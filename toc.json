@@ -69,6 +69,11 @@
       "uri": "https://developer.bigcommerce.com/graphql-api-reference"
     },
     {
+      "type": "item",
+      "title": "GraphQL Data Layer API",
+      "uri": "docs/data-layer-api.md"
+    },
+    {
       "type": "divider",
       "title": "Management APIs"
     },
