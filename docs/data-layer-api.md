@@ -6,7 +6,7 @@ Request URL: `https://api.bigcommerce.com/stores/{store_hash}/v3/...`
 
 ## Authentication
 
-### OAuth Scopes
+### OAuth scopes
 
 | UI Name | Permission | Parameter |
 | :--- | :--- | :--- |
@@ -25,7 +25,7 @@ For example requests and more information about authenticating BigCommerce APIs,
         
 For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-## Schema Types
+## Schema types
 
 ### Query
 <table>
