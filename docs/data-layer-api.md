@@ -1,5 +1,13 @@
 # Data Layer API Reference
 
+## OAuth Scopes
+
+| UI Name | Permission | Parameter |
+| :--- | :--- | :--- |
+|  | modify |  |
+|  | read-only |  |
+
+
 ## Schema Types
 
 ### Query
