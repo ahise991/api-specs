@@ -1,6 +1,8 @@
-# Schema Types
+# Data Layer API Reference
 
-## Query
+## Schema Types
+
+### Query
 <table>
 <thead>
 <tr>
@@ -23,7 +25,7 @@ A store.
 </tbody>
 </table>
 
-## Mutation
+### Mutation
 <table>
 <thead>
 <tr>
@@ -46,9 +48,9 @@ Store settings
 </tbody>
 </table>
 
-## Objects
+### Objects
 
-### DataSolutionsMutations
+#### DataSolutionsMutations
 
 Data solutions mutations.
 
@@ -79,7 +81,7 @@ Update data layer config.
 </tbody>
 </table>
 
-### DataSolutionsSettings
+#### DataSolutionsSettings
 
 Data solutions settings.
 
@@ -105,7 +107,7 @@ Indicates if a data layer(bodl) object is enabled for all storefronts.
 </tbody>
 </table>
 
-### Store
+#### Store
 
 A store.
 
@@ -131,7 +133,7 @@ Store settings.
 </tbody>
 </table>
 
-### StoreSettings
+#### StoreSettings
 
 Store settings.
 
@@ -157,7 +159,7 @@ Store settings.
 </tbody>
 </table>
 
-### StoreSettingsMutation
+#### StoreSettingsMutation
 
 Store Settings mutations
 
@@ -183,7 +185,7 @@ Store settings.
 </tbody>
 </table>
 
-### UpdateDataLayerResult
+#### UpdateDataLayerResult
 
 Result of mutation.
 
@@ -209,9 +211,9 @@ Data solutions that is updated as a result of mutation.
 </tbody>
 </table>
 
-## Inputs
+### Inputs
 
-### UpdateDataLayerInput
+#### UpdateDataLayerInput
 
 <table>
 <thead>
@@ -234,13 +236,13 @@ is data layer enabled
 </tbody>
 </table>
 
-## Scalars
+### Scalars
 
-### Boolean
+#### Boolean
 
 The `Boolean` scalar type represents `true` or `false`.
 
-### String
+#### String
 
 The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
 
