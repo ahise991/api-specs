@@ -4,7 +4,7 @@ The [Data Layer API](/api-docs/store-management/data-layer-api) is a GraphQL man
 
 **Request URL:** 
 
-`https://api.bigcommerce.com/stores/{store_hash}/v3/...`
+`https://api.bigcommerce.com/stores/{store_hash}/graphql`
 
 **Path Parameters:**
 
