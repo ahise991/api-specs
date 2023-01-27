@@ -33,7 +33,7 @@ For example requests and more information about authenticating BigCommerce APIs,
         
 For more about BigCommerce OAuth scopes, see [API Accounts and OAuth Scopes](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
 
-## Schema types
+## Schema Types
 
 ### Query
 <table>
@@ -71,10 +71,10 @@ A store.
 <tbody>
 <tr>
 <td colspan="2" valign="top"><strong>settings</strong></td>
-<td valign="top"><a href="#storesettingsmutation">StoreSettingsMutation</a></td>
+<td valign="top"><a href="#storesettingsmutations">StoreSettingsMutations</a></td>
 <td>
 
-Store settings
+Store Settings mutations
 
 </td>
 </tr>
@@ -192,7 +192,7 @@ Store settings.
 </tbody>
 </table>
 
-#### StoreSettingsMutation
+#### StoreSettingsMutations
 
 Store Settings mutations
 
@@ -207,11 +207,11 @@ Store Settings mutations
 </thead>
 <tbody>
 <tr>
-<td colspan="2" valign="top"><strong>dataSolution</strong></td>
-<td valign="top"><a href="#datasolutionsmutations">DataSolutionsMutations</a></td>
+<td colspan="2" valign="top"><strong>dataSolutions</strong></td>
+<td valign="top"><a href="#datasolutionsmutations">DataSolutionsMutations</a>!</td>
 <td>
 
-Store settings.
+Data solutions mutations.
 
 </td>
 </tr>
