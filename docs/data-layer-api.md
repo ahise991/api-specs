@@ -182,10 +182,19 @@ Store settings.
 <tbody>
 <tr>
 <td colspan="2" valign="top"><strong>dataSolutions</strong></td>
-<td valign="top"><a href="#datasolutionssettings">DataSolutionsSettings</a></td>
+<td valign="top"><a href="#datasolutionssettings">DataSolutionsSettings</a>!</td>
 <td>
 
-Store settings.
+Data solutions.
+
+</td>
+</tr>
+<tr>
+<td colspan="2" valign="top"><strong>storeName</strong></td>
+<td valign="top"><a href="#string">String</a>!</td>
+<td>
+
+Store name.
 
 </td>
 </tr>
