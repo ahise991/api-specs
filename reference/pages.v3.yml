@@ -613,6 +613,9 @@ components:
         type: string
   securitySchemes:
     X-Auth-Token:
+      type: apiKey
+      name: X-Auth-Token
+      in: header
       description: |-
         ## API account
 
@@ -642,20 +645,6 @@ components:
         ## Additional information
 
         [BigCommerce Terms of Service](http://www.bigcommerce.com/terms)
-      type: oauth2
-      flows:
-        implicit:
-          authorizationUrl: 'https://store-store_hash.mybigcommerce.com/manage/settings/api-accounts/create'
-          scopes:
-            store_v2_content: Modify store content
-            store_v2_content_read_only: Read store content
-        authorizationCode:
-          authorizationUrl: 'https://your_app.example.com/api/auth'
-          tokenUrl: 'https://devtools.bigcommerce.com'
-          refreshUrl: 'https://your_app.example.com/api/auth'
-          scopes:
-            store_v2_content: Modify store content
-            store_v2_content_read_only: Read store content
   schemas:
     ResponseErrorBrief:
       type: object
