@@ -19,7 +19,6 @@ The [Data Layer API](/api-docs/store-management/data-layer-api) is a GraphQL man
 | UI Name | Permission | Parameter |
 | :--- | :--- | :--- |
 | Information & Settings | modify | `store_v2_information` |
-| Information & Settings | read-only | `store_v2_information_read_only` |
 
 ### Authentication header
 
