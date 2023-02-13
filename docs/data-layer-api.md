@@ -245,7 +245,7 @@ Result of mutation.
 <td valign="top"><a href="#datasolutionssettings">DataSolutionsSettings</a></td>
 <td>
 
-Data solutions that is updated as a result of mutation.
+Data solutions that are updated as a result of mutation.
 
 </td>
 </tr>
