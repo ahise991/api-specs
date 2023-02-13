@@ -132,7 +132,7 @@ Data solutions settings.
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td>
 
-Indicates if a data layer(bodl) object is enabled for all storefronts.
+Indicates whether a data layer (BODL) object is enabled for all storefronts.
 
 </td>
 </tr>
@@ -270,7 +270,7 @@ Data solutions that are updated as a result of mutation.
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td>
 
-is data layer enabled
+Whether data layer is enabled
 
 </td>
 </tr>
