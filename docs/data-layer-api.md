@@ -285,5 +285,5 @@ The `Boolean` scalar type represents `true` or `false`.
 
 #### String
 
-The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.
+The `String` scalar type represents textual data as UTF-8 character sequences. GraphQL most often uses the String type to represent free-form human-readable text.
 
