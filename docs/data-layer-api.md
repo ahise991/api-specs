@@ -270,7 +270,7 @@ Data solutions that are updated as a result of mutation.
 <td valign="top"><a href="#boolean">Boolean</a>!</td>
 <td>
 
-Whether data layer is enabled
+Indicates whether data layer is enabled.
 
 </td>
 </tr>
