@@ -423,18 +423,7 @@ paths:
         - `base_variant_id`
       operationId: updateProducts
       parameters:
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -806,7 +795,7 @@ paths:
                           current: '?page=1&limit=50'
                           next: string
         '207':
-          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
+          description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occurred, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
             application/json:
               schema:
@@ -883,18 +872,7 @@ paths:
         * `POST` requests to `/products/{product_id}/videos` accept a `video` object.
       operationId: createProduct
       parameters:
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -1323,22 +1301,12 @@ paths:
             Filter items by keywords found in the `name`, `description`, or `sku` fields, or in the brand name.
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/products/{product_id}':
     get:
       tags:
@@ -1347,13 +1315,6 @@ paths:
       description: Returns a single *Product*. Optional parameters can be passed in.
       operationId: getProductById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: include
           in: query
           description: 'Sub-resources to include on a product, in a comma-separated list. If `options` or `modifiers` is used, results are limited to 10 per page.'
@@ -1378,18 +1339,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -1517,25 +1466,7 @@ paths:
         - base_variant_id
       operationId: updateProduct
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -1886,38 +1817,13 @@ paths:
       summary: Delete a Product
       description: Deletes a *Product*.
       operationId: deleteProductById
-      parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-      - name: product_id
-        in: path
-        description: |
-          The ID of the `Product` to which the resource belongs.
-        required: true
-        schema:
-          type: integer
+      - $ref: '#/components/parameters/Accept'
+      - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/images':
     get:
       tags:
@@ -1926,13 +1832,6 @@ paths:
       description: Returns a list of *Product Images*. Optional parameters can be passed in.
       operationId: getProductImages
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -1953,18 +1852,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -2061,25 +1948,7 @@ paths:
         - Supported image file types are BMP, GIF, JPEG, PNG, WBMP, XBM, and WEBP.
       operationId: createProductImage
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -2399,6 +2268,7 @@ paths:
                 type: /api-docs/getting-started/api-status-codes
       x-codegen-request-body-name: productImage
     parameters:
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/images/{image_id}':
     get:
@@ -2408,13 +2278,6 @@ paths:
       description: Returns a single *Product Image*. Optional parameters can be passed in.
       operationId: getProductImageById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: image_id
           in: path
           description: |
@@ -2433,18 +2296,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -2510,13 +2361,7 @@ paths:
         - For file uploads, send a POST request using the `multipart/form-data` media type
       operationId: updateProductImage
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: image_id
           in: path
           description: |
@@ -2524,19 +2369,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -2710,13 +2542,6 @@ paths:
       description: Deletes a *Product Image*.
       operationId: deleteProductImage
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: image_id
           in: path
           description: |
@@ -2724,25 +2549,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ImageIdParam'
   '/catalog/products/{product_id}/videos':
@@ -2753,14 +2565,6 @@ paths:
       description: Returns a list of *Product Videos*. Optional parameters can be passed in.
       operationId: getProductVideos
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -2771,18 +2575,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -2875,26 +2667,7 @@ paths:
         Videos must be loaded through YouTube at this time.
       operationId: createProductVideo
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -3038,7 +2811,7 @@ paths:
                 description: Error payload for the BigCommerce API.
       x-codegen-request-body-name: productVideo
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/videos/{id}':
     get:
@@ -3048,13 +2821,6 @@ paths:
       description: Returns a single *Product Video*. Optional parameters can be passed in.
       operationId: getProductVideoById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: id
           in: path
           description: The BigCommerce ID of the `Video`
@@ -3072,18 +2838,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -3143,32 +2897,13 @@ paths:
         * id
       operationId: updateProductVideo
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: id
           in: path
           description: The BigCommerce ID of the `Video`
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -3313,37 +3048,18 @@ paths:
       description: Deletes a *Product Video*.
       operationId: deleteProductVideo
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: id
           in: path
           description: The BigCommerce ID of the `Video`
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/VideoIdParam'
   '/catalog/products/{product_id}/variants':
@@ -3354,14 +3070,6 @@ paths:
       description: Returns a list of product *Variants*. Optional parameters can be passed in.
       operationId: getVariantsByProductId
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -3382,18 +3090,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -3555,14 +3251,7 @@ paths:
         Variants need to be created one at a time using this endpoint. To use a variant array and create products and variants in the same call use the [Create Products](/api-reference/catalog/catalog-api/products/createproduct) during the initial product creation.
       operationId: createVariant
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -3585,40 +3274,6 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 384
-                  product_id: 192
-                  sku: SMIT-2
-                  sku_id: 350
-                  price: 25
-                  calculated_price: 25
-                  sale_price: 20
-                  retail_price: 25
-                  map_price: {}
-                  weight: 2
-                  calculated_weight: 1
-                  width: 5
-                  height: 5
-                  depth: 5
-                  is_free_shipping: false
-                  fixed_cost_shipping_price: 10
-                  purchasing_disabled: false
-                  purchasing_disabled_message: ''
-                  image_url: ''
-                  cost_price: 25
-                  upc: ''
-                  mpn: ''
-                  gtin: ''
-                  inventory_level: 0
-                  inventory_warning_level: 0
-                  bin_picking_number: ''
-                  option_values:
-                    - id: 176
-                      label: Black
-                      option_id: 220
-                      option_display_name: Color
-                meta: {}
               examples:
                 example-1:
                   value:
@@ -3653,6 +3308,41 @@ paths:
                       calculated_price: 0
                       calculated_weight: 0
                     meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 384
+                      product_id: 192
+                      sku: SMIT-2
+                      sku_id: 350
+                      price: 25
+                      calculated_price: 25
+                      sale_price: 20
+                      retail_price: 25
+                      map_price: {}
+                      weight: 2
+                      calculated_weight: 1
+                      width: 5
+                      height: 5
+                      depth: 5
+                      is_free_shipping: false
+                      fixed_cost_shipping_price: 10
+                      purchasing_disabled: false
+                      purchasing_disabled_message: ''
+                      image_url: ''
+                      cost_price: 25
+                      upc: ''
+                      mpn: ''
+                      gtin: ''
+                      inventory_level: 0
+                      inventory_warning_level: 0
+                      bin_picking_number: ''
+                      option_values:
+                        - id: 176
+                          label: Black
+                          option_id: 220
+                          option_display_name: Color
+                    meta: {}
         '207':
           description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
@@ -3682,7 +3372,7 @@ paths:
                 description: Error payload for the BigCommerce API.
       x-codegen-request-body-name: Variant
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/variants/{variant_id}':
     get:
@@ -3692,13 +3382,6 @@ paths:
       description: Returns a single product *Variant*. Optional parameters can be passed in.
       operationId: getVariantById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: variant_id
           in: path
           description: |
@@ -3717,18 +3400,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -3807,13 +3478,7 @@ paths:
       description: Updates a product *Variant*.
       operationId: updateVariant
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: variant_id
           in: path
           description: |
@@ -3821,19 +3486,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -3920,13 +3572,6 @@ paths:
       description: Deletes a product *Variant*.
       operationId: deleteVariantById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: variant_id
           in: path
           description: |
@@ -3934,25 +3579,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/VariantIdParam'
   '/catalog/products/{product_id}/variants/{variant_id}/metafields':
@@ -3963,13 +3595,6 @@ paths:
       description: Returns a list of product variant *Metafields*. Optional parameters can be passed in.
       operationId: getVariantMetafieldsByProductIdAndVariantId
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: variant_id
           in: path
           description: |
@@ -4009,18 +3634,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -4076,13 +3689,7 @@ paths:
         **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
       operationId: createVariantMetafield
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: variant_id
           in: path
           description: |
@@ -4090,19 +3697,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -4194,7 +3788,7 @@ paths:
                     type: string
       x-codegen-request-body-name: Metafield
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/VariantIdParam'
   '/catalog/products/{product_id}/variants/{variant_id}/metafields/{metafield_id}':
@@ -4209,13 +3803,6 @@ paths:
           in: path
           description: |
             The ID of the `Metafield`.
-          required: true
-          schema:
-            type: integer
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
           required: true
           schema:
             type: integer
@@ -4237,18 +3824,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -4306,17 +3881,11 @@ paths:
       description: "Updates a product variant *Metafield*.\n\n**Required Fields:**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message. "
       operationId: updateVariantMetafield
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: metafield_id
           in: path
           description: |
             The ID of the `Metafield`.
-          required: true
-          schema:
-            type: integer
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
           required: true
           schema:
             type: integer
@@ -4327,19 +3896,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -4411,13 +3967,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: variant_id
           in: path
           description: |
@@ -4425,25 +3974,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/VariantIdParam'
       - $ref: '#/components/parameters/MetafieldIdParam'
@@ -4462,14 +3998,7 @@ paths:
         - image_url: Any publicly available URL
       operationId: createVariantImage
       parameters:
-
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: variant_id
           in: path
           description: |
@@ -4615,7 +4144,7 @@ paths:
                     type: string
       x-codegen-request-body-name: body
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/VariantIdParam'
   '/catalog/products/{product_id}/options':
@@ -4626,14 +4155,6 @@ paths:
       description: 'Returns a list of product *Variant Options*. Optional parameters can be passed in. '
       operationId: getOptions
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -4717,26 +4238,7 @@ paths:
         * If more than one variant needs to be created use the [Create a Product](/api-reference/catalog/catalog-api/products/createproduct) endpoint.
       operationId: createOption
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -5234,45 +4736,6 @@ paths:
                     title: Meta
                     type: object
                     description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 220
-                  product_id: 192
-                  name: Color (Colors only)
-                  display_name: Color
-                  type: swatch
-                  sort_order: 0
-                  option_values:
-                    - id: 174
-                      label: Beige
-                      sort_order: 1
-                      value_data:
-                        colors:
-                          - '#FAFAEB'
-                      is_default: false
-                    - id: 175
-                      label: Grey
-                      sort_order: 2
-                      value_data:
-                        colors:
-                          - '#BDBDBD'
-                      is_default: false
-                    - id: 176
-                      label: Black
-                      sort_order: 3
-                      value_data:
-                        colors:
-                          - '#000000'
-                      is_default: false
-                    - id: 189
-                      label: Black-Walnut
-                      sort_order: 4
-                      value_data:
-                        colors:
-                          - '#e80ee8'
-                      is_default: false
-                  config: {}
-                meta: {}
               examples:
                 example-1:
                   value:
@@ -5287,8 +4750,8 @@ paths:
                         checkbox_label: string
                         date_limited: true
                         date_limit_mode: earliest
-                        date_earliest_value: '2019-08-24'
-                        date_latest_value: '2019-08-24'
+                        date_earliest_value: '2022-08-31T00:00:00+00:00'
+                        date_latest_value: '2023-08-31T00:00:00+00:00'
                         file_types_mode: specific
                         file_types_supported:
                           - 'images, documents, other'
@@ -5317,6 +4780,46 @@ paths:
                           id: 0
                       image_url: string
                       name: Add-a-$5-Donation1535042499-187
+                    meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 220
+                      product_id: 192
+                      name: Color (Colors only)
+                      display_name: Color
+                      type: swatch
+                      sort_order: 0
+                      option_values:
+                        - id: 174
+                          label: Beige
+                          sort_order: 1
+                          value_data:
+                            colors:
+                              - '#FAFAEB'
+                          is_default: false
+                        - id: 175
+                          label: Grey
+                          sort_order: 2
+                          value_data:
+                            colors:
+                              - '#BDBDBD'
+                          is_default: false
+                        - id: 176
+                          label: Black
+                          sort_order: 3
+                          value_data:
+                            colors:
+                              - '#000000'
+                          is_default: false
+                        - id: 189
+                          label: Black-Walnut
+                          sort_order: 4
+                          value_data:
+                            colors:
+                              - '#e80ee8'
+                          is_default: false
+                      config: {}
                     meta: {}
         '409':
           description: |
@@ -5374,7 +4877,7 @@ paths:
                     type: string
       x-codegen-request-body-name: Option
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/options/{option_id}':
     get:
@@ -5384,13 +4887,6 @@ paths:
       description: Returns a single *Variant Option*. Optional parameters can be passed in.
       operationId: getOptionById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: option_id
           in: path
           description: |
@@ -5409,18 +4905,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -5469,13 +4953,7 @@ paths:
         * id
       operationId: updateOption
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: option_id
           in: path
           description: |
@@ -5483,19 +4961,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -6110,13 +5575,6 @@ paths:
       description: Deletes a *Variant Option*.
       operationId: deleteOptionById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: option_id
           in: path
           description: |
@@ -6124,25 +5582,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/OptionIdParam'
   '/catalog/products/{product_id}/options/{option_id}/values':
@@ -6153,13 +5598,6 @@ paths:
       description: Returns a list of all *Variant Option Values*. Optional parameters can be passed in.
       operationId: getOptionValues
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: option_id
           in: path
           description: |
@@ -6178,18 +5616,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -6315,13 +5741,7 @@ paths:
         * 250 option values per option limit.
       operationId: createOptionValue
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: option_id
           in: path
           description: |
@@ -6329,19 +5749,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -6479,7 +5886,7 @@ paths:
                     type: string
       x-codegen-request-body-name: OptionValue
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/OptionIdParam'
   '/catalog/products/{product_id}/options/{option_id}/values/{value_id}':
@@ -6490,13 +5897,6 @@ paths:
       description: Returns a single *Variant Option Value*. Optional parameters can be passed in.
       operationId: getOptionValueById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: option_id
           in: path
           description: |
@@ -6621,13 +6021,7 @@ paths:
         * id
       operationId: updateOptionValue
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: option_id
           in: path
           description: |
@@ -6642,19 +6036,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         description: |
           A BigCommerce `OptionValue` object.
@@ -6811,13 +6192,6 @@ paths:
       description: Deletes a *Variant Option Value*.
       operationId: deleteOptionValueById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: option_id
           in: path
           description: |
@@ -6832,25 +6206,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/OptionIdParam'
       - $ref: '#/components/parameters/ValueIdParam'
@@ -6862,14 +6223,6 @@ paths:
       description: Returns a list of all *Product Modifiers*. Optional parameters can be passed in.
       operationId: getModifiers
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -6890,18 +6243,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -6986,26 +6327,7 @@ paths:
         It takes two separate requests to create a new checkbox modifier with option values. Perform a request to create a modifier, then perform a second request to update option values.
       operationId: createModifier
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -7687,7 +7009,7 @@ paths:
                     type: string
       x-codegen-request-body-name: Modifier
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/modifiers/{modifier_id}':
     get:
@@ -7697,13 +7019,6 @@ paths:
       description: Returns a single *Product Modifier*. Optional parameters can be passed in.
       operationId: getModifierById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: modifier_id
           in: path
           description: |
@@ -7722,18 +7037,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -7778,13 +7081,7 @@ paths:
       description: Updates a *Product Modifier*.
       operationId: updateModifier
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: modifier_id
           in: path
           description: |
@@ -7792,19 +7089,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -8379,13 +7663,6 @@ paths:
       description: Deletes a *Product Modifier*.
       operationId: deleteModifierById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: modifier_id
           in: path
           description: |
@@ -8393,25 +7670,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ModifierIdParam'
   '/catalog/products/{product_id}/modifiers/{modifier_id}/values':
@@ -8422,13 +7686,6 @@ paths:
       description: Returns a list of all product *Modifier Values*. Optional parameters can be passed in.
       operationId: getModifierValues
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: modifier_id
           in: path
           description: |
@@ -8447,18 +7704,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -8541,13 +7786,7 @@ paths:
         * id
       operationId: createModifierValue
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: modifier_id
           in: path
           description: |
@@ -8555,19 +7794,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -8833,7 +8059,7 @@ paths:
                     type: string
       x-codegen-request-body-name: ModifierValue
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ModifierIdParam'
   '/catalog/products/{product_id}/modifiers/{modifier_id}/values/{value_id}':
@@ -8844,13 +8070,6 @@ paths:
       description: Returns a single *Modifier Value*. Optional parameters can be passed in.
       operationId: getModifierValueById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: modifier_id
           in: path
           description: |
@@ -8876,18 +8095,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -8959,13 +8166,7 @@ paths:
         * id
       operationId: updateModifierValue
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: modifier_id
           in: path
           description: |
@@ -8980,19 +8181,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -9272,13 +8460,6 @@ paths:
       description: Deletes a *Modifier Value*.
       operationId: deleteModifierValueById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: modifier_id
           in: path
           description: |
@@ -9293,25 +8474,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ModifierIdParam'
       - $ref: '#/components/parameters/ValueIdParam'
@@ -9329,13 +8497,7 @@ paths:
         - image_file: Form posts are the only accepted upload option.
       operationId: createModifierImage
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: modifier_id
           in: path
           description: |
@@ -9350,19 +8512,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           multipart/form-data:
@@ -9459,7 +8608,7 @@ paths:
                   type:
                     type: string
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ModifierIdParam'
       - $ref: '#/components/parameters/ValueIdParam'
@@ -9471,14 +8620,6 @@ paths:
       description: Returns a list of all product *Complex Rules*. Optional parameters may be passed in.
       operationId: getComplexRules
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -9489,18 +8630,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -9597,26 +8726,7 @@ paths:
         - id
       operationId: createComplexRule
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -9966,7 +9076,7 @@ paths:
                     type: string
       x-codegen-request-body-name: ComplexRule
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/complex-rules/{complex_rule_id}':
     get:
@@ -9976,13 +9086,6 @@ paths:
       description: Returns a single *Complex Rule*. Optional parameters can be passed in.
       operationId: getComplexRuleById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: complex_rule_id
           in: path
           description: |
@@ -10001,18 +9104,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -10198,13 +9289,7 @@ paths:
         - id
       operationId: updateComplexRule
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: complex_rule_id
           in: path
           description: |
@@ -10566,13 +9651,6 @@ paths:
       description: Deletes a product *Complex Rule*.
       operationId: deleteComplexRuleById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: complex_rule_id
           in: path
           description: |
@@ -10580,25 +9658,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ComplexRuleIdParam'
   '/catalog/products/{product_id}/custom-fields':
@@ -10609,14 +9674,6 @@ paths:
       description: Returns a list of product *Custom Fields*. Optional parameters can be passed in.
       operationId: getCustomFields
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -10637,18 +9694,6 @@ paths:
           description: Controls the number of items per page in a limited (paginated) list of products.
           schema:
             type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -10729,26 +9774,7 @@ paths:
         - 255 characters per custom field limit.
       operationId: createCustomField
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -10881,7 +9907,7 @@ paths:
                     type: string
       x-codegen-request-body-name: CustomField
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/custom-fields/{custom_field_id}':
     get:
@@ -10891,13 +9917,6 @@ paths:
       description: Returns a single *Custom Field*. Optional parameters can be passed in.
       operationId: getCustomFieldById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: custom_field_id
           in: path
           description: |
@@ -10916,18 +9935,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -10984,13 +9991,7 @@ paths:
         - id
       operationId: updateCustomField
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: custom_field_id
           in: path
           description: |
@@ -10998,19 +9999,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -11156,13 +10144,6 @@ paths:
       description: Deletes a product *Custom Field*.
       operationId: deleteCustomFieldById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: custom_field_id
           in: path
           description: |
@@ -11170,19 +10151,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: '`204 No Content`. Action has been enacted and no further information is to be supplied. `null` is returned.'
@@ -11209,7 +10177,7 @@ paths:
                     type: string
                 description: Error payload for the BigCommerce API.
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/CustomFieldIdParam'
   '/catalog/products/{product_id}/bulk-pricing-rules':
@@ -11220,14 +10188,6 @@ paths:
       description: Returns a list of *Bulk Pricing Rules*. Optional parameters can be passed in.
       operationId: getBulkPricingRules
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -11238,18 +10198,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -11345,14 +10293,7 @@ paths:
         - 50 bulk pricing rule per product limit.
       operationId: createBulkPricingRule
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
+        - $ref: '#/components/parameters/ContentType'
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -11363,18 +10304,6 @@ paths:
           description: Controls the number of items per page in a limited (paginated) list of products.
           schema:
             type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -11489,7 +10418,7 @@ paths:
                     type: string
       x-codegen-request-body-name: BulkPricingRule
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/bulk-pricing-rules/{bulk_pricing_rule_id}':
     get:
@@ -11499,13 +10428,6 @@ paths:
       description: Returns a single *Bulk Pricing Rule*. Optional parameters can be passed in.
       operationId: getBulkPricingRuleById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: bulk_pricing_rule_id
           in: path
           description: |
@@ -11524,18 +10446,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -11603,13 +10513,7 @@ paths:
         - id
       operationId: updateBulkPricingRule
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: bulk_pricing_rule_id
           in: path
           description: |
@@ -11617,19 +10521,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -11798,13 +10689,6 @@ paths:
       description: Deletes a *Bulk Pricing Rule*.
       operationId: deleteBulkPricingRuleById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: bulk_pricing_rule_id
           in: path
           description: |
@@ -11812,19 +10696,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
@@ -11851,7 +10722,7 @@ paths:
                     type: string
                 description: Error payload for the BigCommerce API.
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/BulkPricingRuleIdParam'
   '/catalog/products/{product_id}/metafields':
@@ -11862,14 +10733,6 @@ paths:
       description: Returns a list of *Product Metafields*. Optional parameters can be passed in.
       operationId: getProductMetafieldsByProductId
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: page
           in: query
           description: Specifies the page number in a limited (paginated) list of products.
@@ -11901,18 +10764,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -11999,26 +10850,7 @@ paths:
         **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
       operationId: createProductMetafield
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -12073,11 +10905,11 @@ paths:
                     type: string
                   status:
                     type: integer
-                    description: |
+                    description: |-
                       The HTTP status code.
                   title:
                     type: string
-                    description: |
+                    description: |-
                       The error title describing the particular error.
                   type:
                     type: string
@@ -12109,7 +10941,7 @@ paths:
                   type:
                     type: string
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/metafields/{metafield_id}':
     get:
@@ -12126,13 +10958,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
 
         - name: include_fields
           in: query
@@ -12144,18 +10969,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -12213,6 +11026,7 @@ paths:
       description: "Updates a *Product Metafield*.\n\n**Required Fields**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified using the API account that created the metafield:\n\t* `namespace`\n\t* `key`\n\t* `permission_set`\n\t* `value`\n\n**Usage Notes**\n* Attempting to modify the `namespace`, `key`, `permission_set`, or `value` field using an API account different from the one used to create those metafields will result in a `403` error message. "
       operationId: updateProductMetafield
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: metafield_id
           in: path
           description: |
@@ -12220,26 +11034,6 @@ paths:
           required: true
           schema:
             type: integer
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -12311,32 +11105,12 @@ paths:
           required: true
           schema:
             type: integer
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/MetafieldIdParam'
   '/catalog/products/{product_id}/reviews':
@@ -12347,14 +11121,6 @@ paths:
       description: Returns a list of all *Product Reviews*. Optional parameters can be passed in.
       operationId: getProductReviews
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
         - name: include_fields
           in: query
           description: 'Fields to include, in a comma-separated list. The ID and the specified fields will be returned.'
@@ -12375,18 +11141,6 @@ paths:
           description: Controls the number of items per page in a limited (paginated) list of products.
           schema:
             type: integer
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: status
           in: query
           description: 'Filter items by status. `1` for approved, `0` for pending.'
@@ -12508,26 +11262,7 @@ paths:
         * id
       operationId: createProductReview
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -12690,7 +11425,7 @@ paths:
                 description: Error payload for the BigCommerce API.
       x-codegen-request-body-name: productReview
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
   '/catalog/products/{product_id}/reviews/{review_id}':
     get:
@@ -12700,13 +11435,6 @@ paths:
       description: Returns a single *Product Review*. Optional parameters maybe passed in.
       operationId: getProductReviewById
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: review_id
           in: path
           description: |
@@ -12725,18 +11453,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -12861,13 +11577,7 @@ paths:
         * id
       operationId: updateProductReview
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
+        - $ref: '#/components/parameters/ContentType'
         - name: review_id
           in: path
           description: |
@@ -12875,19 +11585,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         description: |
           A BigCommerce `ProductReview` object.
@@ -13058,13 +11755,6 @@ paths:
       description: Deletes a *Product Review*.
       operationId: deleteProductReview
       parameters:
-        - name: product_id
-          in: path
-          description: |
-            The ID of the `Product` to which the resource belongs.
-          required: true
-          schema:
-            type: integer
         - name: review_id
           in: path
           description: |
@@ -13072,25 +11762,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/ProductIdParam'
       - $ref: '#/components/parameters/ReviewIdParam'
   '/catalog/categories':
@@ -13101,7 +11778,6 @@ paths:
       description: Returns a list of *Categories*. Optional filter parameters can be passed in.
       operationId: getCategories
       parameters:
-
         - name: id
           in: query
           description: |
@@ -13259,18 +11935,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -13405,7 +12069,6 @@ paths:
                     total_pages: 1
                     links:
                       current: '?page=1&limit=50'
-              examples: {}
     post:
       tags:
         - Category
@@ -13413,19 +12076,7 @@ paths:
       description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/api-reference/store-management/catalog/categories-batch/createcategories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
       operationId: createCategory
       parameters:
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -13642,7 +12293,6 @@ paths:
         - Sending a `DELETE` request for a category that contains products will result in a `422` error. Move products to a new category by sending a `PUT` request to the `/catalog/products/{product_id}` endpoint before deleting a category.
       operationId: deleteCategories
       parameters:
-
         - name: id
           in: query
           description: Filter items by id.
@@ -13779,22 +12429,12 @@ paths:
             type: array
             items:
               type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/categories/{category_id}':
     get:
       tags:
@@ -13872,6 +12512,7 @@ paths:
         - id
       operationId: updateCategory
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: category_id
           in: path
           description: |
@@ -13879,19 +12520,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -14258,25 +12886,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/CategoryIdParam'
   '/catalog/categories/{category_id}/metafields':
     get:
@@ -14379,18 +12994,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -14477,6 +13080,7 @@ paths:
         **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
       operationId: createCategoryMetafield
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: category_id
           in: path
           description: |
@@ -14484,19 +13088,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -14588,7 +13179,7 @@ paths:
                     type: string
       x-codegen-request-body-name: Metafield
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/CategoryIdParam'
   '/catalog/categories/{category_id}/metafields/{metafield_id}':
     get:
@@ -14623,18 +13214,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -14691,6 +13270,7 @@ paths:
       description: "Updates a *Category Metafield*.\n\n**Required Fields**\n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message. "
       operationId: updateCategoryMetafield
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: metafield_id
           in: path
           description: |
@@ -14705,19 +13285,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -14796,25 +13363,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/CategoryIdParam'
       - $ref: '#/components/parameters/MetafieldIdParam'
   '/catalog/categories/{category_id}/image':
@@ -14833,6 +13387,7 @@ paths:
         To update a *Category Image*, use the [PUT Categories](/api-reference/catalog/catalog-api/category/updatecategory) and an `image_url`.
       operationId: createCategoryImage
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: category_id
           in: path
           description: |
@@ -14840,19 +13395,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           multipart/form-data:
@@ -14949,25 +13491,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/CategoryIdParam'
   '/catalog/brands':
     get:
@@ -14977,7 +13506,6 @@ paths:
       description: Returns a list of *Brands*. Optional filter parameters can be passed in.
       operationId: getBrands
       parameters:
-
         - name: id
           in: query
           description: |
@@ -15064,18 +13592,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -15286,19 +13802,7 @@ paths:
         - 30,000 brands per store limit
       operationId: createBrand
       parameters:
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -15540,7 +14044,6 @@ paths:
       description: 'By default, it deletes all *Brand* objects. A filter should be added to avoid deleting all *Brand* objects in a store.'
       operationId: deleteBrands
       parameters:
-
         - name: name
           in: query
           description: |
@@ -15553,22 +14056,12 @@ paths:
             Filter items by page_title.
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/brands/{brand_id}':
     get:
       tags:
@@ -15595,18 +14088,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -15678,6 +14159,7 @@ paths:
         To update a *Brand Image*, send a request with an `image_url`.
       operationId: updateBrand
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: brand_id
           in: path
           description: |
@@ -15685,19 +14167,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -15976,25 +14445,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/BrandIdParam'
   '/catalog/brands/{brand_id}/metafields':
     get:
@@ -16097,18 +14553,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -16195,6 +14639,7 @@ paths:
         **Note:** The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.
       operationId: createBrandMetafield
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: brand_id
           in: path
           description: |
@@ -16202,19 +14647,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -16237,19 +14669,6 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
-              example:
-                data:
-                  id: 4
-                  key: location_id
-                  value: 'Shelf 3, Bin 5'
-                  namespace: App Namespace
-                  permission_set: app_only
-                  resource_type: brand
-                  resource_id: 137
-                  description: Where products are located
-                  date_created: '2021-08-06T19:15:35+00:00'
-                  date_modified: '2021-08-06T19:15:35+00:00'
-                meta: {}
               examples:
                 example-1:
                   value:
@@ -16264,6 +14683,20 @@ paths:
                       description: Location in the warehouse
                       date_created: '2018-05-07T20:14:17+00:00'
                       date_modified: '2018-05-07T20:14:17+00:00'
+                    meta: {}
+                example-2:
+                  value:
+                    data:
+                      id: 4
+                      key: location_id
+                      value: 'Shelf 3, Bin 5'
+                      namespace: App Namespace
+                      permission_set: app_only
+                      resource_type: brand
+                      resource_id: 137
+                      description: Where products are located
+                      date_created: '2021-08-06T19:15:35+00:00'
+                      date_modified: '2021-08-06T19:15:35+00:00'
                     meta: {}
         '409':
           description: |
@@ -16321,7 +14754,7 @@ paths:
                     type: string
       x-codegen-request-body-name: Metafield
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/BrandIdParam'
   '/catalog/brands/{brand_id}/metafields/{metafield_id}':
     get:
@@ -16356,18 +14789,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -16425,6 +14846,7 @@ paths:
       description: "Updates a *Brand Metafield*.\n\n**Required Fields**  \n* none\n\n**Read-Only Fields**\n* id\n* These fields can only be modified by the app (API credentials) that created the metafield:\n\t* namespace\n\t* key\n\t* permission_set\n\n**Usage Notes**\n* Attempting to modify `namespace`, `key`, and `permission_set` fields using a client ID different from the one used to create those metafields will result in a 403 error message.\n* The maxiumum number of metafields allowed on each order, product, category, variant, or brand is 250 per client ID. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center."
       operationId: updateBrandMetafield
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: metafield_id
           in: path
           description: |
@@ -16439,19 +14861,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -16530,25 +14939,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/BrandIdParam'
       - $ref: '#/components/parameters/MetafieldIdParam'
   '/catalog/brands/{brand_id}/image':
@@ -16568,6 +14964,7 @@ paths:
         Only one image at a time can be created. To update a *Brand Image*, use the [PUT Brands](/api-reference/catalog/catalog-api/brands/updatebrand) and an `image_url`.
       operationId: createBrandImage
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: brand_id
           in: path
           description: |
@@ -16575,19 +14972,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           multipart/form-data:
@@ -16682,25 +15066,12 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '204':
           description: ''
           content: {}
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/BrandIdParam'
   '/catalog/variants':
     get:
@@ -16710,7 +15081,6 @@ paths:
       description: Returns a list of all variants in your catalog. Optional parameters can be passed in.
       operationId: getVariants
       parameters:
-
         - name: id
           in: query
           description: |
@@ -16743,18 +15113,6 @@ paths:
           description: 'Fields to exclude, in a comma-separated list. The specified fields will be excluded from a response. The ID cannot be excluded.'
           schema:
             type: string
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
         - name: product_id
           in: query
           description: 'A comma-separated list of IDs of products whose variants were requested. For example:`?product_id=:id``?product_id:in=77,80,81`'
@@ -16948,19 +15306,7 @@ paths:
       description: 'Updates a batch of `variant` objects. At the time of writing, the limit is 50 variants. This limit is subject to change.'
       operationId: updateVariantsBatch
       parameters:
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -17335,6 +15681,8 @@ paths:
                 description: |
                   Errors during batch usage for the BigCommerce API.
       x-codegen-request-body-name: body
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/summary':
     get:
       tags:
@@ -17355,20 +15703,6 @@ paths:
         * "primary_category_id"
         * "primary_category_name"
       operationId: getCatalogSummary
-      parameters:
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -17433,6 +15767,8 @@ paths:
                     type: object
                     properties: {}
                     description: Empty meta object; may be used later.
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/categories/{category_id}/products/sort-order':
     get:
       tags:
@@ -17457,19 +15793,6 @@ paths:
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       responses:
         '200':
           description: ''
@@ -17490,25 +15813,13 @@ paths:
       description: Updates sort order of products within a specific category.
       operationId: updatesortorder
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: category_id
           in: path
           description: The ID of the `Category` to which the resource belongs.
           required: true
           schema:
             type: integer
-
-        - name: Accept
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
-        - name: Content-Type
-          in: header
-          required: true
-          schema:
-            type: string
-            default: application/json
       requestBody:
         content:
           application/json:
@@ -17545,7 +15856,7 @@ paths:
                 $ref: '#/components/schemas/error_Base'
       x-codegen-request-body-name: body
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/CategoryIdParam'
   '/catalog/trees/categories':
     get:
@@ -17698,6 +16009,8 @@ paths:
          - `name`
          - `url` 
          - `tree_id` or `parent_id` 
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       tags:
         - Categories Batch
       requestBody:
@@ -17744,6 +16057,8 @@ paths:
         Updates existing categories. 
 
          To update a specific category in a tree, provide a category id.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       tags:
         - Categories Batch
       requestBody:
@@ -17831,6 +16146,8 @@ paths:
               schema:
                 $ref: '#/components/schemas/ErrorRequest'
       operationId: deleteTreeCategories
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/trees':
     get:
       summary: Get All Category Trees
@@ -17886,6 +16203,8 @@ paths:
 
         **Usage Notes**
         * `channel_id` is required to create a *Category Tree*.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       operationId: UpsertCategoryTrees
       requestBody:
         required: true
@@ -17950,17 +16269,14 @@ paths:
           description: Deleted
       tags:
         - Category Trees
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/trees/{tree_id}/categories':
     get:
       summary: Get a Category Tree
       description: Returns a *Category Tree*.
       operationId: GetCategoryTreeByTreeId
       parameters:
-        - name: tree_id
-          in: path
-          schema:
-            type: integer
-          required: true
         - name: depth
           description: Max depth for a tree of categories.
           in: query
@@ -18010,7 +16326,7 @@ paths:
       tags:
         - Category Trees
     parameters:
-
+      - $ref: '#/components/parameters/Accept'
       - schema:
           type: string
         name: tree_id
@@ -18058,6 +16374,8 @@ paths:
       summary: Create Products Channel Assignments
       description: Creates products channel assignments.
       operationId: CreateProductsChannelAssignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       tags:
         - Products Channel Assignments
       requestBody:
@@ -18101,6 +16419,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/beta5ErrorResponse'
+    parameters:
+      - $ref: '#/components/parameters/Accept'
   '/catalog/products/category-assignments':
     get:
       summary: Get Products Category Assignments
@@ -18143,6 +16463,8 @@ paths:
       summary: Create Products Category Assignments.
       description: Creates products category assignments.
       operationId: CreateProductsCategoryAssignments
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       tags:
         - Products Category Assignments
       requestBody:
@@ -18186,6 +16508,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/beta5ErrorResponse'
+    parameters:
+      - $ref: '#/components/parameters/Accept'
 components:
   schemas:
     formData_ImageFileParam:
@@ -28881,19 +27205,21 @@ components:
       schema:
         type: integer
     Accept:
-      in: header
       name: Accept
+      in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
       schema:
         type: string
-        default: application/json
-    Content-Type:
+        default: 'application/json'
+    ContentType:
       name: Content-Type
       in: header
       required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
       schema:
         type: string
-        default: application/json
+        default: 'application/json'
     product_id:
       name: product_id
       in: query
