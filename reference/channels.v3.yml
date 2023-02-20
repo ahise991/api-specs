@@ -1570,7 +1570,7 @@ components:
       value:
         data:
           - id: 1
-            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/bigcommerce.svg'
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/bigcommerce_icon.svg'
             is_listable_from_ui: true
             is_visible: true
             date_created: '2021-05-07T14:54:51Z'
@@ -1581,7 +1581,7 @@ components:
             name: Test Store
             status: prelaunch
           - id: 664179
-            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/amazon.svg'
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/amazon_icon.svg'
             is_listable_from_ui: true
             is_visible: true
             date_created: '2021-05-10T20:32:40Z'
@@ -1592,7 +1592,7 @@ components:
             name: Amazon
             status: connected
           - id: 667159
-            icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
+            icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/facebook_icon.svg'
             is_listable_from_ui: false
             is_visible: true
             date_created: '2021-05-13T15:41:39Z'
@@ -1625,7 +1625,7 @@ components:
       value:
         data:
           id: 667159
-          icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/eBay.svg'
+          icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/ebay_icon.png'
           is_listable_from_ui: false
           is_visible: true
           date_created: '2021-05-13T15:41:39Z'
@@ -1648,7 +1648,7 @@ components:
       value:
         data:
           id: 667159
-          icon_url: 'https://s3.amazonaws.com/bc-channel-platform/channel-icons/facebook.svg'
+          icon_url: 'https://storage.googleapis.com/bigcommerce-production-dev-center/images/facebook_icon.svg'
           is_listable_from_ui: false
           is_visible: true
           date_created: '2021-05-13T15:41:39Z'
