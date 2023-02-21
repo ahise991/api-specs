@@ -2,7 +2,6 @@ openapi: '3.0.3'
 info:
   description: |-
     Manage settings and configuration for BigCommerce hosted stores and headless storefronts.
-
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -17,8 +16,31 @@ servers:
         default: store_hash
         description: Permanent ID of the BigCommerce store.
     description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
+tags:
+  - name: Email Statuses
+  - name: Search Filters
+  - name: Store Locale
+  - name: Storefront Category
+  - name: Storefront Robotstxt
+  - name: Storefront Search
+  - name: Storefront Security
+  - name: Storefront SEO
+  - name: Storefront Status
+  - name: Analytics
+  - name: Catalog
+  - name: Inventory
+  - name: Inventory Notifications
+  - name: Logo
+  - name: Logo Image
+  - name: Favicon Image
+  - name: Store Profile
+  - name: Storefront Product
 paths:
   '/settings/analytics':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get All Web Analytics Providers
       description: Returns a list of web analytics providers.
@@ -39,6 +61,13 @@ paths:
       tags:
         - Analytics
   '/settings/analytics/{id}':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: integer
     get:
       summary: Get a Web Analytics Provider
       description: Returns a single web analytics provider data for a default channel.
@@ -71,17 +100,11 @@ paths:
                 $ref: '#/components/schemas/ErrorResponse404'
       tags:
         - Analytics
-    parameters:
-      - name: id
-        in: path
-        required: true
-        schema:
-          type: integer
-
     put:
       summary: Update a Web Analytics Provider
       description: Updates a single web analytics provider data for a default channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: id
           in: path
           description: Web Analytics Provider ID.
@@ -157,6 +180,8 @@ paths:
       tags:
         - Analytics
   '/settings/catalog':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Catalog Settings
       description: |-
@@ -190,6 +215,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         description: null set for a particular field removes override on a channel level and means inheritance from a global level
@@ -212,6 +238,8 @@ paths:
       tags:
         - Catalog
   '/settings/email-statuses':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: get-settings-emails-enabled
       summary: Get Transactional Email Settings
@@ -253,6 +281,7 @@ paths:
       summary: Update Transactional Email Settings
       description: Update global transactional email settings or create channel specific overrides by `channel_id`.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -304,6 +333,8 @@ paths:
       tags:
         - Email Statuses
   '/settings/favicon/image':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     post:
       operationId: post-favicon-logo-image
       summary: Create Favicon Image
@@ -312,6 +343,7 @@ paths:
 
           - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -328,6 +360,8 @@ paths:
       tags:
         - Favicon Image
   '/settings/inventory/notifications':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Inventory Notifications Settings
       description: |-
@@ -347,7 +381,8 @@ paths:
                       data:
                         $ref: '#/components/schemas/InventoryNotificationsSettings'
                     type: object
-                  - $ref: 'https://raw.githubusercontent.com/bigcommerce/api-specs/master/reference/global_refs.yaml#/components/schemas/meta_Empty'
+                  - properties:
+                      meta: {}
       tags:
         - Inventory Notifications
     put:
@@ -358,6 +393,7 @@ paths:
         * Supplying `null` settings values per channel will delete overrides per given channel and values will be inherited from global level. 
         * Partial updates are not supported within the given endpoint. In order to delete overrides per channel, `null` should be supplied for all the settings within the given endpoint.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         description: null set for a particular field removes override on a channel level and means inheritance from a global level
@@ -371,6 +407,8 @@ paths:
       tags:
         - Inventory Notifications
   '/settings/logo':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: get-settings-logo
       summary: Get Store Logo Settings
@@ -427,6 +465,8 @@ paths:
       tags:
         - Logo
   '/settings/logo/image':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     post:
       operationId: post-settings-logo-image
       summary: Create Logo Image
@@ -435,6 +475,7 @@ paths:
 
          - Channel ID can be used as a query parameter for updating channel-specific setting. If omitted, you will interact with the global setting only.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -511,6 +552,8 @@ paths:
       operationId: updateEnabled
       summary: Update Enabled Filters
       description: 'Updates enabled default [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings) filters.'
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -605,11 +648,14 @@ paths:
       tags:
         - Search Filters
   '/settings/search/filters/available':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: getAvailable
       summary: Get Available Filters
       description: 'Returns a list of filters available to power [Product Filtering](https://support.bigcommerce.com/s/article/Product-Filtering-Settings).'
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - name: channel_id
           in: query
           description: Narrows the list of available filters based on channel ID. Only products currently assigned to the given Channel will be considered.
@@ -670,6 +716,8 @@ paths:
       tags:
         - Search Filters
   '/settings/search/filters/contexts':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: getContexts
       summary: Get Contextual Filters
@@ -719,7 +767,8 @@ paths:
         Contextual filters allow you to configure the enabled filters per channel or category, so that shoppers can filter by the most relevant criteria.
 
         You can change the order of the filters on the live site by changing the order of the filters you send.
-      parameters: []
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -744,6 +793,8 @@ paths:
       tags:
         - Search Filters
   '/settings/store/locale':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Locale Settings
       description: Returns global locale settings.
@@ -772,6 +823,8 @@ paths:
     put:
       summary: Update Locale Settings
       description: Updates global locale settings.
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -812,6 +865,8 @@ paths:
       tags:
         - Store Locale
   '/settings/store/profile':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Store Profile Settings
       description: |-
@@ -845,6 +900,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -872,6 +928,8 @@ paths:
       tags:
         - Store Profile
   '/settings/storefront/category':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Category Settings
       description: |-
@@ -905,6 +963,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -928,6 +987,8 @@ paths:
       tags:
         - Storefront Category
   '/settings/storefront/product':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: get-settings-storefront-product
       summary: Get Storefront Product Settings
@@ -954,6 +1015,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -968,6 +1030,8 @@ paths:
       tags:
         - Storefront Product
   '/settings/storefront/robotstxt':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Robots.txt Settings
       description: |-
@@ -1007,6 +1071,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1028,6 +1093,8 @@ paths:
       tags:
         - Storefront Robotstxt
   '/settings/storefront/search':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       operationId: ''
       summary: Get Storefront Search Settings
@@ -1071,6 +1138,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1108,6 +1176,8 @@ paths:
       tags:
         - Storefront Search
   '/settings/storefront/security':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Security Settings
       description: |-
@@ -1141,6 +1211,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1162,6 +1233,8 @@ paths:
       tags:
         - Storefront Security
   '/settings/storefront/seo':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront SEO Settings
       description: |-
@@ -1204,6 +1277,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1235,6 +1309,8 @@ paths:
       tags:
         - Storefront SEO
   '/settings/storefront/status':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Storefront Status
       description: |-
@@ -1267,8 +1343,6 @@ paths:
                     type: object
       tags:
         - Storefront Status
-    parameters:
-      - $ref: 'https://raw.githubusercontent.com/bigcommerce/api-specs/master/reference/global_refs.yaml#/components/parameters/store_hash'
     put:
       summary: Update Storefront Status
       description: |-
@@ -1278,6 +1352,7 @@ paths:
 
          - `null` should be supplied to delete overrides per given channel and to inherit values from global level. Partial updates are not supported and all settings should be supplied with `null` value in order to delete overrides per channel.
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       requestBody:
         content:
@@ -1312,6 +1387,8 @@ paths:
       tags:
         - Storefront Status
   '/settings/inventory':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Inventory Settings
       tags:
@@ -1358,12 +1435,29 @@ paths:
                   meta:
                     type: object
       parameters:
+        - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
       tags:
         - Inventory
       description: Update inventory settings
 components:
   parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
     ChannelIdParam:
       description: 'Channel ID to use for channel-specific setting. If omitted, you will interact with the global setting only.'
       in: query
@@ -2256,24 +2350,3 @@ components:
         For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
       type: apiKey
       in: header
-tags:
-  - name: Email Statuses
-  - name: Search Filters
-  - name: Store Locale
-  - name: Storefront Category
-  - name: Storefront Robotstxt
-  - name: Storefront Search
-  - name: Storefront Security
-  - name: Storefront SEO
-  - name: Storefront Status
-  - name: Analytics
-  - name: Catalog
-  - name: Inventory
-  - name: Inventory Notifications
-  - name: Logo
-  - name: Logo Image
-  - name: Favicon Image
-  - name: Store Profile
-  - name: Storefront Product
-security:
-  - X-Auth-Token: []
