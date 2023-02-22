@@ -22124,8 +22124,6 @@ components:
         - Models
     default_product_sort:
       title: default_product_sort
-      x-stoplight:
-        id: d4p6v45ywcfi3
       type: object
       properties:
         default_product_sort:
@@ -22144,8 +22142,6 @@ components:
             - price_desc
     name:
       title: name
-      x-stoplight:
-        id: pvlld3ivlue8r
       type: object
       properties:
         name:
@@ -22158,8 +22154,6 @@ components:
           example: Bath
     description:
       title: description
-      x-stoplight:
-        id: nqse2ss1vdn0t
       type: object
       properties:
         description:
@@ -22169,8 +22163,6 @@ components:
           example: <p>We offer a wide variety of products perfect for relaxing</p>
     views:
       title: views
-      x-stoplight:
-        id: 3k376vbqyg3n9
       type: object
       properties:
         views:
@@ -22180,8 +22172,6 @@ components:
           example: 1050
     sort_order:
       title: sort_order
-      x-stoplight:
-        id: j0qwto4du42sa
       type: object
       properties:
         sort_order:
@@ -22191,8 +22181,6 @@ components:
           example: 3
     page_title:
       title: page_title
-      x-stoplight:
-        id: 1uez56zt56fjc
       type: object
       properties:
         page_title:
@@ -22202,8 +22190,6 @@ components:
           example: Bath
     search_keywords:
       title: search_keywords
-      x-stoplight:
-        id: fw43b5e97xvkk
       type: object
       properties:
         search_keywords:
@@ -22212,8 +22198,6 @@ components:
             A comma-separated list of keywords that can be used to locate the category when searching the store.
     meta_keywords:
       title: meta_keywords
-      x-stoplight:
-        id: 9ivxctwjh0f7c
       type: object
       properties:
         meta_keywords:
@@ -22224,8 +22208,6 @@ components:
             type: string
     layout_file:
       title: layout_file
-      x-stoplight:
-        id: 8ro4opxprrm98
       type: object
       properties:
         layout_file:
@@ -22237,8 +22219,6 @@ components:
           example: category.html
     is_visible:
       title: is_visible
-      x-stoplight:
-        id: li0w0wuuw8r0l
       type: object
       properties:
         is_visible:
@@ -22247,8 +22227,6 @@ components:
             Flag to determine whether the product should be displayed to customers browsing the store. If `true`, the category will be displayed. If `false`, the category will be hidden from view.
     image_url:
       title: image_url
-      x-stoplight:
-        id: 9e3k4ybx92jno
       type: object
       properties:
         image_url:
@@ -22259,8 +22237,6 @@ components:
           x-url: true
     meta_description:
       title: meta_description
-      x-stoplight:
-        id: ku7ekwocukygf
       type: object
       properties:
         meta_description:
@@ -22271,8 +22247,6 @@ components:
             Custom meta description for the category page. If not defined, the store's default meta description will be used.
     id:
       title: id
-      x-stoplight:
-        id: 9tc6lltxbddww
       type: object
       properties:
         id:
@@ -22283,8 +22257,6 @@ components:
           readOnly: true
     parent_id:
       title: parent_id
-      x-stoplight:
-        id: nl8sldnssgu68
       type: object
       properties:
         parent_id:

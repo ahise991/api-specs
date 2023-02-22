@@ -513,10 +513,6 @@ paths:
     parameters:
       - $ref: '#/components/parameters/Accept'
       - $ref: '#/components/parameters/pageIdPath'
-x-stoplight:
-  docs:
-    includeDownloadLink: true
-    showSchemas: false
 components:
   parameters:
     Accept:

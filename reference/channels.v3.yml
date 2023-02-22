@@ -2923,8 +2923,6 @@ components:
       x-internal: false
     metafield_Post:
       title: metafield_Post
-      x-stoplight:
-        id: gvfymy3yuc101
       type: object
       description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false
@@ -2987,8 +2985,6 @@ components:
         - permission_set
     metafield_Put:
       title: metafield_Put
-      x-stoplight:
-        id: 5gl48f06wgr1v
       type: object
       description: 'Metafield for products, categories, variants, and brands. The max number of metafields allowed on each product, category, variant, or brand is fifty. For more information, see [Platform Limits](https://support.bigcommerce.com/s/article/Platform-Limits) in the Help Center.'
       x-internal: false

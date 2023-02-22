@@ -2750,8 +2750,6 @@ components:
         - Models
     LineItemsGet:
       title: LineItemsGet
-      x-stoplight:
-        id: gpu4xqhyg9dtj
       type: object
       properties:
         physical_items:

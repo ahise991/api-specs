@@ -93,7 +93,3 @@ components:
         fieldValue:
           type: string
       x-internal: false
-x-stoplight:
-  docs:
-    includeDownloadLink: false
-    showModels: false

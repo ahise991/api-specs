@@ -19,10 +19,6 @@ tags:
   - name: Customer Settings
   - name: Customer Settings Channel
   - name: Customer Validate Credentials
-x-stoplight:
-  docs:
-    includeDownloadLink: false
-    showModels: false
 security:
   - X-Auth-Token: []
 info:

@@ -1026,8 +1026,6 @@ components:
         - Models
     GetCertificatesResponse:
       title: GetCertificatesResponse
-      x-stoplight:
-        id: wzfo263uqhopb
       type: object
       properties:
         data:
