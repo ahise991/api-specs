@@ -2713,6 +2713,8 @@ components:
           $ref: '#/components/schemas/ChannelCartSettings'
         meta:
           type: object
+          properties: {}
+          description: Empty meta object; may be used later.
       x-tags:
         - Models
     GlobalCartSettingsRequest:
@@ -2731,6 +2733,8 @@ components:
           $ref: '#/components/schemas/CartSettings'
         meta:
           type: object
+          properties: {}
+          description: Empty meta object; may be used later.
       x-tags:
         - Models
     ErrorResponse:
