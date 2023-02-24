@@ -3296,6 +3296,8 @@ components:
                     format: url
               meta:
                 type: object
+                properties: {}
+                description: Empty meta object; may be used later.
           examples:
             example-1:
               value:
