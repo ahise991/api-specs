@@ -1,0 +1,1575 @@
+openapi: '3.1.0'
+info:
+  version: ''
+  title: Webhooks Examples
+  description: 'Examples for BigCommerce HTTP webhooks'
+# Since OAS 3.1.0 the paths element isn't necessary. Now a valid OpenAPI Document can describe only paths, webhooks, or even only reusable components
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    email: support@bigcommerce.com
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+tags:
+  - name: App
+  - name: Cart
+  - name: Category
+  - name: Customer
+  - name: Information
+  - name: Order
+  - name: Product
+  - name: SKU
+  - name: Shipment
+  - name: Subscriber
+servers: 
+  - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
+    variables:
+      store_hash:
+        default: store_hash
+        description: Permanent ID of the BigCommerce store.
+    description: BigCommerce API Gateway
+webhooks:
+  # Each webhook needs a name
+  storeAppUninstalled:
+    post:
+      tags:
+          - App
+      requestBody:
+        description: >-
+          Occurs when a client store is cancelled and uninstalled from the
+          platform.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeAppUninstalled"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartAbandoned:
+    post:
+      requestBody:
+        description: >-
+          This webhook will fire once after a cart is abandoned. A cart is
+          considered abandoned if no changes have been made for at least one hour
+          after the last modified property. This hook is available for all store
+          plans, regardless of whether the Abandoned Cart Saver feature is
+          enabled.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartAbandoned"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartConverted:
+    post:
+      tags: 
+        - Cart
+      requestBody:
+        description: >-
+          This hook fires when a cart is converted into an order, which is
+          typically after the payment step of checkout on the storefront. At this
+          point, the cart is no longer accessible and has been deleted. This hook
+          returns both the cart ID and order ID for correlation purposes.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartConverted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartCouponApplied:
+    post:
+      requestBody:
+        description: >-
+          This webhook will fire whenever a new coupon code is applied to a cart.
+          It will include the ID of the coupon code.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartCouponApplied"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartCreated:
+    post:
+      requestBody:
+        description: >-
+          This webhook will fire whenever a new cart is created, either via a
+          storefront shopper adding their first item to the cart, or when a new
+          cart is created via an API consumer. If it is from the storefront, then
+          it fires when the first product is added to a new session.(The cart did
+          not exist before). For the API it means a POST to /carts, (V3 and
+          Storefront API). The store/cart/updated hook will also fire.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartDeleted:
+    post:
+      requestBody:
+        description: >-
+          This webhook will fire whenever a cart is deleted. This will occur
+          either when all items have been removed from a cart and it is
+          auto-deleted, or when the cart is explicitly removed via a DELETE
+          request by an API consumer. This ends the lifecycle of the cart. The
+          store/cart/updated webhook will also fire when the last item is removed.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartLineItemCreated:
+    post:
+      requestBody:
+        description: When a new item is added to the cart
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartLineItemCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartLineItemDeleted:
+    post:
+      requestBody:
+        description: When an item is deleted from the cart
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartLineItemDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartLineItemUpdated:
+    post:
+      requestBody:
+        description: When an item’s quantity has changed or the product options change.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartLineItemUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCartUpdated:
+    post:
+      requestBody:
+        description: >-
+          This webhook is fired whenever a cart is modified through the changes in
+          its line items. Eg. when a new item is added to a cart or an existing
+          item’s quantity is updated. This hook also fires when the email is
+          changed during guest checkout or when an existing item is deleted. The
+          payload will include the ID of the cart being updated. This webhook also
+          fires along with the cart created hook, because the first product being
+          added to an empty cart triggers an update.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCartUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCategoryCreated:
+    post:
+      requestBody:
+        description: Category is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCategoryCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCategoryDeleted:
+    post:
+      requestBody:
+        description: Category is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCategoryDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCategoryUpdated:
+    post:
+      requestBody:
+        description: Category is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCategoryUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerAddressCreated:
+    post:
+      requestBody:
+        description: Customer address is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerAddressCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerAddressDeleted:
+    post:
+      requestBody:
+        description: Customer address is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerAddressDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerAddressUpdated:
+    post:
+      requestBody:
+        description: Customer address is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerAddressUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerCreated:
+    post:
+      requestBody:
+        description: A new customer is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerDeleted:
+    post:
+      requestBody:
+        description: Customer is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerPaymentInstrumentDefaultUpdated:
+    post:
+      requestBody:
+        description: Customer default payment instrument is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerPaymentInstrumentDefaultUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeCustomerUpdated:
+    post:
+      requestBody:
+        description: >-
+          Customer is updated. Does not currently track changes to the customer
+          address.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeCustomerUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeInformationUpdated:
+    post:
+      requestBody:
+        description: >-
+          Occurs when changes are made to store settings. For a full list of
+          fields that can trigger this event, see Store information updated events
+          below
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeInformationUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeOrderArchived:
+    post:
+      requestBody:
+        description: Order is archived
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeOrderArchived"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeOrderCreated:
+    post:
+      requestBody:
+        description: >-
+          Fires if an order is created using the control panel, an app or via the
+          API
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeOrderCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeOrderMessageCreated:
+    post:
+      requestBody:
+        description: Order message is created by customer or in control panel
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeOrderMessageCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeOrderRefundCreated:
+    post:
+      requestBody:
+        description: A refund has been submitted against an order
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeOrderRefundCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeOrderStatusUpdated:
+    post:
+      requestBody:
+        description: >-
+          This will only fire if the order status has changed. Such as Pending to
+          Awaiting Payment
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeOrderStatusUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeOrderUpdated:
+    post:
+      requestBody:
+        description: >-
+          Fires when an already created order is updated. Any changes to an
+          existing order will fire this webhook. Updates can include changing the
+          status, updating a coupon or changing an address.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeOrderUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeProductCreated:
+    post:
+      requestBody:
+        description: A new product is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeProductCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeProductDeleted:
+    post:
+      requestBody:
+        description: Product is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeProductDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeProductInventoryOrderUpdated:
+    post:
+      requestBody:
+        description: >-
+          Fires if a product’s inventory is decremented or incremented, including
+          when an order is placed. Webhook responds to inventory updates made
+          using the control panel, CSV import, API or an app.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeProductInventoryOrderUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeProductInventoryUpdated:
+    post:
+      requestBody:
+        description: Product inventory is updated.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeProductInventoryUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeProductUpdated:
+    post:
+      requestBody:
+        description: >-
+          Occurs when product details are edited. For a full list of product
+          fields that trigger an updated event, see Product updated events below
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeProductUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeShipmentCreated:
+    post:
+      requestBody:
+        description: Shipment is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeShipmentCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeShipmentDeleted:
+    post:
+      requestBody:
+        description: Shipment is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeShipmentDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeShipmentUpdated:
+    post:
+      requestBody:
+        description: Shipment is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeShipmentUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSkuCreated:
+    post:
+      requestBody:
+        description: A new sku is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSkuCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSkuDeleted:
+    post:
+      requestBody:
+        description: SKU is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSkuDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSkuInventoryOrderUpdated:
+    post:
+      requestBody:
+        description: >-
+          This will fire when the inventory is updated via API, the control panel,
+          when an order is placed and when an order is refunded and the inventory
+          is returned to stock. This hook will fire based on a store’s Inventory
+          settings.
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSkuInventoryOrderUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSkuInventoryUpdated:
+    post:
+      requestBody:
+        description: Inventory is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSkuInventoryUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSkuUpdated:
+    post:
+      requestBody:
+        description: SKU is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSkuUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSubscriberCreated:
+    post:
+      requestBody:
+        description: Subscriber is created
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSubscriberCreated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSubscriberDeleted:
+    post:
+      requestBody:
+        description: Subscriber is deleted
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSubscriberDeleted"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+  storeSubscriberUpdated:
+    post:
+      requestBody:
+        description: Subscriber is updated
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/storeSubscriberUpdated"
+      responses:
+        "200":
+          description: >-
+            Return a 200 status to indicate that the data was received
+            successfully
+components:
+  schemas:
+    storeAppUninstalled:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartAbandoned:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+            token:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartConverted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+            orderId:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartCouponApplied:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+            couponId:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartLineItemCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+            cartId:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartLineItemDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+            cartId:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartLineItemUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+            cartId:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCartUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCategoryCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCategoryDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCategoryUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerAddressCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            address:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerAddressDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            address:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerAddressUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            address:
+              type: object
+              properties:
+                customer_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerPaymentInstrumentDefaultUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeCustomerUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeInformationUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeOrderArchived:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeOrderCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeOrderMessageCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            message:
+              type: object
+              properties:
+                order_message_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeOrderRefundCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            refund:
+              type: object
+              properties:
+                refund_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeOrderStatusUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            status:
+              type: object
+              properties:
+                previous_status_id:
+                  type: integer
+                new_status_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeOrderUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeProductCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeProductDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+
+    storeProductInventoryOrderUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            inventory:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                method:
+                  type: string
+                value:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeProductInventoryUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            inventory:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                method:
+                  type: string
+                value:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeProductUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeShipmentCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            orderId:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeShipmentDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            orderId:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeShipmentUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            orderId:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSkuCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            sku:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                variant_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSkuDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            sku:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                variant_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSkuInventoryOrderUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            inventory:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                method:
+                  type: string
+                value:
+                  type: integer
+                variant_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSkuInventoryUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            inventory:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                method:
+                  type: string
+                value:
+                  type: integer
+                variant_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSkuUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+            sku:
+              type: object
+              properties:
+                product_id:
+                  type: integer
+                variant_id:
+                  type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSubscriberCreated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSubscriberDeleted:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
+    storeSubscriberUpdated:
+      properties:
+        scope:
+          type: string
+        store_id:
+          type: string
+        data:
+          type: object
+          properties:
+            type:
+              type: string
+            id:
+              type: integer
+        hash:
+          type: string
+        created_at:
+          type: integer
+        producer:
+          type: string
