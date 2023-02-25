@@ -419,7 +419,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/siteRoute_Full'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 response:
                   value:
@@ -655,6 +655,7 @@ components:
           description: 'Indicates whether the channel uses a custom checkout domain. When `false`, the checkout domain falls back to the default channel’s primary URL.'
     _metaEmpty:
       type: object
+      properties: {}
       description: Empty meta object; may be used later.
       title: _metaEmpty
       x-internal: false
@@ -712,8 +713,10 @@ components:
       properties:
         data:
           type: object
+          properties: {}
         meta:
           type: object
+          properties: {}
     error_Full:
       type: object
       title: error_Full
@@ -938,7 +941,7 @@ components:
             installed_certificate:
               $ref: '#/components/schemas/InstalledCertificateDetail'
         meta:
-          type: object
+          $ref: '#/components/schemas/MetaOpen'
       x-tags:
         - Models
     InstallCertificateData:
@@ -1033,7 +1036,13 @@ components:
           items:
             $ref: '#/components/schemas/InstalledCertificateDetail'
         meta:
-          type: object
+          $ref: '#/components/schemas/MetaOpen'
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   responses:
     502_GatewayError:
       description: 'If something happens during the request that causes it to fail, a 502 response will be returned. A new request should be made; however, it could fail.'
@@ -1221,7 +1230,7 @@ components:
               data:
                 $ref: '#/components/schemas/siteRoute_Full'
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             response:
               value:

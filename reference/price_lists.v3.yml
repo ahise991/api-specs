@@ -365,10 +365,7 @@ paths:
                             example: true
                         description: Specifies the Common Price List properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: |-
                   PriceList Response returns for:
 
@@ -557,10 +554,7 @@ paths:
                         example: true
                     description: Specifies the Common Price List properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: |-
                   PriceList Response returns for:
 
@@ -665,10 +659,7 @@ paths:
                             example: true
                         description: Common Price List properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: |-
                   PriceList Response returns for:
 
@@ -2041,10 +2032,7 @@ paths:
                             example: SMB-123
                         description: Common Price Record properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/Meta'
                 description: Response payload for the BigCommerce API.
               example:
                 data:
@@ -2293,9 +2281,7 @@ paths:
                     title: Price Record
                     type: object
                   meta:
-                    type: object
-                    description: Empty meta object; may be used later.
-                    title: Meta
+                    $ref: '#/components/schemas/Meta'
                 title: Price Record Response
               examples:
                 value:
@@ -2857,7 +2843,7 @@ components:
               description: Channel ID for assignment.
               example: 2
         meta:
-          type: object
+          $ref: '#/components/schemas/Meta'
     PriceListAssignmentsBatchErrorResponse:
       type: object
       x-internal: false
@@ -2870,6 +2856,8 @@ components:
           type: string
         errors:
           type: object
+          properties: {}
+          additionalProperties: true
         meta:
           type: object
           properties:
@@ -3061,9 +3049,7 @@ components:
           title: Price List
           type: object
         meta:
-          type: object
-          description: Empty meta object; may be used later.
-          title: Meta
+          $ref: '#/components/schemas/Meta'
       title: Price List Response
       x-internal: false
     PriceListBase:
@@ -3480,9 +3466,7 @@ components:
           title: Price Record
           type: object
         meta:
-          type: object
-          description: Empty meta object; may be used later.
-          title: Meta
+          $ref: '#/components/schemas/Meta'
       title: Price Record Response
       x-internal: false
     PriceRecordBase:
@@ -4158,10 +4142,11 @@ components:
                 Link to the next page returned in the response.
       x-internal: false
     Meta:
+      title: Response meta
       type: object
-      description: Empty meta object; may be used later.
-      title: Meta
-      x-internal: false
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     ErrorResponse:
       allOf:
         - type: object

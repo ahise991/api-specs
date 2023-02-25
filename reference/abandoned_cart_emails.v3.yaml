@@ -39,7 +39,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaCollection_open'
               examples:
                 List of abandoned cart templates:
                   value:
@@ -75,7 +75,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaCollection_open'
         '422':
           description: Unprocessable Entity
           content:
@@ -121,7 +121,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaCollection_open'
       tags:
         - Abandoned Cart Emails
       operationId: getAbandonedCartEmailTemplateId
@@ -142,7 +142,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/AbandondedCartEmail'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaCollection_open'
         '422':
           description: Unprocessable Entity
           content:
@@ -455,6 +455,12 @@ components:
         sent_num:
           type: integer
       x-internal: false
+    metaCollection_open:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   parameters:
     Accept:
       name: Accept

@@ -349,12 +349,11 @@ components:
       in: header
   schemas:
     metaEmpty_Full:
+      title: Response meta
       type: object
-      title: metaEmpty_Full
-      x-internal: false
-      properties:
-        meta:
-          type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     error_Full:
       type: object
       title: error_Full
@@ -481,7 +480,7 @@ components:
         data:
           $ref: '#/components/schemas/ChannelAbandonedCartSettings'
         meta:
-          type: object
+          $ref: '#/components/schemas/metaEmpty_Full'
       x-tags:
         - Models
     GlobalAbandonedCartSettingsRequest:
@@ -506,7 +505,7 @@ components:
         data:
           $ref: '#/components/schemas/AbandonedCartSettings'
         meta:
-          type: object
+          $ref: '#/components/schemas/metaEmpty_Full'
       x-tags:
         - Models
     ErrorResponse:

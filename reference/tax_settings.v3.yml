@@ -38,7 +38,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Tax_Settings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
     put:
       tags:
         - Tax Settings
@@ -64,7 +64,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Tax_Settings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: The request body does not meet the specification.
     parameters:
@@ -170,3 +170,9 @@ components:
             - FIXED
             - BASIC
             - DISABLE
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.

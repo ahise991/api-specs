@@ -57,7 +57,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/AnalyticsProviders'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Analytics
   '/settings/analytics/{id}':
@@ -203,7 +203,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/CatalogSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Catalog
     put:
@@ -234,7 +234,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/CatalogSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Catalog
   '/settings/email-statuses':
@@ -273,7 +273,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Email Statuses
     put:
@@ -329,7 +329,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/EnabledTransactionalEmails'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Email Statuses
   '/settings/favicon/image':
@@ -376,13 +376,12 @@ paths:
             application/json:
               examples: {}
               schema:
-                allOf:
-                  - properties:
-                      data:
-                        $ref: '#/components/schemas/InventoryNotificationsSettings'
-                    type: object
-                  - properties:
-                      meta: {}
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/InventoryNotificationsSettings'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Inventory Notifications
     put:
@@ -431,7 +430,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/LogoSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Logo
     put:
@@ -461,7 +460,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/LogoSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Logo
   '/settings/logo/image':
@@ -545,7 +544,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/ConfiguredFilters'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
     put:
@@ -644,7 +643,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/ConfiguredFilters'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
   '/settings/search/filters/available':
@@ -712,7 +711,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/AvailableFilter'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
   '/settings/search/filters/contexts':
@@ -789,7 +788,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/ConfiguredFiltersOverride'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Search Filters
   '/settings/store/locale':
@@ -817,7 +816,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Locale'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Store Locale
     put:
@@ -855,7 +854,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Locale'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -888,7 +887,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StoreProfile'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Store Profile
     put:
@@ -918,7 +917,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StoreProfile'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -951,7 +950,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Category
     put:
@@ -981,7 +980,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontCategorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           $ref: '#/components/responses/422ErrorResp'
       tags:
@@ -1059,7 +1058,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/RobotsTxtSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Robotstxt
     put:
@@ -1089,7 +1088,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/RobotsTxtSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Robotstxt
   '/settings/storefront/search':
@@ -1126,7 +1125,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSearchSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Search
     put:
@@ -1172,7 +1171,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSearchSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Search
   '/settings/storefront/security':
@@ -1199,7 +1198,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSecuritySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Security
     put:
@@ -1229,7 +1228,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontSecuritySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Security
   '/settings/storefront/seo':
@@ -1265,7 +1264,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront SEO
     put:
@@ -1303,7 +1302,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/SEOSettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           $ref: '#/components/responses/422ErrorResp'
       tags:
@@ -1340,7 +1339,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontStatus'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Status
     put:
@@ -1383,7 +1382,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/StorefrontStatus'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       tags:
         - Storefront Status
   '/settings/inventory':
@@ -1404,7 +1403,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/InventorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
         '422':
           description: Provided settings could not be applied for some reason - detailed errors in the response.
           content:
@@ -1433,7 +1432,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/InventorySettings'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
       parameters:
         - $ref: '#/components/parameters/ContentType'
         - $ref: '#/components/parameters/ChannelIdParam'
@@ -2027,6 +2026,12 @@ components:
             - text
       x-tags:
         - Models
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     MetaPaginationObject:
       type: object
       properties:
@@ -2288,7 +2293,7 @@ components:
               data:
                 $ref: '#/components/schemas/StorefrontProductSettings'
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
     422ErrorResp:
       description: |
         `422 Unprocessable Entity` Provided settings could not be applied for some reason - detailed errors in the response.

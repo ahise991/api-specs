@@ -896,8 +896,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/product_Full'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/metaEmpty_Full'
             example-1:
               example:
                 name: Smith Journal 13
@@ -1351,10 +1350,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/product_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 174
@@ -1490,8 +1486,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/product_Full'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/metaEmpty_Full'
             example-1:
               example:
                 name: Smith Journal 13
@@ -2191,10 +2186,7 @@ paths:
                               Use the image_url when creating a product.
                             example: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -2308,10 +2300,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productImage_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -2481,10 +2470,7 @@ paths:
                               Use the image_url when creating a product.
                             example: 'https://upload.wikimedia.org/wikipedia/commons/7/7f/Anglel_Bless_Legendary_Hills_1_m%C4%9Bs%C3%ADc_st%C3%A1%C5%99%C3%AD.jpg'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -2776,10 +2762,7 @@ paths:
                             description: |
                               Length of the video. This will be filled in according to data on a host site.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -2850,10 +2833,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productVideo_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -3007,10 +2987,7 @@ paths:
                             description: |
                               Length of the video. This will be filled in according to data on a host site.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -3270,10 +3247,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productVariant_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               examples:
                 example-1:
                   value:
@@ -3412,10 +3386,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productVariant_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 384
@@ -3504,10 +3475,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productVariant_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   bin_picking_number: '0'
@@ -3715,10 +3683,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -3836,10 +3801,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 8
@@ -3914,10 +3876,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 8
@@ -4048,10 +4007,7 @@ paths:
                           A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
                     description: 'An object containing a publicly accessible image URL, or a form post that contains an image file.'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |-
                   Image Response returns for:
                   * Create Variant Image
@@ -4917,10 +4873,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productOption_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '404':
           description: |
             The resource was not found.
@@ -5470,10 +5423,7 @@ paths:
                               The unique option name, auto-generated from the display name, a timestamp, and the product ID.
                             example: Add-a-$5-Donation1535042499-187
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 220
@@ -5844,10 +5794,7 @@ paths:
                             description: |
                               The unique numeric ID of the value; increments sequentially.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 44
@@ -5976,10 +5923,7 @@ paths:
                             description: |
                               The unique numeric ID of the value; increments sequentially.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 44
@@ -6141,10 +6085,7 @@ paths:
                             description: |
                               The unique numeric ID of the value; increments sequentially.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 44
@@ -6949,10 +6890,7 @@ paths:
                               The name of the option shown on the storefront.
                             example: Donation
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '409':
           description: |
             The `Modifier` was in conflict with another option. This is the result of duplicate unique fields, such as `name`.
@@ -7049,10 +6987,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productModifier_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '404':
           description: |
             The resource was not found.
@@ -7597,10 +7532,7 @@ paths:
                               The name of the option shown on the storefront.
                             example: Donation
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '409':
           description: |
             The `Modifier` was in conflict with another modifier or option. This is the result of duplicate unique fields, such as `name`.
@@ -8008,10 +7940,7 @@ paths:
                             description: |
                               The unique numeric ID of the value; increments sequentially.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 190
@@ -8107,10 +8036,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productModifierOptionValue_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 190
@@ -8403,10 +8329,7 @@ paths:
                             description: |
                               The unique numeric ID of the value; increments sequentially.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 190
@@ -8539,10 +8462,7 @@ paths:
                           A public URL for a GIF, JPEG, or PNG image. Limit of 8MB per file.
                     description: 'An object containing a publicly accessible image URL, or a form post that contains an image file.'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |-
                   Image Response returns for:
                   * Create Variant Image
@@ -9016,10 +8936,7 @@ paths:
                           description: 'Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`’s, or else reference a `modifier_value_id` and a `variant_id`.'
                     description: Common ComplexRule properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '409':
           description: |
             The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions.
@@ -9246,10 +9163,7 @@ paths:
                           description: 'Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`’s, or else reference a `modifier_value_id` and a `variant_id`.'
                     description: Common ComplexRule properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '404':
           description: |
             The resource was not found.
@@ -9585,10 +9499,7 @@ paths:
                           description: 'Complex rules may return with conditions that apply to one or more variants, or with a single modifier value (if the rules were created using the v2 API or the control panel). Complex rules created or updated in the v3 API must have conditions that either reference multiple `modifier_value_id`’s, or else reference a `modifier_value_id` and a `variant_id`.'
                     description: Common ComplexRule properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '409':
           description: |
             The `ComplexRule` was in conflict with another `ComplexRule`. This is the result of duplicate conditions.
@@ -9847,10 +9758,7 @@ paths:
                           - post
                     description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   name: Release Year
@@ -9946,10 +9854,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/productCustomField_Base'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   name: Release Year
@@ -10078,10 +9983,7 @@ paths:
                           - post
                     description: 'Gets custom fields associated with a product. These allow you to specify additional information that will appear on the product’s page, such as a book’s ISBN or a DVD’s release date.'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   name: Release Year
@@ -10466,10 +10368,7 @@ paths:
                           - id
                       - $ref: '#/components/schemas/bulkPricingRule_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 83
@@ -10594,10 +10493,7 @@ paths:
                           Required in /POST.
                     description: Common BulkPricingRule properties
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 83
@@ -10869,10 +10765,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 8
@@ -10981,10 +10874,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -11052,10 +10942,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -11382,10 +11269,7 @@ paths:
                               Date the product review was modified.
                             format: date-time
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -11522,10 +11406,7 @@ paths:
                               Date the product review was modified.
                             format: date-time
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -11706,10 +11587,7 @@ paths:
                               Date the product review was modified.
                             format: date-time
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |
                   Response payload for the BigCommerce API.
               example:
@@ -12215,10 +12093,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/category_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '207':
           description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
@@ -12473,10 +12348,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/category_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
         '404':
           description: |
             The resource was not found.
@@ -13106,10 +12978,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -13226,10 +13095,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -13303,10 +13169,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -13417,8 +13280,7 @@ paths:
                       image_url:
                         type: string
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
@@ -13955,10 +13817,7 @@ paths:
                         description: The custom URL for the brand on the storefront.
                     description: Common Brand properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |-
                   Brand Response returns for:
                   * Create Brand
@@ -14100,10 +13959,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/brand_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |-
                   Brand Response returns for:
                   * Create Brand
@@ -14327,10 +14183,7 @@ paths:
                         description: The custom URL for the brand on the storefront.
                     description: Common Brand properties.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
                 description: |-
                   Brand Response returns for:
                   * Create Brand
@@ -14665,10 +14518,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               examples:
                 example-1:
                   value:
@@ -14801,10 +14651,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -14879,10 +14726,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/metafield_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 4
@@ -14994,8 +14838,7 @@ paths:
                       image_url:
                         type: string
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
@@ -15763,10 +15606,7 @@ paths:
                         example: '2018-08-16T00:00:00+00:00'
                     description: Catalog Summary object describes a lightweight summary of the catalog.
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/metaEmpty_Full'
     parameters:
       - $ref: '#/components/parameters/Accept'
   '/catalog/categories/{category_id}/products/sort-order':
@@ -16230,7 +16070,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/Tree'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   id: 0
@@ -16295,7 +16135,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/CategoryNode'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaEmpty_Full'
               example:
                 data:
                   - id: 0
@@ -19970,6 +19810,12 @@ components:
       description: |
         Errors during batch usage for the BigCommerce API.
       x-internal: false
+    metaCollection_open:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     metaCollection_Full:
       title: metaCollection_Full
       type: object
@@ -20028,10 +19874,11 @@ components:
       description: 'Data about the response, including pagination and collection totals.'
       x-internal: false
     metaEmpty_Full:
-      title: metaEmpty_Full
       type: object
-      description: Empty meta object; may be used later.
-      x-internal: false
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     errorResponse_Full:
       title: errorResponse_Full
       allOf:
@@ -21394,8 +21241,10 @@ components:
         - Models
     betametaEmpty_Full:
       type: object
-      description: Empty meta object; may be used later.
-      title: metaEmpty_Full
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
       x-tags:
         - Models
     betaerrorResponse_Full:
@@ -22363,8 +22212,7 @@ components:
                   image_url:
                     type: string
               meta:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/metaEmpty_Full'
           example:
             data:
               image_url: 'https://cdn11.bigcommerce.com/s-{store_hash}/product_images/k/group_1545334669__76009.png'
@@ -22450,10 +22298,7 @@ components:
                     description: The custom URL for the brand on the storefront.
                 description: Common Brand properties.
               meta:
-                title: Meta
-                type: object
-                properties: {}
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/metaEmpty_Full'
             description: |-
               Brand Response returns for:
               * Create Brand
@@ -22495,10 +22340,7 @@ components:
               data:
                 $ref: '#/components/schemas/bulkPricingRule_Full'
               meta:
-                title: Meta
-                type: object
-                properties: {}
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/metaEmpty_Full'
           example:
             data:
               id: 83
@@ -25635,8 +25477,7 @@ components:
               data:
                 $ref: '#/components/schemas/product_Full'
               meta:
-                type: object
-                properties: {}
+                $ref: '#/components/schemas/metaEmpty_Full'
         example-1:
           example:
             name: Smith Journal 13
@@ -26689,9 +26530,7 @@ components:
               data:
                 $ref: '#/components/schemas/betacategory_Full'
               meta:
-                type: object
-                description: Empty meta object; may be used later.
-                title: Meta
+                $ref: '#/components/schemas/metaEmpty_Full'
   parameters:
     FilterTemplateFileParam:
       name: template_file

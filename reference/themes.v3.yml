@@ -620,7 +620,7 @@ paths:
                         items:
                           type: string
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/OpenMeta'
               examples:
                 example-1:
                   value:
@@ -1288,9 +1288,7 @@ components:
                     description: The warning.
                     type: string
         meta:
-          type: object
-          description: Empty meta object; may be used later.
-          title: Meta
+          $ref: '#/components/schemas/OpenMeta'
       title: Job Response
       description: Response for /GET Jobs by Id.
       x-internal: false
@@ -1362,3 +1360,9 @@ components:
           description: 'The content of the configuration, which is a JSON object which will vary in structure from theme to theme.'
       title: themeConfiguration_Write
       x-internal: false
+    OpenMeta:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.

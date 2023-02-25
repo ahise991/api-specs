@@ -283,7 +283,8 @@ components:
         meta:
           type: object
           properties: {}
-      x-internal: false
+          additionalProperties: true
+          description: Response metadata.
     Token_Base:
       type: object
       properties:

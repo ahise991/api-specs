@@ -32,7 +32,6 @@ security:
 paths:
   '/checkouts/{checkoutId}':
     parameters:
-      
       - $ref: '#/components/parameters/checkoutId'
       - $ref: '#/components/parameters/Accept'
     get:
@@ -71,6 +70,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
               examples: {}
             Available Shipping Options:
               example:
@@ -859,6 +860,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -1612,7 +1615,6 @@ paths:
         * discounted_amount
       operationId: post-store_hash-v3-checkouts-checkoutId-discounts
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -1649,6 +1651,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -2393,7 +2397,6 @@ paths:
         * country_code
       operationId: CheckoutsBillingAddressByCheckoutIdPost
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -2413,6 +2416,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -3158,7 +3163,6 @@ paths:
       description: Updates an existing billing address on a checkout.
       operationId: CheckoutsBillingAddressByCheckoutIdAndAddressIdPut
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -3183,6 +3187,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -3945,7 +3951,6 @@ paths:
         * `state_or_province`
       operationId: CheckoutsConsignmentsByCheckoutIdPost
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -3971,6 +3976,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -4762,6 +4769,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -5512,6 +5521,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -6257,7 +6268,6 @@ paths:
         * Coupon codes have a 50-character limit. 
       operationId: CheckoutsCouponsByCheckoutIdPost
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -6277,6 +6287,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -7022,7 +7034,6 @@ paths:
       description: Deletes a coupon code from a checkout.
       operationId: CheckoutsCouponsByCheckoutIdAndCouponCodeDelete
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - name: couponCode
@@ -7041,6 +7052,8 @@ paths:
                 properties:
                   data:
                     $ref: '#/components/schemas/Checkout'
+                  meta:
+                    $ref: '#/components/schemas/MetaOpen'
             Available Shipping Options:
               example:
                 data:
@@ -7595,7 +7608,6 @@ paths:
         * Cart deletion occurs if you are using BigCommerce to accept payments on orders.
       operationId: createAnOrder
       parameters:
-        
         - $ref: '#/components/parameters/checkoutId'
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -7610,15 +7622,13 @@ paths:
                   data:
                     $ref: '#/components/schemas/Order'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/MetaOpen'
               example:
                 data:
                   id: 75
                 meta: {}
   '/checkouts/settings':
-    parameters:
-      
+    parameters:     
       - $ref: '#/components/parameters/Accept'
     get:
       tags:
@@ -7637,8 +7647,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/CheckoutsSettings'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/MetaOpen'
               example:
                 data:
                   custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
@@ -7678,8 +7687,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/CheckoutsSettings'
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/MetaOpen'
               example:
                 data:
                   custom_checkout_script_url: 'https://example.com/custom-checkout-script.js'
@@ -7718,7 +7726,7 @@ paths:
                     type: string
                     example: beb3590088be88f59ba980d54a68df655cd8a1052a3e9caf535f3f820146c226
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               examples:
                 example-1:
                   value:
@@ -8809,6 +8817,12 @@ components:
           type: boolean
           description: Boolean value that specifies whether this checkout supports Optimized One-Page Checkout settings.
       description: ''
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   responses:
     CheckoutResponse:
       description: ''

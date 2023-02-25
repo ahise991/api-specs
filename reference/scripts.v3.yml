@@ -731,7 +731,9 @@ components:
       x-internal: false
     Meta:
       type: object
-      description: Empty meta object; may be used later.
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
       title: Meta
       x-internal: false
     ErrorResponse:

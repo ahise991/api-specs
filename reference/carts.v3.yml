@@ -2712,9 +2712,7 @@ components:
         data:
           $ref: '#/components/schemas/ChannelCartSettings'
         meta:
-          type: object
-          properties: {}
-          description: Empty meta object; may be used later.
+          $ref: '#/components/schemas/metaCollection_open'
       x-tags:
         - Models
     GlobalCartSettingsRequest:
@@ -2732,9 +2730,7 @@ components:
         data:
           $ref: '#/components/schemas/CartSettings'
         meta:
-          type: object
-          properties: {}
-          description: Empty meta object; may be used later.
+          $ref: '#/components/schemas/metaCollection_open'
       x-tags:
         - Models
     ErrorResponse:
@@ -2992,7 +2988,7 @@ components:
           properties:
             data:
               $ref: '#/components/schemas/Metafield'
-        - $ref: '#/components/schemas/Meta'
+        - $ref: '#/components/schemas/CollectionMeta'
     Metafield:
       description: |
         Allows app partners to write custom data to various resources in the API.
@@ -3214,61 +3210,15 @@ components:
                   type: string
                   description: |
                     Link to the next page returned in the response.
+      additionalProperties: true
       title: Collection Meta
       x-internal: false
-    Meta:
+    metaCollection_open:
+      title: Response meta
       type: object
-      title: Meta
-      properties:
-        meta:
-          type: object
-          description: 'Data about the response, including pagination and collection totals.'
-          title: Pagination
-          properties:
-            total:
-              type: integer
-              description: |
-                Total number of items in the result set.
-              example: 36
-            count:
-              type: integer
-              description: |
-                Total number of items in the collection response.
-              example: 36
-            per_page:
-              type: integer
-              description: |
-                The amount of items returned in the collection per page, controlled by the limit parameter.
-              example: 50
-            current_page:
-              type: integer
-              description: |
-                The page you are currently on within the collection.
-              example: 1
-            total_pages:
-              type: integer
-              description: |
-                The total number of pages in the collection.
-              example: 1
-            links:
-              type: object
-              description: |
-                Pagination links for the previous and next parts of the whole collection.
-              properties:
-                previous:
-                  type: string
-                  description: |
-                    Link to the previous page returned in the response.
-                current:
-                  type: string
-                  description: |
-                    Link to the current page returned in the response.
-                  example: '?page=1&limit=50'
-                next:
-                  type: string
-                  description: |
-                    Link to the next page returned in the response.
-      x-internal: false
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   responses:
     CartResponse:
       description: ''
@@ -3299,9 +3249,7 @@ components:
                     example: 'https://store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
                     format: url
               meta:
-                type: object
-                properties: {}
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/metaCollection_open'
           examples:
             example-1:
               value:
@@ -3309,7 +3257,8 @@ components:
                   cart_url: 'https://store.mybigcommerce.com/cart.php?action=load&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
                   checkout_url: 'https://store.mybigcommerce.com/cart.php?action=loadInCheckout&id=1ea11efe-b111-11d1-11ee-cd1110f111b1&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
                   embedded_checkout_url: 'https://store.mybigcommerce.com/cart.php?embedded=1&action=loadInCheckout&id=0aa00afa-a000-00a0-00aae-aa0000f000a0&token=00aaaaa0aa0000000000a000a000f0aa0000afa00aa00afa0a000000000aa0a0'
-                meta: {}
+                meta: 
+                  $ref: '#/components/schemas/metaCollection_open'
   parameters:
     Accept:
       name: Accept

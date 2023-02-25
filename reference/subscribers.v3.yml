@@ -145,10 +145,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/subscriber_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/OpenMeta'
         '409':
           description: |
             The `Subscriber` was in conflict with another subscriber. This is the result of duplicate unique values, such as email.
@@ -288,10 +285,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/subscriber_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/OpenMeta'
         '404':
           description: |
             The resource was not found.
@@ -350,10 +344,7 @@ paths:
                   data:
                     $ref: '#/components/schemas/subscriber_Full'
                   meta:
-                    title: Meta
-                    type: object
-                    properties: {}
-                    description: Empty meta object; may be used later.
+                    $ref: '#/components/schemas/OpenMeta'
         '404':
           description: |
             The resource was not found.
@@ -687,11 +678,12 @@ components:
             Pagination links for the previous and next parts of the whole collection.
       description: Data about the response, including pagination and collection totals.
       x-internal: false
-    Meta:
-      title: Meta
+    OpenMeta:
+      title: Response meta
       type: object
-      description: Empty meta object; may be used later.
-      x-internal: false
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     ErrorResponse:
       title: Error Response
       allOf:
@@ -792,10 +784,7 @@ components:
               data:
                 $ref: '#/components/schemas/subscriber_Full'
               meta:
-                title: Meta
-                type: object
-                properties: {}
-                description: Empty meta object; may be used later.
+                $ref: '#/components/schemas/OpenMeta'
   parameters:
     FilterEmailParam:
       name: email

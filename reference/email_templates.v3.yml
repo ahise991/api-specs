@@ -36,6 +36,9 @@ paths:
                     $ref: '#/components/schemas/EmailTemplatesCollection'
                   meta:
                     type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               examples:
                 Example:
                   value:
@@ -86,6 +89,9 @@ paths:
                     $ref: '#/components/schemas/EmailTemplate'
                   meta:
                     type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               examples:
                 Example:
                   value:
@@ -119,6 +125,9 @@ paths:
                     $ref: '#/components/schemas/EmailTemplate'
                   meta:
                     type: object
+                    properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               examples:
                 Example:
                   value:

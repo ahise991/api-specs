@@ -610,7 +610,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaEmpty_Full'
             Example 1:
               examples:
                 response:
@@ -675,7 +675,7 @@ paths:
                     items:
                       $ref: '#/components/schemas/FailedQuoteError'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/metaEmpty_Full'
             Example 1:
               examples:
                 response:
@@ -880,7 +880,10 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - type: object
+                    properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
               examples: {}
         '400':
           description: Bad request. Authentication Required.
@@ -913,8 +916,11 @@ paths:
             application/json:
               schema:
                 allOf:
+                  - type: object
                   - $ref: '#/components/schemas/GlobalOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -944,7 +950,10 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - type: object
+                    properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
               examples: {}
         '400':
           description: Bad request. Authentication Required.
@@ -983,7 +992,10 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/ChannelOrderSettings'
-                  - $ref: '#/components/schemas/metaEmpty_Full'
+                  - type: object
+                    properties:
+                      meta:
+                        $ref: '#/components/schemas/metaEmpty_Full'
         '400':
           description: Bad request. Authentication Required.
           content:
@@ -2122,11 +2134,10 @@ components:
       x-internal: false
     metaEmpty_Full:
       type: object
-      title: metaEmpty_Full
-      x-internal: false
-      properties:
-        meta:
-          type: object
+      title: Response meta
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     pagination_Full:
       type: object
       title: pagination_Full
@@ -2477,7 +2488,7 @@ components:
                     description: |
                       Reason for refunding an item
         meta:
-          type: object
+          $ref: '#/components/schemas/metaEmpty_Full'
     PostRefundsRequest:
       type: array
       description: Request body for batch refunds
@@ -3309,8 +3320,7 @@ components:
                 items:
                   $ref: '#/components/schemas/Refund'
               meta:
-                type: object
-                description: Meta data collection
+                $ref: '#/components/schemas/metaEmpty_Full'
     refundsBATCH_Resp:
       description: ''
       content:
@@ -3338,7 +3348,7 @@ components:
               data:
                 $ref: '#/components/schemas/RefundQuote_Full'
               meta:
-                type: object
+                $ref: '#/components/schemas/metaEmpty_Full'
     Refund_Resp:
       description: ''
       content:
@@ -3349,7 +3359,7 @@ components:
               data:
                 $ref: '#/components/schemas/Refund'
               meta:
-                type: object
+                $ref: '#/components/schemas/metaEmpty_Full'
     TransactionCollection_Resp:
       description: Response payload for the BigCommerce Order Transactions API.
       content:

@@ -270,6 +270,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   - product_id: 1
@@ -550,6 +552,8 @@ components:
         meta:
           type: object
           properties: {}
+          additionalProperties: true
+          description: Response metadata.
       x-internal: false
     PriceRange:
       type: object

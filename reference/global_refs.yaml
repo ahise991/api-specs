@@ -196,9 +196,9 @@ components:
     meta_Empty:
       title: meta_Empty
       type: object
-      properties:
-        meta:
-          type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
   parameters:
     Accept:
       name: Accept

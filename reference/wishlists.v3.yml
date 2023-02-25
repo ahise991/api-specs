@@ -185,6 +185,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -269,6 +271,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -352,6 +356,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -444,6 +450,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -572,6 +580,8 @@ paths:
                   meta:
                     type: object
                     properties: {}
+                    additionalProperties: true
+                    description: Response metadata.
               example:
                 data:
                   id: 30
@@ -843,6 +853,8 @@ components:
               meta:
                 type: object
                 properties: {}
+                additionalProperties: true
+                description: Response metadata.
           example:
             data:
               id: 30

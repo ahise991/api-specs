@@ -548,8 +548,9 @@ paths:
                 properties:
                   data:
                     type: object
+                    properties: {}
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/EmptyMeta'
   '/channels/{channel_id}/site':
     parameters:
       - $ref: '#/components/parameters/Accept'
@@ -662,8 +663,7 @@ paths:
                   data:
                     type: integer
                   meta:
-                    type: object
-                    properties: {}
+                    $ref: '#/components/schemas/EmptyMeta'
                 x-examples:
                   example-1:
                     data: 1
@@ -2697,8 +2697,10 @@ components:
       x-internal: false
     EmptyMeta:
       type: object
-      description: Empty meta object; may be used later.
-      x-internal: false
+      title: Empty meta response.
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     pagination_Full:
       type: object
       description: |

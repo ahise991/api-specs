@@ -1,4 +1,17 @@
 openapi: '3.0.0'
+info:
+  version: ''
+  title: Customers V3
+  description: |-
+    Create and manage customers.
+
+    ## Resources
+    * [Customer and Subscribers Overview](/api-docs/store-management/customers).
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     variables:
@@ -6,6 +19,8 @@ servers:
         default: store_hash
         description: Permanent ID of the BigCommerce store.
     description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
 tags:
   - name: Customers
     description: BigCommerce Customers API Definition.
@@ -19,17 +34,6 @@ tags:
   - name: Customer Settings
   - name: Customer Settings Channel
   - name: Customer Validate Credentials
-security:
-  - X-Auth-Token: []
-info:
-  version: ''
-  title: Customers V3
-  description: |-
-    Create and manage customers.
-
-    ## Resources
-    * [Customer and Subscribers Overview](/api-docs/store-management/customers).
-  contact: {}
 paths:
   '/customers':
     get:
@@ -1924,18 +1928,9 @@ components:
                           description: Array of form fields. Controlled by `formfields` parameter.
                           type: array
                           items:
-                            oneOf:
-                              - allOf:
-                                  - type: object
-                                    title: Form Field Value Base
-                                  - type: object
-                              - allOf:
-                                  - type: object
-                                    title: Form Field Value Base
-                                  - type: object
-                            title: 'Form Field Value '
+                            $ref: '#/components/schemas/formFieldValue_Full'
                   meta:
-                    type: object
+                    $ref: '#/components/schemas/MetaOpen'
               - title: DuplicateAddressCollectionResponse
                 example: {}
             type: object
@@ -2019,7 +2014,7 @@ components:
                           - $ref: "#/components/schemas/formFieldValue_Address"
                         title: 'Customer Address Form Field Value'
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             application/json:
               value:
@@ -2177,7 +2172,7 @@ components:
                     - type
                     - id
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             response:
               value:
@@ -2473,9 +2468,9 @@ components:
                           required:
                             - address_id
                       title: Customer Address Form Field Value
-                  title: 'Form Field Value '
+                  title: Form Field Value
               meta:
-                type: object
+                $ref: '#/components/schemas/MetaOpen'
           examples:
             response:
               value:
@@ -2561,6 +2556,12 @@ components:
         pagination:
           $ref: '#/components/schemas/Pagination'
       x-internal: false
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
     ErrorResponse:
       title: Error Response
       type: object

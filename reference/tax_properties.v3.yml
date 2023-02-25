@@ -45,7 +45,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Property"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "400":
           description: Request parameters invalid
     put:
@@ -79,7 +79,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Property"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "422":
           description: The request body does not meet specifications.
     post:
@@ -112,7 +112,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/Property"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "422":
           description: The request body does not meet specifications.
     delete:
@@ -156,7 +156,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/ProductTaxProperty"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "400":
           description: Request parameters invalid
     put:
@@ -196,7 +196,7 @@ paths:
                     items:
                       $ref: "#/components/schemas/ProductTaxProperty"
                   meta:
-                    type: object
+                    $ref: "#/components/schemas/MetaOpen"
         "422":
           description: The request body does not meet specifications.
     delete:
@@ -389,3 +389,9 @@ components:
       required:
         - product_id
         - tax_properties
+    MetaOpen:
+      title: Response meta
+      type: object
+      properties: {}
+      additionalProperties: true
+      description: Response metadata.
