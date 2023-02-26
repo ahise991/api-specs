@@ -110,6 +110,7 @@ components:
           nullable: true
         consents:
           type: array
+          items: {}
           description: |
             The collection of consents the shopper is subscribing to.
       description: Subscription properties.
