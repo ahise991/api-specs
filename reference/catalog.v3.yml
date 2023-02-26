@@ -15918,7 +15918,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessNoContentResponse'
         '207':
-          description: Partical success
+          description: Partial success
           content:
             application/json:
               schema:
@@ -21607,8 +21607,8 @@ components:
       description: |
         Details of errors.
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       x-tags:
         - Models
     ErrorRequest:
@@ -21645,12 +21645,9 @@ components:
       x-tags:
         - Models
     MetaError:
-      type: array
-      items:
-        oneOf:
-          - allOf:
-              - $ref: '#/components/schemas/ErrorBasic'
-              - $ref: '#/components/schemas/ErrorAdditional'
+      allOf:
+        - $ref: '#/components/schemas/ErrorBasic'
+        - $ref: '#/components/schemas/ErrorAdditional'
       x-tags:
         - Models
     MetaData:
