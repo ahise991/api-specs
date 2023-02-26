@@ -269,6 +269,7 @@ components:
           description: A publicly-accessible URL for an image of this item.
         discounts:
           type: object
+          properties: {}
           description: List of discounts applied to this item. If no discount applied, empty array is returned. If discount has been applied, discount object returned.
         discountAmount:
           type: number
