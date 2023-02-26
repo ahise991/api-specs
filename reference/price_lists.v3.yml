@@ -392,8 +392,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -418,8 +418,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -707,8 +707,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -733,8 +733,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -1599,8 +1599,8 @@ paths:
                         field_errors:
                           title: Detailed Errors
                           type: object
-                          additionalProperties:
-                            type: string
+                          properties: {}
+                          additionalProperties: true
                       description: Error during Price Record batch PUT request. Includes data sent in the request and errors.
                 description: Errors during batch usage for the BigCommerce API.
     delete:
@@ -2341,8 +2341,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -2367,8 +2367,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    additionalProperties:
-                      type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -2858,6 +2858,7 @@ components:
           type: object
           properties: {}
           additionalProperties: true
+          title: Detailed Errors
         meta:
           type: object
           properties:
@@ -3995,8 +3996,8 @@ components:
                 type: object
               field_errors:
                 type: object
-                additionalProperties:
-                  type: string
+                properties: {}
+                additionalProperties: true
                 title: Detailed Errors
             title: PriceRecord Batch Error Set
       title: PriceRecord Batch Error Response
@@ -4033,8 +4034,8 @@ components:
           type: object
         field_errors:
           type: object
-          additionalProperties:
-            type: string
+          properties: {}
+          additionalProperties: true
           title: Detailed Errors
       title: PriceRecord Batch Error Set
       x-internal: false
@@ -4170,8 +4171,8 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
+              properties: {}
+              additionalProperties: true
               title: Detailed Errors
       title: Error Response
       x-internal: false

@@ -298,8 +298,9 @@ components:
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
       x-internal: false
     BaseError:
       type: object

@@ -95,8 +95,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -202,9 +202,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
-                        title: DetailedErrors
+                        properties: {}
+                        additionalProperties: true
                 title: Error Response
       tags:
         - Scripts
@@ -255,8 +254,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
         '422':
@@ -287,8 +286,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -341,8 +340,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
         '422':
@@ -373,8 +372,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -417,8 +416,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
         '422':
@@ -448,8 +447,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       tags:
@@ -759,8 +758,8 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
+              properties: {}
+              additionalProperties: true: true
               title: DetailedErrors
       title: Error Response
       x-internal: false
@@ -785,8 +784,8 @@ components:
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       title: DetailedErrors
       x-internal: false
     NotFound:

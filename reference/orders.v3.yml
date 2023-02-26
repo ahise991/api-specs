@@ -1548,15 +1548,15 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
+              properties: {}
+              additionalProperties: true
               title: DetailedErrors
       title: ErrorResponse
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       title: DetailedErrors
       x-internal: false
     Transaction_Post:
@@ -2223,8 +2223,8 @@ components:
       properties:
         errors:
           type: object
-          additionalProperties:
-            type: string
+          properties: {}
+          additionalProperties: true
           title: DetailedErrors
       title: errorDetailed_Full
       x-internal: false
@@ -2331,7 +2331,7 @@ components:
             2. Mark an amount up to the full order amount as refunded externally, through a provider or means not represented directly in BC ("custom").
             3. Refund the amount paid by store credit to store credit, and the amount paid by bank deposit via a manual refund, which will be recorded as being refunded against the bank deposit.
 
-            >
+            
           items:
             $ref: '#/components/schemas/RefundMethod'
       x-internal: false
