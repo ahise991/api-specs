@@ -25,9 +25,8 @@ info:
     ]
     ```
 
-    <!-- theme: info -->
     > #### Note
-    > * The allowed values for `entity_type` are `product`, `category`, `brand`, and `page`.
+    > The allowed values for `entity_type` are `product`, `category`, `brand`, and `page`.
 
     ## Getting entity IDs
 

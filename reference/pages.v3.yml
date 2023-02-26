@@ -213,9 +213,9 @@ paths:
       description: |-
         Deletes one or more content pages. This endpoint supports bulk operations.
 
-        <!-- theme: warning -->
-        > #### Mind query parameters
-        > If you attempt to delete multiple pages by passing more than one pageId to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the pagesIds that do exist will still be deleted.
+        > #### Warning
+        > **Pay attention to query parameters**
+        > If you attempt to delete multiple pages by passing more than one `pageId`` to `id:in` and one or more of them does not exist, you will receive a 404 response. However, the pages corresponding to the `pagesId`s that do exist will still be deleted.
       responses:
         '204':
           $ref: '#/components/responses/HTTP204'
@@ -257,9 +257,9 @@ paths:
       description: |-
         Returns one content page.
 
-        <!-- theme: warning -->
-        > #### Mind query parameters
-        > This endpoint recognizes the same query parameters as [Get Multiple Pages](/api-reference/store-management/pages/pages/getpages). If the requested page does not meet the query parameters you specify, you will receive a 404 response even if the requested pageId does exist.
+        > #### Warning
+        > **Pay attention to query parameters**
+        > This endpoint recognizes the same query parameters as [Get Multiple Pages](/api-reference/store-management/pages/pages/getpages). If the requested page does not meet the query parameters you specify, you will receive a 404 response even if the requested `pageId` does exist.
       responses:
         '200':
           description: ''
@@ -490,8 +490,8 @@ paths:
       description: |-
         Deletes one content page.
 
-        <!-- theme: info -->
-        > #### Query parameters
+        > #### Warning
+        > **Query parameters not recognized**
         > This endpoint does not recognize query parameters.
       responses:
         '204':

@@ -78,10 +78,9 @@ info:
     ```
 
 
-    <!-- theme: warning -->
-    > #### Note
-    > * Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should not be used for frontend requests.
-    > * Unlike normal GraphQL API tokens, they are sensitive and should be treated like secrets, just as you might treat an OAuth token.
+    > #### Warning
+    > * Customer impersonation tokens should **never** be exposed publicly, for example, to JavaScript or HTML. These tokens should **not** be used for frontend requests.
+    > * Unlike normal GraphQL API tokens, these tokens are sensitive and should be treated like secrets, just as you might treat an OAuth token.
     > * Attempts to run requests using these tokens from a web browser will be rejected.
 
 

@@ -26,7 +26,6 @@ paths:
       description: |
         Retrieve the connection status of the specified tax provider in the context of a store.
 
-        <!-- theme: info -->
         > #### Note
         > * Requires **read** permissions on the **Information and Settings** scope.
       operationId: provider-connection-get
@@ -53,7 +52,6 @@ paths:
       description: |
         Remove any previously set basic connection credentials for the specified provider. If the specified provider is the active tax provider on the store, the store's active tax provider will be reset to BigCommerce Manual Tax. It is suggested to call this endpoint during a single-click app [uninstall callback](/api-docs/apps/guide/callbacks#uninstall-callback).
 
-        <!-- theme: info -->
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
         > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).
@@ -97,7 +95,6 @@ paths:
       description: |-
         Set the HTTP Basic Authentication credentials for the specified provider. The configured `username` and `password` will be used to authenticate each API request to the Tax Provider from the associated store.
 
-        <!-- theme: info -->
         > #### Note
         > * This operation will be logged in [Store Logs](https://support.bigcommerce.com/s/article/Using-Store-Logs) under **Staff Actions**.
         > * Requires **write** permissions on the **Information and Settings** [scope](/api-docs/getting-started/authentication/rest-api-authentication#oauth-scopes).

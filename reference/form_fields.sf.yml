@@ -8,9 +8,8 @@ info:
         
     For info about authenticating BigCommerce APIs, see [Authentication and Example Requests](/api-docs/getting-started/authentication#same-origin-cors-authentication).
 
-    <!-- theme: warning -->
-    > #### Note
-    > * Breaking changes may be introduced to this endpoint while in beta.
+    > #### Warning
+    > Breaking changes may be introduced to this endpoint while in beta.
   version: ''
 servers:
   - url: 'https://{store_domain}/api/storefront'
@@ -30,7 +29,6 @@ paths:
       description: |-
         Gets form fields.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.

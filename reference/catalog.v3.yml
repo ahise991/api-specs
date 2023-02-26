@@ -1197,7 +1197,7 @@ paths:
       description: |-
         To delete *Product* objects, you must include a filter. This prevents inadvertently deleting all *Product* objects in a store.
 
-        <!-- theme: info -->
+        > #### Note
         > The maximum number of products you can delete at one time is 250.
 
         **Example**:

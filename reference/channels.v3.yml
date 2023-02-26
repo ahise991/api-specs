@@ -57,10 +57,9 @@ info:
     |`storefront`|**Is not** `bigcommerce` |`prelaunch`, `active`, `inactive`, `archived`, `deleted` 
     |`marketing`, `marketplace`, `pos`|N/A|`connected`, `disconnected`, `archived`, `deleted`|
 
-    <!-- theme: warning -->
-    > #### Note
-    > * A Channel with `deleted` status can be restored within 90 days after deleting by contacting BigCommerce support team. Once the 90 days grace period is over, the Channel `status` will become `terminated`.
-    > * The `terminated` status is read-only. `terminated` channels cannot be restored.
+    > #### Warning
+    > * You can restore a Channel with `deleted` status within **90 days** after deletion by contacting the BigCommerce support team. After the 90-days grace period is over, the Channel `status` will become `terminated`.
+    > * The `terminated` status is read-only. Channels with a `status` of `terminated` **cannot** be restored.
 
     ## Channel listings
 

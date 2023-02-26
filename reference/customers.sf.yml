@@ -24,7 +24,6 @@ paths:
       description: |-
         Creates a *Customer*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.

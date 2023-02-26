@@ -26,11 +26,11 @@ paths:
       summary: Get a Cart
       description: |-
         Returns a *Cart*.
-
-        <!-- theme: info -->
+        
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: getACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -44,10 +44,10 @@ paths:
       description: |-
         Creates a *Cart*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: createACart
       parameters:
         - $ref: '#/components/parameters/include'
@@ -79,10 +79,11 @@ paths:
       description: |-
         Deletes a *Cart*. Once a *Cart* has been deleted it can not be recovered.
 
-        <!-- theme: info -->
+        
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: deleteACart
       parameters:
         - name: cartId
@@ -103,10 +104,11 @@ paths:
       description: |-
         Adds a line items to the *Cart*.
 
-        <!-- theme: info -->
+
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: addCartLineItem
       parameters:
         - name: cartId
@@ -164,10 +166,11 @@ paths:
 
         If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/api-reference/storefront/carts/cart-items/deletecartlineitem) and the [Add Cart Line Items](/api-reference/storefront/carts/cart-items/addcartlineitem) endpoints.
 
-        <!-- theme: info -->
+
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
+
       operationId: updateCartLineItem
       parameters:
         - name: cartId
@@ -238,7 +241,6 @@ paths:
 
         Removing the last `line_item` in the *Cart* deletes the *Cart*.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  
@@ -288,7 +290,6 @@ paths:
         Promotions and gift certificates that don't apply to the new currency will be removed from your cart.
         You cannot update the cart currency if the draft order cart or the cart contains a manual discount.
 
-        <!-- theme: info -->
         > #### Note
         > * Substitute your storefront domain for `yourstore.example.com`. 
         > * The Send a Test Request feature is not currently supported for this endpoint.  

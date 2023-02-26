@@ -4,8 +4,7 @@ info:
   description: |-
     Manage blog posts, blog tags, content pages, and redirects.
 
-    <!-- theme: warning -->
-    > #### Note
+    > #### Warning
     > * Redirects V2 are deprecated; use [V3 Redirects](/api-reference/storefront/redirects/redirects/getredirects) instead. 
   version: ''
   termsOfService: 'https://www.bigcommerce.com/terms'
@@ -177,7 +176,6 @@ paths:
         **Notes**
 
         * When including `published_date` in a request, supply it as a flat date string (not an object) in valid <a href="http://tools.ietf.org/html/rfc2822#section-3.3" target="_blank">RFC 2822</a>. The&#160;example request below includes a `published_date` in RFC 2822 format.
-
         * Blog posts default to draft status. To publish blog posts to the storefront, set the `is_published` property to `true`.
         * If a custom URL is not provided, the post’s URL will be generated based on the value of `title`.
       operationId: createABlogPosts
@@ -642,10 +640,10 @@ paths:
       description: |-
         Returns a list all *Redirect URLs*. 
 
-        <!-- theme: warning -->
-        > #### Deprecated
-        > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to manage redirects URLs.
+        > #### Warning
+        > **Deprecated**
+        >* This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        >* For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to manage redirect URLs.
       operationId: getAListofRedirects
       parameters:
         - name: page
@@ -689,10 +687,10 @@ paths:
         *   url
 
 
-        <!-- theme: warning -->
-        > #### Deprecated
-        > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/store-management/redirects/redirects/upsertredirects) to upsert new redirect data.
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/store-management/redirects/redirects/upsertredirects) to upsert new redirect data.
       operationId: createARedirect
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -724,13 +722,11 @@ paths:
       description: |-
         By default, it deletes all *Redirect URLs* in a store. 
 
-        <!-- theme: warning -->
 
-        > #### Deprecated
-
-        > Avoid using this API operation if possible. It will be removed in a future version.
-
-        > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete redirects URLs.
+        > #### Warning
+        >**Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete redirect URLs.
       operationId: deleteAllRedirects
       responses:
         '204':
@@ -754,10 +750,10 @@ paths:
       description: |-
         Returns a single *Redirect URL*.
 
-        <!-- theme: warning -->
-        > #### Deprecated
-        > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
+        > #### Warning
+        >**Deprecated** 
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
       operationId: getARedirectURL
       responses:
         '200':
@@ -789,10 +785,10 @@ paths:
         *   url
 
 
-        <!-- theme: warning -->
-        > #### Deprecated
-        > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/storefront/redirects/redirects/upsertredirects) to update redirect data.
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/storefront/redirects/redirects/upsertredirects) to update redirect data.
       operationId: updateARedirectURL
       parameters:
         - $ref: '#/components/parameters/ContentType'
@@ -860,9 +856,9 @@ paths:
       description: |-
         Deletes a *Redirect URL*.
 
-        <!-- theme: warning -->
-        > #### Deprecated
-        > Avoid using this API operation if possible. It will be removed in a future version.
+        > #### Warning
+        > **Deprecated** 
+        > This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
         > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete a redirect URL.
       operationId: deleteARedirect
       responses:
@@ -879,10 +875,10 @@ paths:
       description: |-
         Gets a count of *Redirect URLs* in a store.
 
-        <!-- theme: warning -->
-        > #### Deprecated
-        > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
+        > #### Warning
+        > **Deprecated**
+        > * This API operation is deprecated. Avoid using this API operation if possible. It will be removed in a future version.
+        > * For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
       operationId: getACountOfRedirects
       responses:
         '200':
