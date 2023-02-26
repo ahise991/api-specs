@@ -14849,6 +14849,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: The resource was not found.
           content:
