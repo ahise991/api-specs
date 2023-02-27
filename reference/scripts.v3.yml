@@ -759,7 +759,7 @@ components:
             errors:
               type: object
               properties: {}
-              additionalProperties: true: true
+              additionalProperties: true
               title: DetailedErrors
       title: Error Response
       x-internal: false
