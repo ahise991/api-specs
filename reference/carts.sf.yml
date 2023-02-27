@@ -959,7 +959,7 @@ components:
                   optionId:
                         type: number
                         description: 'ID of the option, same as the `nameId`.'
-                        example: '10'
+                        example: 10
                   optionValue:
                         description: 'Value of the option, same as the `valueId`.'
                         oneOf:
