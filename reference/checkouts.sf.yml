@@ -3985,33 +3985,29 @@ components:
       x-internal: false
     checkoutGiftCertificates:
       title: checkoutGiftCertificates
-      type: array
-      description: Applied gift certificate (as a payment method).
-      items:
-        title: Gift Certificate
-        type: object
-        properties:
-          balance:
-            type: number
-            description: ''
-            format: double
-          code:
-            type: string
-            description: ''
-          purchaseDate:
-            type: string
-            description: ''
-            format: date
-          remaining:
-            type: number
-            description: ''
-            format: double
-          used:
-            type: number
-            description: ''
-            format: double
-        description: The values presented here are projections of how much we would be using out of an existent gift certificate
-      x-internal: false
+      type: object
+      properties:
+        balance:
+          type: number
+          description: ''
+          format: double
+        code:
+          type: string
+          description: ''
+        purchaseDate:
+          type: string
+          description: ''
+          format: date
+        remaining:
+          type: number
+          description: ''
+          format: double
+        used:
+          type: number
+          description: ''
+          format: double
+      description: The values presented here are projections of how much we would be using out of an existent gift certificate
+    x-internal: false
     consignmentShippingOption_Base:
       title: consignmentShippingOption_Base
       type: object
