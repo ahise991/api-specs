@@ -955,7 +955,6 @@ components:
               items:
                 description: Array of `OptionSelection` objects.
                 x-examples: {}
-                anyOf:
                   - properties:
                       optionId:
                         type: number
