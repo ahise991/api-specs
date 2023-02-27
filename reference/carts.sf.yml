@@ -953,14 +953,14 @@ components:
             optionSelections:
               type: array
               items:
-                description: Array of `OptionSelection` objects.
+                description: 'Array of `OptionSelection` objects.'
                 x-examples: {}
-                  - properties:
-                      optionId:
+                properties:
+                  optionId:
                         type: number
                         description: 'ID of the option, same as the `nameId`.'
-                        example: 10
-                      optionValue:
+                        example: '10'
+                  optionValue:
                         description: 'Value of the option, same as the `valueId`.'
                         oneOf:
                           - type: string
