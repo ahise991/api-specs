@@ -952,31 +952,32 @@ components:
               type: number
             optionSelections:
               type: array
+              description: Array of `OptionSelection` objects.
               items:
-                description: Array of `OptionSelection` objects.
-                x-examples: {}
-                anyOf:
-                  - properties:
-                      optionId:
-                        type: number
-                        description: 'ID of the option, same as the `nameId`.'
-                        example: 10
-                      optionValue:
-                        description: 'Value of the option, same as the `valueId`.'
-                        oneOf:
-                          - type: string
-                            example: Small
-                          - type: number
-                            example: 127
-                          - type: object
-                            properties:
-                              month:
-                                type: string
-                              day:
-                                type: string
-                              year:
-                                type: string
-                type: object
+                oneOf:
+                - type: object
+                  properties:
+                    optionId:
+                      type: number
+                      description: 'ID of the option, same as the `nameId`.'
+                      example: 10
+                - type: object
+                  properties:
+                    optionValue:
+                      description: 'Value of the option, same as the `valueId`.'
+                      oneOf:
+                        - type: string
+                          example: Small
+                        - type: number
+                          example: 127
+                        - type: object
+                          properties:
+                            month:
+                              type: string
+                            day:
+                              type: string
+                            year:
+                              type: string
           required:
             - productId
             - quantity
