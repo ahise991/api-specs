@@ -1146,9 +1146,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -1173,9 +1172,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -1724,6 +1722,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '207':
           description: 'Multiple operations have taken place and the status for each operation can be viewed in the body of the response. Typically indicates that a partial failure has occured, such as when a `POST` or `PUT` request is successful, but saving the URL has failed.'
           content:
@@ -1763,9 +1762,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -1790,9 +1788,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -2209,6 +2206,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: |
             The product ID does not exist.
@@ -2253,7 +2251,6 @@ paths:
                     minLength: 1
                     type: string
                 description: ''
-            Example:
               example:
                 status: 422
                 title: image_url must be present if uploading by url
@@ -2493,12 +2490,14 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '400':
           description: Bad Request. The requested resource could not be downloaded and may be invalid. Possible reasons include malformed request syntax or the file host blocking requests.
           content:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: |
             The resource was not found.
@@ -3709,9 +3708,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -3736,9 +3734,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -4022,6 +4019,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: |
             The resource was not found.
@@ -4055,9 +4053,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -4081,9 +4078,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -4419,6 +4415,7 @@ paths:
                                   - post
                               value_data:
                                 type: object
+                                properties: {}
                                 description: |
                                   Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                             required:
@@ -4446,9 +4443,11 @@ paths:
                 properties:
                   data:
                     title: Option
+                    type: object
                     allOf:
                       - title: Option Base
                         description: Common Option properties.
+                        type: object
                         properties:
                           id:
                             type: integer
@@ -4665,6 +4664,7 @@ paths:
                                         - post
                                     value_data:
                                       type: object
+                                      properties: {}
                                       description: |
                                         Extra data describing the value, based on the type of option or modifier with which the value is associated. The `swatch` type option can accept an array of `colors`, with up to three hexidecimal color keys; or an `image_url`, which is a full image URL path including protocol. The `product list` type option requires a `product_id`. The `checkbox` type option requires a boolean flag, called `checked_value`, to determine which value is considered to be the checked state.
                                   required:
@@ -4679,16 +4679,17 @@ paths:
                           image_url:
                             type: string
                             description: Publicly available image url
-                      - properties:
+                      - type: object
+                        properties:
                           name:
                             type: string
                             description: |
                               The unique option name, auto-generated from the display name, a timestamp, and the product ID.
                             example: Add-a-$5-Donation1535042499-187
-                    type: object
                   meta:
                     title: Meta
                     type: object
+                    properties: {}
                     description: Empty meta object; may be used later.
               examples:
                 example-1:
@@ -4787,9 +4788,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -4814,9 +4814,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -5473,9 +5472,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -5500,9 +5498,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -5814,9 +5811,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -6108,9 +6104,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -6901,9 +6896,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -6928,9 +6922,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -7543,9 +7536,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -7570,9 +7562,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -7969,9 +7960,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -8358,9 +8348,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -8478,6 +8467,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: |
             The resource was not found.
@@ -8511,9 +8501,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -8948,9 +8937,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -8975,9 +8963,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -9511,9 +9498,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -9538,9 +9524,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -9797,9 +9782,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10022,9 +10006,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10233,6 +10216,7 @@ paths:
                   meta:
                     title: Meta
                     type: object
+                    properties: {}
                     description: Empty meta object; may be used later.
               example:
                 data:
@@ -10275,9 +10259,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10302,9 +10285,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10534,9 +10516,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10561,9 +10542,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10790,9 +10770,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -10817,9 +10796,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -12111,9 +12089,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -12138,9 +12115,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -12701,9 +12677,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -12727,9 +12702,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -13003,9 +12977,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -13030,9 +13003,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -13291,6 +13263,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: |
             The resource was not found.
@@ -13324,9 +13297,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -13853,9 +13825,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -13879,9 +13850,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -14241,9 +14211,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -14268,9 +14237,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -14560,9 +14528,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -14587,9 +14554,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -14882,9 +14848,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -15520,9 +15485,8 @@ paths:
                             errors:
                               title: Detailed Errors
                               type: object
-                              properties:
-                                additionalProperties:
-                                  type: string
+                              properties: {}
+                              additionalProperties: true
                 description: |
                   Errors during batch usage for the BigCommerce API.
       x-codegen-request-body-name: body
@@ -15642,6 +15606,7 @@ paths:
             application/json:
               schema:
                 type: object
+                properties: {}
         '404':
           description: The requested category was not found.
           content:
@@ -15919,7 +15884,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/SuccessNoContentResponse'
         '207':
-          description: Partical success
+          description: Partial success
           content:
             application/json:
               schema:
@@ -16079,7 +16044,10 @@ paths:
                   name: string
                   channels:
                     - 0
-                meta: {}
+                meta:
+                  type: object
+                  properties: {}
+                  description: Empty meta object; reserved for use later.
         '422':
           description: The Channel was not valid. See the response for more details.
           content:
@@ -16149,7 +16117,10 @@ paths:
                     is_visible: true
                     children:
                       - string
-                meta: {}
+                meta:
+                  type: object
+                  properties: {}
+                  description: Empty meta object; reserved for use later.
         '404':
           description: The tree was not found.
           content:
@@ -19806,9 +19777,8 @@ components:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
       description: |
         Errors during batch usage for the BigCommerce API.
       x-internal: false
@@ -19984,9 +19954,8 @@ components:
     detailedErrors:
       title: detailedErrors
       type: object
-      properties:
-        additionalProperties:
-          type: string
+      properties: {}
+      additionalProperties: true
       x-internal: false
     product_Full:
       title: product_Full
@@ -21318,9 +21287,8 @@ components:
     betadetailedErrors:
       type: object
       title: detailedErrors
-      properties:
-        additionalProperties:
-          type: string
+      properties: {}
+      additionalProperties: true
       x-tags:
         - Models
     betaerrorResponse_409:
@@ -21608,8 +21576,8 @@ components:
       description: |
         Details of errors.
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       x-tags:
         - Models
     ErrorRequest:
@@ -21618,9 +21586,7 @@ components:
         errors:
           type: array
           items:
-            oneOf:
-              - allOf:
-                  - $ref: '#/components/schemas/ErrorBasic'
+            $ref: '#/components/schemas/ErrorBasic'
       x-tags:
         - Models
     ErrorBasic:
@@ -21646,12 +21612,9 @@ components:
       x-tags:
         - Models
     MetaError:
-      type: array
-      items:
-        oneOf:
-          - allOf:
-              - $ref: '#/components/schemas/ErrorBasic'
-              - $ref: '#/components/schemas/ErrorAdditional'
+      allOf:
+        - $ref: '#/components/schemas/ErrorBasic'
+        - $ref: '#/components/schemas/ErrorAdditional'
       x-tags:
         - Models
     MetaData:
@@ -21876,8 +21839,8 @@ components:
         - Models
     beta4DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       x-tags:
         - Models
     BaseError:
@@ -21960,8 +21923,8 @@ components:
         - Models
     beta5DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
       x-tags:
         - Models
     beta5ErrorResponse:
