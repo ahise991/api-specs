@@ -161,8 +161,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       description: |-
@@ -232,9 +232,9 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
-                        title: DetailedErrors
+                        properties: {}
+                        additionalProperties: true
+                        title: Detailed Errors
                 title: Error Response
       description: Returns a store *Theme*. The theme variation is not available at this endpoint.
     delete:
@@ -272,8 +272,8 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
+                        properties: {}
+                        additionalProperties: true
                         title: DetailedErrors
                 title: Error Response
       description: |-
@@ -340,9 +340,9 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
-                        title: DetailedErrors
+                        properties: {}
+                        additionalProperties: true
+                        title: Detailed Errors
                 title: Error Response
       description: Downloads a stores *Theme*.
   '/themes/actions/activate':
@@ -400,9 +400,9 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
-                        title: DetailedErrors
+                        properties: {}
+                        additionalProperties: true
+                        title: Detailed Errors
                 title: Error Response
       description: |-
         Actives a store *Theme*.
@@ -461,9 +461,9 @@ paths:
                     properties:
                       errors:
                         type: object
-                        additionalProperties:
-                          type: string
-                        title: DetailedErrors
+                        properties: {}
+                        additionalProperties: true
+                        title: Detailed Errors
                 title: Error Response
       description: 'Returns a theme *Job*. If job is completed, the result is included in the response.'
     parameters:
@@ -927,9 +927,9 @@ components:
           properties:
             errors:
               type: object
-              additionalProperties:
-                type: string
-              title: DetailedErrors
+              properties: {}
+              additionalProperties: true
+              title: Detailed Errors
       title: Error Response
       x-internal: false
     BaseError:
@@ -953,9 +953,9 @@ components:
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
-      title: DetailedErrors
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
       x-internal: false
     NotFound:
       description: Error payload for the BigCommerce API.
@@ -1026,11 +1026,8 @@ components:
         result:
           description: The result.
           type: object
-          additionalProperties:
-            type: string
-          properties:
-            theme_id:
-              type: string
+          additionalProperties: true
+          properties: {}
         status:
           type: string
           description: The status.
@@ -1258,11 +1255,8 @@ components:
             result:
               description: The result.
               type: object
-              additionalProperties:
-                type: string
-              properties:
-                theme_id:
-                  type: string
+              additionalProperties: true
+              properties: {}
             status:
               type: string
               description: The status.

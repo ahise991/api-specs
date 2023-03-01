@@ -158,9 +158,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -185,9 +184,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -378,9 +376,8 @@ paths:
                   errors:
                     title: Detailed Errors
                     type: object
-                    properties:
-                      additionalProperties:
-                        type: string
+                    properties: {}
+                    additionalProperties: true
                   instance:
                     type: string
                   status:
@@ -709,9 +706,8 @@ components:
           errors:
             title: Detailed Errors
             type: object
-            properties:
-              additionalProperties:
-                type: string
+            properties: {}
+            additionalProperties: true
       x-internal: false
     BaseError:
       title: Base Error
@@ -752,9 +748,8 @@ components:
     DetailedErrors:
       title: Detailed Errors
       type: object
-      properties:
-        additionalProperties:
-          type: string
+      properties: {}
+      additionalProperties: true
       x-internal: false
   responses:
     subrscriberCollection_Resp:

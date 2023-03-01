@@ -1644,8 +1644,9 @@ components:
       x-internal: false
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
       x-internal: false
     EnabledBrandFilter:
       description: A storefront filter for product brand

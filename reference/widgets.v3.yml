@@ -1632,8 +1632,9 @@ components:
         - Models
     DetailedErrors:
       type: object
-      additionalProperties:
-        type: string
+      properties: {}
+      additionalProperties: true
+      title: Detailed Errors
       x-tags:
         - Models
     themeRegion:
