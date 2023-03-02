@@ -36,7 +36,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/response-connection'
-            application/json:
               examples:
                 response:
                   value:
@@ -63,7 +62,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/response-connection'
-            application/json:
               examples:
                 response:
                   value:
