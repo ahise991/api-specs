@@ -66,7 +66,6 @@ tags:
   - name: Products Category Assignments
   - name: Summary
   - name: Variants
-  - name: Catalog
   - name: Category Trees
 paths:
   '/catalog/products':
@@ -1190,7 +1189,6 @@ paths:
     delete:
       tags:
         - Products
-        - Catalog
       summary: Delete Products
       description: |-
         To delete *Product* objects, you must include a filter. This prevents inadvertently deleting all *Product* objects in a store.
@@ -13868,7 +13866,6 @@ paths:
     delete:
       tags:
         - Brands
-        - Catalog
       summary: Delete Brands
       description: 'By default, it deletes all *Brand* objects. A filter should be added to avoid deleting all *Brand* objects in a store.'
       operationId: deleteBrands
@@ -15111,7 +15108,6 @@ paths:
     put:
       tags:
         - Variants
-        - Catalog
       summary: Update Variants (Batch)
       description: 'Updates a batch of `variant` objects. At the time of writing, the limit is 50 variants. This limit is subject to change.'
       operationId: updateVariantsBatch
