@@ -1,9 +1,9 @@
-openapi: '3.0.1'
+openapi: '3.0.3'
 info:
   title: Custom Template Associations
-  version: 3.0.0
+  version: ''
   description: |-
-    Efficiently associate a stencil theme's custom templates to products, categories, brands, and pages.
+    Efficiently associate a stencil themeʼs custom templates to products, categories, brands, and pages.
 
     ## Creating template associations
 
@@ -112,6 +112,11 @@ info:
     * [Catalog API](/api-reference/store-management/catalog)
     * [Store Content API](/api-reference/store-management/store-content)
     * [Channels API](/api-reference/store-management/channels)
+  termsOfService: 'https://www.bigcommerce.com/terms'
+  contact:
+    name: BigCommerce
+    url: 'https://www.bigcommerce.com'
+    email: support@bigcommerce.com  
 servers:
   - url: 'https://api.bigcommerce.com/stores/{store_hash}/v3'
     variables:
@@ -119,8 +124,12 @@ servers:
         default: store_hash
         description: Permanent ID of the BigCommerce store.
     description: BigCommerce API Gateway
+security:
+  - X-Auth-Token: []
 paths:
   '/storefront/custom-template-associations':
+    parameters:
+      - $ref: '#/components/parameters/Accept'
     get:
       summary: Get Custom Template Associations
       tags:
@@ -183,7 +192,7 @@ paths:
             type: integer
           in: query
           name: page
-          description: 'Which page number to return, based on the page size. Used to paginate large collections.'
+          description: Which page number to return, based on the page size. Used to paginate large collections.
         - schema:
             type: string
             enum:
@@ -198,8 +207,8 @@ paths:
             type: boolean
           in: query
           name: is_valid
-          description: Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where it's file name does not match up to an existing custom layout file in the currently active theme for the channel.
-      description: Get a collection of the store's custom template associations across all storefronts
+          description: Optional toggle to filter for exclusively valid or invalid associations entries. An invalid entry is one where its file name does not match up to an existing custom layout file in the currently active theme for the channel.
+      description: Get a collection of the storeʼs custom template associations across all storefronts
       operationId: GetCustomTemplateAssociations
     put:
       summary: Upsert Custom Template Associations
@@ -213,11 +222,13 @@ paths:
               schema:
                 type: object
         '422':
-          description: Error response for batch PUT of Custom template associations. Includes the errors for each reference id.
+          description: Error response for batch PUT of Custom template associations. Includes the errors for each reference ID.
           content:
             application/json:
               schema:
                 $ref: '#/components/schemas/ErrorResponse'
+      parameters:
+        - $ref: '#/components/parameters/ContentType'
       requestBody:
         content:
           application/json:
@@ -432,6 +443,23 @@ components:
         - entity_id
         - file_name
       x-internal: false
+  parameters:
+    Accept:
+      name: Accept
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the response body.'
+      schema:
+        type: string
+        default: 'application/json'
+    ContentType:
+      name: Content-Type
+      in: header
+      required: true
+      description: 'The [MIME type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the request body.'
+      schema:
+        type: string
+        default: 'application/json'
   securitySchemes:
     X-Auth-Token:
       name: X-Auth-Token
@@ -458,5 +486,3 @@ components:
         For a list of API status codes, see [API Status Codes](/api-docs/getting-started/api-status-codes).
       type: apiKey
       in: header
-security:
-  - X-Auth-Token: []
