@@ -7,7 +7,7 @@ properties:
       - $ref: ./global.yml
     type: object
   Abandoned Cart Email Template Objects:
-    description: Abandoned cart email triggers when a shopper doesn't complete an order.
+    description: Abandoned cart email triggers when a shopper doesnʼt complete an order.
     allOf:
       - $ref: ./abandoned_cart_email.yml
     type: object
@@ -67,12 +67,12 @@ properties:
       - $ref: ./product_review_email.yml
     type: object
   Return Requested Email Template Objects:
-    description: Return requested email triggers after a customer's return is approved.
+    description: Return requested email triggers after a customerʼs return is approved.
     allOf:
       - $ref: ./return_confirmation_email.yml
     type: object
   Return Status Change Email Template Objects:
-    description: Return status change email triggers after a customer return's status has changed.
+    description: Return status change email triggers after a customer returnʼs status has changed.
     allOf:
       - $ref: ./return_status_change_email.yml
     type: object
