@@ -854,13 +854,13 @@ paths:
         
         | Property | Type | Values |
         | - | - | - |
-        | delivery_services | array | PriorityExpress 
-                                      PriorityMailExpressInternational 
-                                      FirstClassPackageInternationalService 
-                                      Priority 
-                                      PriorityMailInternational 
-                                      First 
-                                      ParcelSelect 
+        | delivery_services | array | PriorityExpress  
+                                      PriorityMailExpressInternational  
+                                      FirstClassPackageInternationalService  
+                                      Priority  
+                                      PriorityMailInternational  
+                                      First  
+                                      ParcelSelect  
                                       MediaMail |
         | packaging_type | array | FlatRateLegalEnvelope 
                                       FlatRatePaddedEnvelope 
