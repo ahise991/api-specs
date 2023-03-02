@@ -48,6 +48,12 @@ paths:
         ```http
         GET /shipping/products/customs-information?product_id:in=4,5,6
         ```
+
+        TESTING 
+        
+        TESTING
+
+        asfas
       tags:
         - Customs Information
       summary: Get Customs Information
