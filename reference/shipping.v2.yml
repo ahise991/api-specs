@@ -854,8 +854,7 @@ paths:
         
         | Property | Type | Values |
         |:-----|:----|:-----|
-        | delivery_services | array | PriorityExpress  
-                                      PriorityMailExpressInternational  
+        | delivery_services | array | PriorityExpress <br></br> PriorityMailExpressInternational  
                                       FirstClassPackageInternationalService  
                                       Priority  
                                       PriorityMailInternational  
