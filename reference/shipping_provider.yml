@@ -351,9 +351,7 @@ paths:
                         carrier_info:
                           code: vel
                           display_name: laborum e
-            No Shipping Rates:
-              examples:
-                response:
+                No Shipping Rates:
                   value:
                     quote_id: example_quote
                     messages: []
