@@ -9,9 +9,10 @@ info:
     name: BigCommerce
     url: 'https://www.bigcommerce.com'
 tags:
-  - name: Webhooks
+  - name: Manage Webhooks (Single)
+  - name: Manage Webhooks (Bulk)
+  - name: Webhook Events
   - name: Webhooks Admin
-  - name: Callbacks
 security:
   - X-Auth-Token: []
 servers:
@@ -87,7 +88,7 @@ paths:
             schema:
               $ref: '#/components/schemas/webhook_Base'
       tags:
-        - Webhooks
+        - Manage Webhooks (Bulk)
     get:
       responses:
         '200':
@@ -103,7 +104,7 @@ paths:
         *Note: BigCommerce determines the `client_id` from the `access_token`.*
       operationId: getAllWebhooks
       tags:
-        - Webhooks
+        - Manage Webhooks (Bulk)
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -127,13 +128,12 @@ paths:
       operationId: getWebhook
       summary: Get a Webhook
       tags:
-        - Webhooks
+        - Manage Webhooks (Single)
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
     parameters:
-      - $ref: '#/components/parameters/WebhookId'
-      
+      - $ref: '#/components/parameters/WebhookId' 
     put:
       responses:
         '200':
@@ -158,7 +158,7 @@ paths:
               User-Name: Hello
               Password: Goodbye
       tags:
-        - Webhooks
+        - Manage Webhooks (Single)
     delete:
       responses:
         '200':
@@ -167,7 +167,7 @@ paths:
       description: 'Deletes a webhook. Only one webhook at a time can be deleted. When a webhook is deleted, it is returned in the response as a 200 OK.'
       operationId: deleteAWebhook
       tags:
-        - Webhooks
+        - Manage Webhooks (Single)
       parameters:
         - $ref: '#/components/parameters/Accept'
         - $ref: '#/components/parameters/Content-Type'
@@ -178,7 +178,6 @@ paths:
       description: 'List all notification emails, webhooks, and denylisted domains associated with the API account.'
       parameters:
         - $ref: '#/components/parameters/IsActive'
-        
       responses:
         '200':
           description: Successful operation.
@@ -312,7 +311,7 @@ paths:
   '/hooks/events':
     get:
       tags:
-        - Webhooks
+        - Webhook Events
       summary: Get Events
       parameters:
         - $ref: '#/components/parameters/FilterPageParam'
