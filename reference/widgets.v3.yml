@@ -41,7 +41,7 @@ info:
     ## Additional Information
 
     * [Widgets API Overview](/api-docs/store-management/widgets/overview)
-    * [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema)
+    * [Widget UI Schema](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/widget-ui-schema)
     * [Widget UI Input Types](/stencil-docs/page-builder/schema-settings)
 tags:
   - name: Regions
@@ -2205,7 +2205,7 @@ components:
       x-internal: false
     widgetSchema:
       type: array
-      description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](/stencil-docs/page-builder/widget-ui-schema). '
+      description: 'The schema for the widget’s merchant-facing UI. For more information on the available schema settings, see [Widget UI Schema](https://bigcommerce-dev-center.netlify.app/stencil-docs/page-builder/widget-ui-schema). '
       title: ''
       items:
         anyOf:
