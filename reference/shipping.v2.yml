@@ -1454,7 +1454,7 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/carrierConnection'
-        description: 'The request body will vary by carrier. See [Create a Carrier Connection](/api-reference/store-management/shipping-api/shipping-carrier/postshippingcarrierconnection).'
+        description: 'The request body will vary by carrier. See [Create a Carrier Connection](/docs/rest-management/shipping-v2/shipping-carrier#create-a-carrier-connection).'
         x-examples:
           application/json:
             carrier_id: endicia

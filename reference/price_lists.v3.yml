@@ -2,7 +2,7 @@ openapi: 3.0.1
 info:
   title: Price Lists
   description: |-
-    Populate different versions of catalog pricing and assign them to different [customer groups](/api-reference/customer-subscribers/customers-api) at the variant level.
+    Populate different versions of catalog pricing and assign them to different [customer groups](/docs/rest-management/customers-v2/customer-groups) at the variant level.
 
     ## Authentication
 
@@ -23,9 +23,9 @@ info:
 
     ## Price Lists
 
-    You can associate a Price List with a customer group either through the control panel or by using the [Customer Groups API.](/api-reference/customer-subscribers/customers-api)
+    You can associate a Price List with a customer group either through the control panel or by using the [Customer Groups API.](/docs/rest-management/customers-v2/customer-groups)
 
-    You can create [Price List Assignments](/api-reference/store-management/price-lists/price-lists-assignments/createpricelistassignments) to assign Price Lists to a specific [channel](/api-reference/cart-checkout/channels-listings-api). Price Lists assigned to a channel apply to all shoppers on that channel, unless there are more specific assignments or customer group discounts set up for the shopper's customer group.
+    You can create [Price List Assignments](/docs/rest-management/price-lists/price-lists-assignments#create-price-list-assignments) to assign Price Lists to a specific [channel](/docs/rest-management/channels/channel-listings). Price Lists assigned to a channel apply to all shoppers on that channel, unless there are more specific assignments or customer group discounts set up for the shopper's customer group.
 
     If an active Price List does not contain prices for a variant, the catalog pricing will be used.
 
@@ -56,7 +56,7 @@ info:
     - Price Lists cannot be assigned to a customer group that has customer group discounts -- the customer group discounts must be deleted first.
     - Bulk pricing Tiers may additionally be associated with a price record to indicate different pricing as the quantity in the cart increases.
     - If a variant has a Price Record, any existing product-level bulk pricing will not apply in the cart. For variants without Price Records, any existing product bulk pricing will apply.
-    - [Price Lists Records](/api-reference/store-management/price-lists/price-lists-records/setpricelistrecordcollection) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a 429 error and the request will fail.
+    - [Price Lists Records](/docs/rest-management/price-lists/price-lists-records#upsert-price-list-records) accepts bulk upsert. You can only do one bulk upsert at a time. Running more than one bulk upsert in parallel on the **same store** will cause a 429 error and the request will fail.
     - There are no webhooks available for Price Lists. Since Price Lists directly relate to products, product webhooks will trigger for corresponding changes such as pricing.
 
     ## Additional information
@@ -67,7 +67,7 @@ info:
     * [SKU](/api-docs/store-management/webhooks/events#sku)
 
     ### Related endpoints
-    * [Get All Price Lists](/api-reference/store-management/price-lists/price-lists/getpricelistcollection)
+    * [Get All Price Lists](/docs/rest-management/price-lists/price-lists-records#get-all-price-list-records)
   termsOfService: ''
   contact:
     name: ''

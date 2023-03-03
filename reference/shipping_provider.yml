@@ -22,8 +22,8 @@ info:
     - [Shipment](/api-docs/store-management/webhooks/webhook-events#shipment)
 
     ### Related API Resources
-    - [Shipping Provider](/api-reference/store-management/shipping-provider-api)
-    - [Shipping V2 API](/api-reference/shipping/shipping-api)
+    - [Shipping Provider](/docs/apps-api/shipping/shipping-provider)
+    - [Shipping V2 API](/docs/rest-management/shipping-v2)
   termsOfService: 'https://www.bigcommerce.com/terms'
   contact:
     name: BigCommerce
@@ -626,7 +626,7 @@ components:
                           description: The value associated with the meta field.
                         namespace:
                           type: string
-                          description: 'The namespace associated with metafields for [products](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) and [product variants](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+                          description: 'The namespace associated with metafields for [products](/docs/rest-management/catalog/product-metafields#create-a-product-metafield) and [product variants](/docs/rest-management/catalog/product-variants-metafields#create-a-product-variant-metafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
                         resource_type:
                           type: string
                           enum:
@@ -1133,7 +1133,7 @@ components:
                 description: The value associated with the product or product variant meta field.
               namespace:
                 type: string
-                description: 'The namespace associated with metafields for [products](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) and [product variants](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+                description: 'The namespace associated with metafields for [products](/docs/rest-management/catalog/product-metafields#create-a-product-metafield) and [product variants](/docs/rest-management/catalog/product-variants-metafields#create-a-product-variant-metafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
               resource_type:
                 type: string
                 enum:
@@ -1316,7 +1316,7 @@ components:
           description: The value associated with the product or product variant meta field.
         namespace:
           type: string
-          description: 'The namespace associated with metafields for [products](/api-reference/catalog/catalog-api/product-metafields/createproductmetafield) and [product variants](/api-reference/store-management/catalog/product-variants-metafields/createvariantmetafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
+          description: 'The namespace associated with metafields for [products](/docs/rest-management/catalog/product-metafields#create-a-product-metafield) and [product variants](/docs/rest-management/catalog/product-variants-metafields#create-a-product-variant-metafield). Save the metafield namespace using the format `shipping_carrier_{yourCarrierId}`; otherwise, it will not be recognized as a valid attribute.'
         resource_type:
           type: string
           description: Resource type associated with the product or product variant meta field. Currently, the only values available are 'product' or 'variant'.
@@ -1722,7 +1722,7 @@ components:
               example:
                 "1": selected_value
                 "3": checkbox_selection_1
-              description: Describes one or more [custom form fields](/api-reference/storefront/form-fields/form-fields/getformfields). Property key is the global ID of a shipping address form field. When no custom fields exist, the object is empty.
+              description: Describes one or more [custom form fields](/docs/rest-storefront/forms#get-form-fields). Property key is the global ID of a shipping address form field. When no custom fields exist, the object is empty.
               properties:
                 '<form field global ID>':
                   $ref: '#/components/schemas/FormFieldValue' 
@@ -1911,6 +1911,6 @@ components:
         - store_id
     FormFieldValue:
       type: string
-      description: The value of a [shipping address](/api-reference/store-management/orders/order-shipping-addresses/getashippingaddress) form field. Depending on the form field, this could be a user-defined value or the value of a hidden input.
+      description: The value of a [shipping address](/docs/rest-management/orders/order-shipping-addresses#get-a-shipping-address) form field. Depending on the form field, this could be a user-defined value or the value of a hidden input.
       title: Form Field Value
        

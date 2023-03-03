@@ -26,7 +26,7 @@ info:
     | `page` | A user-defined plain-text page. | text |
     | `contact_form` | A user-customizable page that contains a contact form. | HTML |
     | `raw` | A user-defined page that contains HTML markup or other stringified code. | HTML, other code |
-    | `blog` | A page that contains blog posts. Use caution; `blog`-type pages can only be created in the store control panel, but you may be able to change the type of a blog page to something else with this API. Use the [Store Content API](/api-reference/store-management/store-content/blog-posts/createablogposts) to work with blog posts and tags. | empty string |
+    | `blog` | A page that contains blog posts. Use caution; `blog`-type pages can only be created in the store control panel, but you may be able to change the type of a blog page to something else with this API. Use the [Store Content API](/docs/rest-content/store-content/blog-posts#create-a-blog-post) to work with blog posts and tags. | empty string |
     | `feed` | Makes RSS-syndicated content feeds available in the menu of other pages that contain markup. | &mdash; |
     | `link` | A link to an external absolute URL. Displays in the menu of other pages that contain markup. | &mdash; |
 servers:
@@ -256,7 +256,7 @@ paths:
 
         <!-- theme: warning -->
         > #### Mind query parameters
-        > This endpoint recognizes the same query parameters as [Get Multiple Pages](/api-reference/store-management/pages/pages/getpages). If the requested page does not meet the query parameters you specify, you will receive a 404 response even if the requested pageId does exist.
+        > This endpoint recognizes the same query parameters as [Get Multiple Pages](/docs/rest-content/pages#get-pages). If the requested page does not meet the query parameters you specify, you will receive a 404 response even if the requested pageId does exist.
       responses:
         '200':
           description: ''
@@ -1232,7 +1232,7 @@ components:
           example: 0
         type:
           type: string
-          description: 'Determines the type of page. See [Pages v3 page types](/api-reference/store-management/pages#page-types) for more about the differences.'
+          description: 'Determines the type of page. See [Pages v3 page types](/docs/rest-content/pages#page-types) for more about the differences.'
           nullable: false
           example: page
           enum:
@@ -1392,7 +1392,7 @@ components:
           default: 0
         type:
           type: string
-          description: 'Determines the type of page. See [Pages v3 page types](/api-reference/store-management/pages#page-types) for more about the differences.'
+          description: 'Determines the type of page. See [Pages v3 page types](/docs/rest-content/pages#page-types) for more about the differences.'
           example: page
           enum:
             - page

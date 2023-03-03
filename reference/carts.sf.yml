@@ -156,7 +156,7 @@ paths:
       description: |-
         Updates a *Cart* line item. Updates an existing, single line item quantity and the price of custom items in a cart.
 
-        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/api-reference/storefront/carts/cart-items/deletecartlineitem) and the [Add Cart Line Items](/api-reference/storefront/carts/cart-items/addcartlineitem) endpoints.
+        If a modified product or variant needs to be changed or updated, you can remove and re-add the product to the cart with the correct variants using the [Delete Cart Line Item](/docs/rest-management/carts/cart-items#delete-cart-line-item) and the [Add Cart Line Items](/docs/rest-management/carts/cart-items#add-cart-line-items) endpoints.
 
         <!-- theme: info -->
         > #### Note
@@ -626,7 +626,7 @@ components:
       description: |-
         **Read Only**
 
-        This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/api-reference/cart-checkout/server-server-cart-api). A custom item can only be added to a cart using the Server to Server API.
+        This will return in the Cart Response if the Cart was created using the [Server to Server Cart API](/docs/rest-management/carts). A custom item can only be added to a cart using the Server to Server API.
       x-internal: false
     responseCartLineItemsDigitalItems:
       title: Item Digital

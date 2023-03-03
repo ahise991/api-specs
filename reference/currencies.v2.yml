@@ -57,7 +57,7 @@ info:
     ## Resources
 
     - [How Currencies Work](/api-docs/catalog/currencies/how-currencies-work)
-    - [Price List API](/api-reference/catalog/pricelists-api)
+    - [Price List API](/docs/rest-management/price-lists)
     - [Using Price Lists](https://support.bigcommerce.com/s/article/Price-Lists) (BigCommerce Knowledge Base)
     - [Managing Currencies](https://support.bigcommerce.com/s/article/Managing-Currencies-Beta) (BigCommerce Knowledge Base)
     - [Tax](https://support.bigcommerce.com/s/article/Manual-Tax-Setup#intro1) (BigCommerce Knowledge Base)

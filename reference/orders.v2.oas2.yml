@@ -4577,7 +4577,7 @@ components:
             properties:
               id:
                 type: integer
-                description: 'Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](/api-reference/store-management/orders/order-products/getallorderproducts).'
+                description: 'Numeric ID of an option applied to the product from a list of options available to the product. This field has the same value as `product_option_id` when [retrieving products in an order](/docs/rest-management/orders/order-products#list-order-products).'
               value:
                 type: string
                 description: |-

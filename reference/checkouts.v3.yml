@@ -3925,7 +3925,7 @@ paths:
 
         For more information about working with consignments, see [Checkout consignment](/api-docs/checkouts/checkout-consignment).  
 
-        Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/api-reference/store-management/checkouts/checkout-orders/createanorder) the `address` requires the following properties:
+        Though the only required `address` properties to create a consignment are `email` and `country_code`, to successfully [create an order](/docs/rest-management/checkouts/checkout-orders#create-an-order) the `address` requires the following properties:
         * `first_name`
         * `last_name`
         * `address1`
@@ -4722,7 +4722,7 @@ paths:
         
         To add a new address and shipping options with line items, complete the following steps. 
         
-        1. Add a new [consignment](/api-reference/store-management/checkouts/checkout-consignments/checkoutsconsignmentsbycheckoutidpost) to a checkout. 
+        1. Add a new [consignment](/docs/rest-management/checkouts/checkout-consignments#add-consignment-to-checkout) to a checkout. 
         
         2. Assign a shipping option to the new consignment by sending a `PUT` request to update the consignment's `shipping_option_id` with a returned value from `data.consignments[N].available_shipping_option[N].id` obtained in Step One. 
       operationId: CheckoutsConsignmentsByCheckoutIdAndConsignmentIdPut
@@ -8581,7 +8581,7 @@ components:
           description: ''
         custom_fields:
           type: array
-          description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+          description: 'You can retrieve custom fields from the [Get Form Fields](/docs/rest-storefront/forms#get-form-fields) endpoint.'
           items:
             title: Custom Field
             type: object
@@ -8644,7 +8644,7 @@ components:
                 description: ''
               custom_fields:
                 type: array
-                description: 'You can retrieve custom fields from the [Get Form Fields](/api-reference/storefront/form-fields/form-fields/getformfields) endpoint.'
+                description: 'You can retrieve custom fields from the [Get Form Fields](/docs/rest-storefront/forms#get-form-fields) endpoint.'
                 items:
                   title: Custom Field
                   type: object

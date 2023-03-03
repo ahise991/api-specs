@@ -39,8 +39,8 @@ info:
     ### Related APIs / Endpoints
       [Customer Login API](/api-docs/customers/customer-login-api)
     - [Current Customer API](/api-docs/customers/current-customer-api)
-    - [Customers API (v3)](/api-reference/customer-subscribers/v3-customers-api)
-    - [Subscribers API](/api-reference/customer-subscribers/subscribers-api)
+    - [Customers API (v3)](/docs/rest-management/customers)
+    - [Subscribers API](/docs/rest-management/subscribers)
     ### Webhooks
     - [Customers](/api-docs/store-management/webhooks/webhook-events#customer)
   version: ''

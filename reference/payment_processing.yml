@@ -343,7 +343,7 @@ paths:
       description: |-
         This endpoint provides the capability to create a payment access token. The payment access token is required when making request to Payment API for submitting payment for an order.
 
-        After the token is created, use the token to [Process Payments](/api-reference/payments/payments-process-payments/payment/paymentspost).
+        After the token is created, use the token to [Process Payments](/docs/rest-payments/processing/process-payment#process-payment).
 
         **Required Fields**
         * order_id
@@ -627,7 +627,7 @@ paths:
         Returns a list of accepted payment methods based on the `order_id` or `checkout_id`.
 
         **Notes**
-        * Use the [Create an Order](/api-reference/store-management/checkouts/checkout-orders/createanorder) endpoint, to generate the `order_id`.
+        * Use the [Create an Order](/docs/rest-management/checkouts/checkout-orders#create-an-order) endpoint, to generate the `order_id`.
         * Orders created will be set to incomplete order status.
         * The cart ID and checkout ID are the same.
 

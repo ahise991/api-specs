@@ -27,16 +27,16 @@ info:
     ## Subresources
 
     ### Widget templates
-    [Widget templates](/api-reference/store-management/widgets/widget-template/getwidgettemplates) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
+    [Widget templates](/docs/rest-content/widgets/widget-template#get-all-widget-templates) are reusable Handlebars-enabled HTML templates that define the structure of the widget on a page.
 
     ### Widgets
-    [Widgets](/api-reference/store-management/widgets/widget/getwidgets) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
+    [Widgets](/docs/rest-content/widgets/widget#get-all-widgets) are units of content placed on specific pages in a Stencil theme. Widgets consist of a widget configuration and a widget template UUID and render as part of the storefront’s HTML.
 
     ### Regions
-    [Regions](/api-reference/store-management/widgets/regions/getcontentregions) are specific locations in the Stencil theme template files where you can place a widget.
+    [Regions](/docs/rest-content/widgets/regions#get-theme-regions) are specific locations in the Stencil theme template files where you can place a widget.
 
     ### Placements
-    [Placements](/api-reference/store-management/widgets/placement/getplacements) determine the region where you place widgets and in what order.
+    [Placements](/docs/rest-content/widgets/placement#get-all-placements) determine the region where you place widgets and in what order.
 
     ## Additional Information
 

@@ -19,7 +19,7 @@ To explore Storefront nodes in an interactive graph, check out the [GraphQL Expl
 
 ### Request tokens with REST API
 
-Create JWT tokens for authenticating cross-origin requests by making a `POST` request to the [Create a token](/api-reference/store-management/tokens/api-token/createtoken) endpoint.
+Create JWT tokens for authenticating cross-origin requests by making a `POST` request to the [Create a token](/docs/storefront-auth/tokens#create-a-token) endpoint.
 
 ```http title="Example request: Create a token" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token
@@ -80,7 +80,7 @@ Client scripts on BigCommerce [Stencil](/stencil-docs/getting-started/about-sten
 
 ### Customer impersonation tokens
 
-It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer. Make a `POST` request to the [Create a customer impersonation token](/api-reference/store-management/tokens/customer-impersonation-token/createtokenwithcustomerimpersonation) endpoint.
+It's also possible to generate tokens for use in server-to-server interactions with a trusted consumer. Make a `POST` request to the [Create a customer impersonation token](/docs/storefront-auth/tokens/customer-impersonation-token) endpoint.
 
 ```http title="Example request: Create a customer impersonation token" lineNumbers
 POST https://api.bigcommerce.com/stores/{{STORE_HASH}}/v3/storefront/api-token-customer-impersonation

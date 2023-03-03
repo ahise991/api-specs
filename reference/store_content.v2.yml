@@ -6,7 +6,7 @@ info:
 
     <!-- theme: warning -->
     > #### Note
-    > * Redirects V2 are deprecated; use [V3 Redirects](/api-reference/storefront/redirects/redirects/getredirects) instead. 
+    > * Redirects V2 are deprecated; use [V3 Redirects](/docs/rest-management/redirects#get-redirects) instead. 
   version: ''
 servers:
   - url: 'https://api.bigcommerce.com'
@@ -715,7 +715,7 @@ paths:
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to manage redirects URLs.
+        > For the most up-to-date version of this API, see  [Get Redirects v3](/docs/rest-management/redirects#get-redirects) to manage redirects URLs.
       operationId: getAListofRedirects
       parameters:
         - name: store_hash
@@ -767,7 +767,7 @@ paths:
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/store-management/redirects/redirects/upsertredirects) to upsert new redirect data.
+        > For the most up-to-date version of this API, see [Upsert Redirects v3](/docs/rest-management/redirects#upsert-redirects) to upsert new redirect data.
       operationId: createARedirect
       parameters:
         - name: store_hash
@@ -809,7 +809,7 @@ paths:
 
         > Avoid using this API operation if possible. It will be removed in a future version.
 
-        > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete redirects URLs.
+        > For the most up-to-date version of this API, see [Delete Redirects v3](/docs/rest-management/redirects#delete-redirects) to delete redirects URLs.
       operationId: deleteAllRedirects
       parameters:
         - name: store_hash
@@ -832,7 +832,7 @@ paths:
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a redirect URL.
+        > For the most up-to-date version of this API, see [Get Redirects v3](/docs/rest-management/redirects#get-redirects) to get a redirect URL.
       operationId: getARedirectURL
       parameters:
         - name: store_hash
@@ -881,7 +881,7 @@ paths:
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Upsert Redirects v3](/api-reference/storefront/redirects/redirects/upsertredirects) to update redirect data.
+        > For the most up-to-date version of this API, see [Upsert Redirects v3](/docs/rest-management/redirects#upsert-redirects) to update redirect data.
       operationId: updateARedirectURL
       parameters:
         - name: store_hash
@@ -964,7 +964,7 @@ paths:
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see [Delete Redirects v3](/api-reference/store-management/redirects/redirects/deleteredirects) to delete a redirect URL.
+        > For the most up-to-date version of this API, see [Delete Redirects v3](/docs/rest-management/redirects#delete-redirects) to delete a redirect URL.
       operationId: deleteARedirect
       parameters:
         - name: store_hash
@@ -995,7 +995,7 @@ paths:
         <!-- theme: warning -->
         > #### Deprecated
         > Avoid using this API operation if possible. It will be removed in a future version.
-        > For the most up-to-date version of this API, see  [Get Redirects v3](/api-reference/storefront/redirects/redirects/getredirects) to get a count of redirects.
+        > For the most up-to-date version of this API, see  [Get Redirects v3](/docs/rest-management/redirects#get-redirects) to get a count of redirects.
       operationId: getACountOfRedirects
       parameters:
         - name: store_hash

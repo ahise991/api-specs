@@ -35,7 +35,7 @@ info:
     * [Category](/api-docs/store-management/webhooks/events#category)
 
     ### Related Endpoints
-    * [Catalog API](/api-reference/store-management/catalog)
+    * [Catalog API](/docs/rest-management/catalog)
 
     Manage channel-specific categories.
 
@@ -401,7 +401,7 @@ paths:
             type: integer
         - name: sku
           in: query
-          description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/api-reference/store-management/catalog/variants/getvariants). '
+          description: 'Filter items by main SKU. To filter by variant SKU, see [Get All Variants](/docs/rest-management/catalog/variants#get-all-variants). '
           schema:
             type: string
         - name: 'sku:in'
@@ -3693,7 +3693,7 @@ paths:
         * 600 SKUs per product limit.
         * 255 characters SKU length limit.
 
-        Variants need to be created one at a time using this endpoint. To use a variant array and create products and variants in the same call use the [Create Products](/api-reference/catalog/catalog-api/products/createproduct) during the initial product creation.
+        Variants need to be created one at a time using this endpoint. To use a variant array and create products and variants in the same call use the [Create Products](/docs/rest-management/catalog/products#create-a-product) during the initial product creation.
       operationId: createVariant
       parameters:
         - name: product_id
@@ -4914,7 +4914,7 @@ paths:
         * Only one variant option at a time can be created; individual variant options will contain an array of multiple values.
         * There are several examples listed below that create options, but the SKU’s are not updated and they are not a variant on the product. Variant SKUs must be created with a separate request.
         * Variant options will show on the storefront as an option that can be selected by the customer. A request like this could be used to add new choices to a variant that has already been created.
-        * If more than one variant needs to be created use the [Create a Product](/api-reference/catalog/catalog-api/products/createproduct) endpoint.
+        * If more than one variant needs to be created use the [Create a Product](/docs/rest-management/catalog/products#create-a-product) endpoint.
       operationId: createOption
       parameters:
         - name: product_id
@@ -13798,7 +13798,7 @@ paths:
       tags:
         - Category
       summary: Create a Category
-      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/api-reference/store-management/catalog/categories-batch/createcategories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
+      description: "Creates a *Category*.\n\nUse this endpoint when an API only works with categories of a default BigCommerce storefront (`channel_id=1`). \n\nUse the [Create Categories](/docs/rest-management/catalog/categories-batch#create-categories) endpoint when an API works with categories across different category trees that belong to different storefront channels.\n\n**Required Fields**:\n- `parent_id`: \n\t- To create a child category, set the `parent_id` to the parent category.\n\t- To create a top level category, set the `parent_id` to `0`.\n- `name`\n\n**Read-Only Fields**:\n- `id`\n\n**Limits**:\n- 16,000 categories per store limit.\n- 1,000 categories per product limit.\n- 50 characters category name length.\n- 8 levels of category depth limit.\n- 65,642 characters category description length limit."
       operationId: createCategory
       parameters:
         - name: store_hash
@@ -15252,7 +15252,7 @@ paths:
 
         Only one image at a time can be created.
         Limit image size to 1MB.
-        To update a *Category Image*, use the [PUT Categories](/api-reference/catalog/catalog-api/category/updatecategory) and an `image_url`.
+        To update a *Category Image*, use the [PUT Categories](/docs/rest-management/catalog/category#update-a-category) and an `image_url`.
       operationId: createCategoryImage
       parameters:
         - name: category_id
@@ -17034,7 +17034,7 @@ paths:
         **Read-Only Fields**
         - id
 
-        Only one image at a time can be created. To update a *Brand Image*, use the [PUT Brands](/api-reference/catalog/catalog-api/brands/updatebrand) and an `image_url`.
+        Only one image at a time can be created. To update a *Brand Image*, use the [PUT Brands](/docs/rest-management/catalog/brands#update-a-brand) and an `image_url`.
       operationId: createBrandImage
       parameters:
         - name: brand_id

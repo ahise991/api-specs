@@ -495,7 +495,7 @@ paths:
       description: |-
         Updates a wishlist.
 
-        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/api-reference/store-management/wishlists/wishlists-items).
+        Use this endpoint to update existing wishlist items, change the wishlist's name and whether the wishlist is available publicly. To add or delete a wishlist item, see [Wishlist Items](/docs/rest-management/wishlists#get-all-wishlists).
       operationId: WishlistsByIdPut
       parameters:
         - name: store_hash
