@@ -1672,8 +1672,6 @@ paths:
           required: true
           schema:
             type: integer
-        - $ref: '#/components/parameters/ContentType'
-        - $ref: '#/components/parameters/Accept'
       responses:
         '200':
           description: ''
