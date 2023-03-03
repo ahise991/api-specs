@@ -496,9 +496,9 @@ paths:
       description: |-
         Returns a single order status.
 
-        **Order Status Descriptions:**
+        **Order Status Descriptions**
         |Status ID | Name  | Description |
-        |--|--|--|
+        |:--|:--|:--|
         | 0 | Incomplete  | An incomplete order happens when a shopper reached the payment page, but did not complete the transaction. |
         | 1 | Pending |Customer started the checkout process, but did not complete it. |
         | 2 | Shipped | Order has been shipped, but receipt has not been confirmed; seller has used the Ship Items action. |
@@ -514,7 +514,7 @@ paths:
         | 12 | Manual Verification Required | Order is on hold while some aspect needs to be manually confirmed. |
         | 13 | Disputed | Customer has initiated a dispute resolution process for the PayPal transaction that paid for the order. |
         | 14 | Partially Refunded | Seller has partially refunded the order. |
-      summary: Get a Single Order Status by Id
+      summary: Get a Single Order Status by ID
       responses:
         '200':
           $ref: '#/components/responses/orderStatus_Resp'
