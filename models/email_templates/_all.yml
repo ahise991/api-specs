@@ -1583,8 +1583,8 @@ properties:
                 type: string
               go_shopping:
                 type: string
-  Sign-in Link Request:
-    title: Sign-in Link Request Email Template
+  Sign in Link Request:
+    title: Sign in Link Request Email Template
     description: Sign-in request email triggers when an existing customer requests passwordless login while checking out.
     type: object
     properties:
