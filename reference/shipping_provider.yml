@@ -34,7 +34,6 @@ info:
     email: support@bigcommerce.com
 tags:
   - name: Shipping Provider
-
 servers:
   - url: 'https://{app_domain}'
     variables:
@@ -66,7 +65,7 @@ paths:
               schema:
                 $ref: '#/components/schemas/RateResponsePayload'
               examples:
-                response:
+                With shipping rates:
                   value:
                     quote_id: Lor
                     messages:
@@ -351,7 +350,7 @@ paths:
                         carrier_info:
                           code: vel
                           display_name: laborum e
-                No Shipping Rates:
+                Without shipping rates:
                   value:
                     quote_id: example_quote
                     messages: []
