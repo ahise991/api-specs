@@ -72,16 +72,6 @@ paths:
                 name: Gift Wrapping
                 created_at: 1973-01-20T21:34:57.903+00:00
                 updated_at: 1990-12-30T00:29:23.515+00:00
-            Response Schema:
-              example:
-              - id: proident irure consequat anim
-                name: sed non commodo et tempor
-                created_at: 1973-01-20T21:34:57.903+00:00
-                updated_at: 1990-12-30T00:29:23.515+00:00
-              - id: consequat voluptate
-                name: sunt ex
-                created_at: 1973-01-20T21:34:57.903+00:00
-                updated_at: 1990-12-30T00:29:23.515+00:00
       x-unitTests: []
       x-operation-settings:
         CollectParameters: false
@@ -113,12 +103,6 @@ paths:
               example:
                 id: '1'
                 name: Shipping
-                created_at: 1973-01-20T21:34:57.903+00:00
-                updated_at: 1990-12-30T00:29:23.515+00:00
-            Response Schema:
-              example:
-                id: ut pariatur eiusmod non
-                name: dolore nulla Duis Ut ea
                 created_at: 1973-01-20T21:34:57.903+00:00
                 updated_at: 1990-12-30T00:29:23.515+00:00
       x-unitTests: []
