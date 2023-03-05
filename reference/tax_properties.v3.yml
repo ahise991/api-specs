@@ -65,7 +65,6 @@ paths:
               items:
                 $ref: "#/components/schemas/PropertyPUT"
         required: true
-        x-examples: {}
       responses:
         "200":
           description: OK
@@ -176,13 +175,14 @@ paths:
               type: array
               items:
                 $ref: "#/components/schemas/ProductTaxProperty"
+            examples:
+              Example:
+                value:
+                  - product_id: 157
+                    tax_properties:
+                      A-123456789: "26"
+                      B-6731789: "200"
         required: true
-        x-examples:
-          Example:
-            - product_id: 157
-              tax_properties:
-                A-123456789: "26"
-                B-6731789: "200"
       responses:
         "200":
           description: OK
@@ -370,7 +370,6 @@ components:
     ProductTaxProperty:
       type: object
       description: A collection of tax property values associated with a product.
-      x-examples: {}
       properties:
         product_id:
           type: integer
