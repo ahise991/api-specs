@@ -115,11 +115,12 @@ paths:
                 password:
                   type: string
                   example: h6eSgKLN72q7jYTW
+            examples:
+              Example:
+                value:
+                  username: MyTaxProviderAccount
+                  password: h6eSgKLN72q7jYTW
         description: Basic authentication information, associated with a merchant account on the third-party tax providerʼs infrastructure.
-        x-examples:
-          application/json:
-            username: MyTaxProviderAccount
-            password: h6eSgKLN72q7jYTW
     parameters:
       - $ref: '#/components/parameters/Accept'
       - name: provider_id
